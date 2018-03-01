@@ -14,62 +14,33 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bullying" />
-
-    <Button
-        android:id="@+id/child_abuse"
-        style="@android:style/Widget.Button"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:background="@color/PST_child_abuse"
-        android:text="@string/btn_child_abuse"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toBottomOf="@+id/bullying"
-        app:layout_constraintEnd_toStartOf="@+id/bullying"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bullying" />
-
-    <Button
-        android:id="@+id/bullying"
-        style="@android:style/Widget.Button"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/PST_bullying"
-        android:text="@string/btn_bullying"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintEnd_toStartOf="@+id/domestic_violence"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/child_abuse"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/domestic_violence"
-        style="@android:style/Widget.Button"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:background="@color/PST_doemestic_violence"
-        android:text="@string/btn_domestic_violence"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toBottomOf="@+id/bullying"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bullying"
-        app:layout_constraintTop_toTopOf="@+id/bullying" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@android:drawable/btn_default"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/map_view" >
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:entries="@array/timezones"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/map_view" />
+        <Spinner
+            android:id="@+id/region_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:background="@null" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:src="@android:drawable/arrow_down_float"
+            android:contentDescription="@string/CD_region_drop_down"/>
+        <!--todo create own drawable with grey downward grey caret instead of white arrow -->
+    </RelativeLayout>
 
     <Button
         android:id="@+id/button4"
@@ -83,6 +54,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/region_spinner" />
 
 </android.support.constraint.ConstraintLayout>

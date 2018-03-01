@@ -5,15 +5,13 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhite">#FFFFFF</color>
 
-    <color name="PST_default">#5a70fc</color>
-    <color name="MT_default">#3b48a0</color>
-    <color name="WNC_default">#5a70fc</color>
-    <color name="WSC_default">#5660a0</color>
-    <color name="ENC_default">#3b48a0</color>
-    <color name="ESC_default">#bfc7ff</color>
-    <color name="MA_default">#5660a0</color>
-    <color name="SA_default">#8595fc</color>
-    <color name="NE_default">#bfc7ff</color>
+    <color name="map_1">#5a70fc</color>
+    <color name="map_2">#3b48a0</color>
+    <color name="map_3">#5660a0</color>
+    <color name="map_4">#bfc7ff</color>
+    <color name="map_5">#8595fc</color>
+    <color name="map_highlight">#ff9000</color>
+
 
     <color name="PST_child_abuse">#ff9000</color>
     <color name="MT_child_abuse">#fc950f</color>

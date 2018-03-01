@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="timezones">
+        <item>All Regions</item>
         <item>Pacific</item>
         <item>Mountain</item>
         <item>West North Central</item>

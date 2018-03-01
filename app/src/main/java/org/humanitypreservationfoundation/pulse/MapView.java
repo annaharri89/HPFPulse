@@ -8,6 +8,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.graphics.Canvas;
 import com.sdsmdg.harjot.vectormaster.VectorMasterDrawable;
+
+import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -19,12 +22,13 @@ import java.util.Map;
  */
 
 class MapView extends View {
-    static Map<String, List<String>> timeZoneTitlesAndStates = new HashMap<String, List<String>>();
-    List<TimeZone> timeZones = new ArrayList<TimeZone>();
-    Context context;
-    VectorMasterDrawable USMap;
-    Paint paintBlack = new Paint();
-    Paint paintWhite = new Paint();
+    static Map<TimeZoneEnum, List<String>> timeZoneTitlesAndStates = new HashMap<TimeZoneEnum, List<String>>();
+    private List<TimeZone> timeZones = new ArrayList<TimeZone>();
+    private TimeZone highlightedTimeZone;
+    private Context context;
+    private VectorMasterDrawable USMap;
+    private Paint paintBlack = new Paint();
+    private Paint paintWhite = new Paint();
 
     /**
      *MapView Constructor
@@ -34,8 +38,30 @@ class MapView extends View {
         this.context = context;
         this.setupTimeZoneTitlesAndStates();
         this.USMap = new VectorMasterDrawable(this.context.getApplicationContext(), R.drawable.ic_us_map_vector);
-        for (Map.Entry<String, List<String>> entry : MapView.timeZoneTitlesAndStates.entrySet()) {
-            TimeZone tz = new TimeZone(this.context, entry.getKey(), entry.getValue(), USMap);
+        for (Map.Entry<TimeZoneEnum, List<String>> entry : MapView.timeZoneTitlesAndStates.entrySet()) {
+            TimeZone tz;
+            switch (entry.getKey()) {
+                default:
+                case PST:
+                case WNC:
+                    tz = new TimeZone(this.context, "1", entry.getKey(), entry.getValue(), USMap);
+                    break;
+                case MT:
+                case ENC:
+                    tz = new TimeZone(this.context, "2", entry.getKey(), entry.getValue(), USMap);
+                    break;
+                case WSC:
+                case MA:
+                    tz = new TimeZone(this.context, "3", entry.getKey(), entry.getValue(), USMap);
+                    break;
+                case ESC:
+                case NE:
+                    tz = new TimeZone(this.context, "4", entry.getKey(), entry.getValue(), USMap);
+                    break;
+                case SA:
+                    tz = new TimeZone(this.context, "5", entry.getKey(), entry.getValue(), USMap);
+                    break;
+            }
             this.timeZones.add(tz);
         }
     }
@@ -45,21 +71,48 @@ class MapView extends View {
      * codes as the value to MapView.timeZoneTitlesAndStates.
      */
     private void setupTimeZoneTitlesAndStates() {
-        MapView.timeZoneTitlesAndStates.put("PST", Arrays.asList(getResources().getStringArray(R.array.PST_state_codes)));
-        MapView.timeZoneTitlesAndStates.put("MT", Arrays.asList(getResources().getStringArray(R.array.MT_state_codes)));
-        MapView.timeZoneTitlesAndStates.put("WNC", Arrays.asList(getResources().getStringArray(R.array.WNC_state_codes)));
-        MapView.timeZoneTitlesAndStates.put("WSC", Arrays.asList(getResources().getStringArray(R.array.WSC_state_codes)));
-        MapView.timeZoneTitlesAndStates.put("ENC", Arrays.asList(getResources().getStringArray(R.array.ENC_state_codes)));
-        MapView.timeZoneTitlesAndStates.put("ESC", Arrays.asList(getResources().getStringArray(R.array.ESC_state_codes)));
-        MapView.timeZoneTitlesAndStates.put("MA", Arrays.asList(getResources().getStringArray(R.array.MA_state_codes)));
-        MapView.timeZoneTitlesAndStates.put("SA", Arrays.asList(getResources().getStringArray(R.array.SA_state_codes)));
-        MapView.timeZoneTitlesAndStates.put("NE", Arrays.asList(getResources().getStringArray(R.array.NE_state_codes)));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.PST, Arrays.asList(getResources().getStringArray(R.array.PST_state_codes)));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.MT, Arrays.asList(getResources().getStringArray(R.array.MT_state_codes)));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.WNC, Arrays.asList(getResources().getStringArray(R.array.WNC_state_codes)));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.WSC, Arrays.asList(getResources().getStringArray(R.array.WSC_state_codes)));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.ENC, Arrays.asList(getResources().getStringArray(R.array.ENC_state_codes)));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.ESC, Arrays.asList(getResources().getStringArray(R.array.ESC_state_codes)));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.MA, Arrays.asList(getResources().getStringArray(R.array.MA_state_codes)));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.SA, Arrays.asList(getResources().getStringArray(R.array.SA_state_codes)));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.NE, Arrays.asList(getResources().getStringArray(R.array.NE_state_codes)));
     }
 
-    public void changeFillColor(String qualifier) {
-        for (TimeZone timeZone : this.timeZones) {
-            timeZone.changeFillColor(qualifier);
+    /**
+     * Uses the passed in <code>timeZoneCode</code> to get the appropriate time zone, timeZone,
+     * from this.timezones. Changes timeZone's fill color to the highlight color. If a timeZone has
+     * already been highlighted, changes that time zone's color back to it's original color.
+     * Finally, sets this.highlightedTimeZone to timeZone to keep track of which state is currently
+     * highlighted
+     * @param timeZoneCode instance of TimeZoneEnum
+     */
+    public void setHighlightedTimeZone(String timeZoneCode) {
+        TimeZone timeZone = this.getTimeZone(timeZoneCode);
+        if (timeZone != null) {
+            this.changeTimeZoneFillColor(timeZone, "highlight");
         }
+
+        if (this.highlightedTimeZone != null) {
+            this.changeTimeZoneFillColor(this.highlightedTimeZone, this.highlightedTimeZone.getColorCode());
+        }
+        this.highlightedTimeZone = timeZone;
+    }
+
+    private TimeZone getTimeZone(String timeZoneCode) {
+        for (TimeZone timeZone: this.timeZones) {
+            if (timeZone.getCode().equals(timeZoneCode)) {
+                return timeZone;
+            }
+        }
+        return null;
+    }
+
+    private void changeTimeZoneFillColor(TimeZone timeZone, String qualifier) {
+        timeZone.changeFillColor(qualifier);
         invalidate(); //TODO is this the appropriate place to call this
     }
 
