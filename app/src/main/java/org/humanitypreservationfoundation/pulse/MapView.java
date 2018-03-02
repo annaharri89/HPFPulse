@@ -27,7 +27,7 @@ class MapView extends View {
     private TimeZoneEnum highlightedTimeZone;
     private Context context;
     private VectorMasterDrawable USMap;
-    private Paint paintBlack = new Paint();
+    private Paint paintGrey = new Paint();
     private Paint paintWhite = new Paint();
 
     /**
@@ -131,7 +131,7 @@ class MapView extends View {
 
     private TimeZone getTimeZone(TimeZoneEnum timeZoneCode) {
         for (TimeZone timeZone: this.timeZones) {
-            if (timeZone.getCode().equals(timeZoneCode)) {
+            if (timeZone.getEnum().equals(timeZoneCode)) {
                 return timeZone;
             }
         }
@@ -184,10 +184,10 @@ class MapView extends View {
 
     private void drawTimeZoneLabels(Canvas canvas) {
         //TODO: find more attractive font for timezone names
-        this.paintBlack.setColor(Color.BLACK);
-        this.paintBlack.setTextSize(40);
-        this.paintBlack.setStyle(Paint.Style.STROKE);
-        this.paintBlack.setStrokeWidth(8);
+        this.paintGrey.setColor(Color.DKGRAY);
+        this.paintGrey.setTextSize(40);
+        this.paintGrey.setStyle(Paint.Style.STROKE);
+        this.paintGrey.setStrokeWidth(8);
 
         this.paintWhite.setColor(Color.WHITE);
         this.paintWhite.setTextSize(40); //TODO figure out how to have multiple text sizes and top / left ints for multiple screen sizes
@@ -197,7 +197,7 @@ class MapView extends View {
             int top = calculateTop(timeZone);
             int left = calculateLeft(timeZone);
             for (String line: timeZone.getName().split(" ")) {// makes words appear underneath each other
-                canvas.drawText(line, left, top, paintBlack);
+                canvas.drawText(line, left, top, paintGrey);
                 canvas.drawText(line, left, top, paintWhite);
                 top += this.paintWhite.descent() - this.paintWhite.ascent();
             }
@@ -206,7 +206,7 @@ class MapView extends View {
     }
 
     private int calculateTop(TimeZone timeZone){ //todo get working for multiple screen sizes
-        switch (timeZone.getCode()) {
+        switch (timeZone.getEnum()) {
             default:
             case PST:
             case MT:
@@ -224,7 +224,7 @@ class MapView extends View {
     }
 
     private int calculateLeft(TimeZone timeZone){ //todo get working for multiple screen sizes
-        switch (timeZone.getCode()) {
+        switch (timeZone.getEnum()) {
             default:
             case PST:
             case MT:

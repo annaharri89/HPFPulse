@@ -13,7 +13,8 @@ import java.util.List;
 public interface ITimeZone {
     List<State> getStates();
     String getName();
-    TimeZoneEnum getCode();
+    String getCode();
+    TimeZoneEnum getEnum();
     String getDescription();
     Region getRegion();
     void changeFillColor(String qualifier);

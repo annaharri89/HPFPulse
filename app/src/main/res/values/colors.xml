@@ -10,12 +10,17 @@
     <color name="colorLightGrey">#e5e5e5</color>
     <color name="colorMidGrey">#888888</color>
 
-    <color name="map_1">#5a70fc</color>
-    <color name="map_2">#3b48a0</color>
-    <color name="map_3">#5660a0</color>
-    <color name="map_4">#bfc7ff</color>
-    <color name="map_5">#8595fc</color>
-    <color name="map_highlight">#F57B1C</color>
+    <color name="map_1">#18768e</color>
+    <color name="map_2">#00A9D4</color>
+    <color name="map_3">#3999b2</color>
+    <color name="map_4">#6ec6dd</color>
+    <color name="map_5">#bbdfe8</color>
+    <color name="map_highlight">#FAB31B</color>
+    <!-- todo if they don't want patchwork map:
+    <color name="map_normal">#00A9D4</color>
+    <color name="map_highlight">#FAB31B</color>
+    -->
+
 
 
     <color name="PST_child_abuse">#ff9000</color>

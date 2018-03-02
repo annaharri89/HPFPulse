@@ -14,7 +14,8 @@ public class TimeZone implements ITimeZone {
     private List<State> states = new ArrayList<State>();
     private String name;
     private String description;
-    private TimeZoneEnum code;
+    private String code;
+    private TimeZoneEnum tzEnum;
     private Region region;
     private String color;
     private String colorCode;
@@ -23,14 +24,14 @@ public class TimeZone implements ITimeZone {
 
     public TimeZone (Context context, String colorCode, TimeZoneEnum timeZoneEnum, List<String> timeZoneStates, VectorMasterDrawable USMap) {
         this.context = context;
-        this.code = timeZoneEnum; //todo should this use TimeZoneEnum enum value?
+        this.tzEnum = timeZoneEnum;
+        this.code = timeZoneEnum.toStringCode(); //todo should this use TimeZoneEnum enum value?
         for (String stateCode : timeZoneStates) {
             State state = new State(this.context, stateCode, USMap);
             this.states.add(state);
         }
-        this.name = timeZoneEnum.toString();
-        //this.name = this.getStrResource("_name");
-        //this.description = this.getStrResource("_description"); //TODO figure out how to display in textview onHover
+        this.name = timeZoneEnum.toStringName();
+        this.description = this.getStrResource("_description"); //todo display in MapActivity
         this.colorCode = colorCode;
         this.color = this.getClrResource(this.colorCode);
         this.setRegion();
@@ -45,8 +46,12 @@ public class TimeZone implements ITimeZone {
         return this.description;
     }
 
-    public TimeZoneEnum getCode() {
+    public String getCode() {
         return this.code;
+    }
+
+    public TimeZoneEnum getEnum() {
+        return this.tzEnum;
     }
 
     public String getColorCode() {
@@ -88,11 +93,10 @@ public class TimeZone implements ITimeZone {
     }
     */
 
-    /*
     private String getStrResource(String qualifier) {
         int resourceId = this.context.getResources().getIdentifier(this.code + qualifier, "string", this.context.getPackageName());
         return this.context.getString(resourceId);
-    } */
+    }
 
     private String getClrResource(String qualifier) {
         int resourceId = this.context.getResources().getIdentifier(COLOR_PREFIX + qualifier, "color", this.context.getPackageName());

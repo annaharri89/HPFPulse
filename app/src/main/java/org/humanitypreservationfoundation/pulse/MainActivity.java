@@ -45,25 +45,25 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 TimeZoneEnum tze;
 
-                if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ALL.toString())) {
+                if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ALL.toStringName())) {
                     tze = TimeZoneEnum.ALL;
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.PST.toString())) {
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.PST.toStringName())) {
                     tze = TimeZoneEnum.PST;
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.MT.toString())) {
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.MT.toStringName())) {
                     tze = TimeZoneEnum.MT;
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.WNC.toString())) {
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.WNC.toStringName())) {
                     tze = TimeZoneEnum.WNC;
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.WSC.toString())) {
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.WSC.toStringName())) {
                     tze = TimeZoneEnum.WSC;
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ENC.toString())) {
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ENC.toStringName())) {
                     tze = TimeZoneEnum.ENC;
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ESC.toString())) {
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ESC.toStringName())) {
                     tze = TimeZoneEnum.ESC;
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.MA.toString())) {
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.MA.toStringName())) {
                     tze = TimeZoneEnum.MA;
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.SA.toString())) {
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.SA.toStringName())) {
                     tze = TimeZoneEnum.SA;
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.NE.toString())) {
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.NE.toStringName())) {
                     tze = TimeZoneEnum.NE;
                 } else {
                     return;
