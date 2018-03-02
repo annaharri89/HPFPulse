@@ -5,30 +5,24 @@ package org.humanitypreservationfoundation.pulse.enums;
  */
 
 public enum TimeZoneEnum {
-    ALL ("ALL", "All Regions"),
-    PST ("PST", "Pacific"),
-    MT ("MT", "Mountain"),
-    WNC ("WNC", "West North Central"),
-    WSC ("WSC", "West South Central"),
-    ENC ("ENC", "East North Central"),
-    ESC ("ESC", "East South Central"),
-    MA ("MA", "Mid Atlantic"),
-    SA ("SA", "South Atlantic"),
-    NE ("NE", "New England");
+    ALL ("All Regions"),
+    PST ("Pacific"),
+    MT ("Mountain"),
+    WNC ("West North Central"),
+    WSC ("West South Central"),
+    ENC ("East North Central"),
+    ESC ("East South Central"),
+    MA ("Mid Atlantic"),
+    SA ("South Atlantic"),
+    NE ("New England");
 
-    String code;
     String name;
 
-    TimeZoneEnum(String code, String name) {
-        this.code = code;
+    TimeZoneEnum(String name) {
         this.name = name;
     }
 
-    public String toStringCode() {
-        return this.code;
-    }
-
-    public String toStringName() {
+    public String toString() {
         return this.name;
     }
 }

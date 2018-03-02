@@ -1,12 +1,15 @@
 package org.humanitypreservationfoundation.pulse;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import android.widget.TextView;
 
 import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
 
@@ -18,33 +21,54 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final MapView map = (MapView) findViewById(R.id.map_view);
 
-        SpinnerAdapter adap = new ArrayAdapter<String>(this, R.layout.region_spinner_item, getResources().getStringArray(R.array.timezones));
+        SpinnerAdapter adapter = new ArrayAdapter<String>(this, R.layout.region_spinner_item, getResources().getStringArray(R.array.timezones)) {
+            @Override
+            public boolean isEnabled(int position) {
+                return position != 0; //disable "Select a region" position
+            }
+
+            @Override
+            public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView spinnerItem = (TextView) view;
+                if(position == 0){
+                    // Set the hint text color gray
+                    spinnerItem.setTextColor(Color.LTGRAY);
+                }
+                return view;
+            }
+        };
         Spinner regionSpinner = (Spinner) findViewById(R.id.region_spinner);
-        regionSpinner.setAdapter(adap);
+        regionSpinner.setAdapter(adapter);
         regionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ALL.toStringName())) {
-                    map.setHighlightedTimeZone(TimeZoneEnum.ALL.toStringCode());
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.PST.toStringName())) {
-                    map.setHighlightedTimeZone(TimeZoneEnum.PST.toStringCode());
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.MT.toStringName())) {
-                    map.setHighlightedTimeZone(TimeZoneEnum.MT.toStringCode());
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.WNC.toStringName())) {
-                    map.setHighlightedTimeZone(TimeZoneEnum.WNC.toStringCode());
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.WSC.toStringName())) {
-                    map.setHighlightedTimeZone(TimeZoneEnum.WSC.toStringCode());
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ENC.toStringName())) {
-                    map.setHighlightedTimeZone(TimeZoneEnum.ENC.toStringCode());
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ESC.toStringName())) {
-                    map.setHighlightedTimeZone(TimeZoneEnum.ESC.toStringCode());
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.MA.toStringName())) {
-                    map.setHighlightedTimeZone(TimeZoneEnum.MA.toStringCode());
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.SA.toStringName())) {
-                    map.setHighlightedTimeZone(TimeZoneEnum.SA.toStringCode());
-                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.NE.toStringName())) {
-                    map.setHighlightedTimeZone(TimeZoneEnum.NE.toStringCode());
+                TimeZoneEnum tze;
+
+                if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ALL.toString())) {
+                    tze = TimeZoneEnum.ALL;
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.PST.toString())) {
+                    tze = TimeZoneEnum.PST;
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.MT.toString())) {
+                    tze = TimeZoneEnum.MT;
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.WNC.toString())) {
+                    tze = TimeZoneEnum.WNC;
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.WSC.toString())) {
+                    tze = TimeZoneEnum.WSC;
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ENC.toString())) {
+                    tze = TimeZoneEnum.ENC;
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ESC.toString())) {
+                    tze = TimeZoneEnum.ESC;
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.MA.toString())) {
+                    tze = TimeZoneEnum.MA;
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.SA.toString())) {
+                    tze = TimeZoneEnum.SA;
+                } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.NE.toString())) {
+                    tze = TimeZoneEnum.NE;
+                } else {
+                    return;
                 }
+                map.changeHighlightedTimeZone(tze);
             }
 
             @Override

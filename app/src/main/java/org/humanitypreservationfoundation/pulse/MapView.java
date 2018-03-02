@@ -24,7 +24,7 @@ import java.util.Map;
 class MapView extends View {
     static Map<TimeZoneEnum, List<String>> timeZoneTitlesAndStates = new HashMap<TimeZoneEnum, List<String>>();
     private List<TimeZone> timeZones = new ArrayList<TimeZone>();
-    private TimeZone highlightedTimeZone;
+    private TimeZoneEnum highlightedTimeZone;
     private Context context;
     private VectorMasterDrawable USMap;
     private Paint paintBlack = new Paint();
@@ -88,21 +88,48 @@ class MapView extends View {
      * already been highlighted, changes that time zone's color back to it's original color.
      * Finally, sets this.highlightedTimeZone to timeZone to keep track of which state is currently
      * highlighted
-     * @param timeZoneCode instance of TimeZoneEnum
+     * @param timeZoneEnum instance of TimeZoneEnum
      */
-    public void setHighlightedTimeZone(String timeZoneCode) {
-        TimeZone timeZone = this.getTimeZone(timeZoneCode);
-        if (timeZone != null) {
-            this.changeTimeZoneFillColor(timeZone, "highlight");
-        }
+    public void changeHighlightedTimeZone(TimeZoneEnum timeZoneEnum) {
 
         if (this.highlightedTimeZone != null) {
-            this.changeTimeZoneFillColor(this.highlightedTimeZone, this.highlightedTimeZone.getColorCode());
+            resetHighlightedTimeZone();
         }
-        this.highlightedTimeZone = timeZone;
+        setHighlightedTimeZone(timeZoneEnum);
+
+        this.highlightedTimeZone = timeZoneEnum;
     }
 
-    private TimeZone getTimeZone(String timeZoneCode) {
+    /**
+     * Highlight regions
+     * @param timeZoneEnum
+     */
+    private void setHighlightedTimeZone(TimeZoneEnum timeZoneEnum) {
+
+        TimeZone timeZone = this.getTimeZone(timeZoneEnum);
+        if (timeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            for (TimeZone tz: this.timeZones) {
+                this.changeTimeZoneFillColor(tz, "highlight");
+            }
+        } else {
+            this.changeTimeZoneFillColor(timeZone, "highlight");
+        }
+    }
+
+    /**
+     * Unhighlight regions
+     */
+    private void resetHighlightedTimeZone() {
+        if (this.highlightedTimeZone.equals(TimeZoneEnum.ALL)) {
+            for (TimeZone tz: this.timeZones) {
+                this.changeTimeZoneFillColor(tz, tz.getColorCode());
+            }
+        } else {
+            this.changeTimeZoneFillColor(this.getTimeZone(this.highlightedTimeZone), this.getTimeZone(this.highlightedTimeZone).getColorCode());
+        }
+    }
+
+    private TimeZone getTimeZone(TimeZoneEnum timeZoneCode) {
         for (TimeZone timeZone: this.timeZones) {
             if (timeZone.getCode().equals(timeZoneCode)) {
                 return timeZone;
@@ -181,18 +208,18 @@ class MapView extends View {
 
     private int calculateTop(TimeZone timeZone){
         switch (timeZone.getCode()) {
-            case "PST":
+            case PST:
                 return (timeZone.getRegion().getBounds().top + timeZone.getRegion().getBounds().bottom) / 2 + 50;
-                //TODO finish implementing switch case
+            //TODO finish implementing switch case
         }
         return 0;
     }
 
     private int calculateLeft(TimeZone timeZone){
         switch (timeZone.getCode()) {
-            case "PST":
+            case PST:
                 return (timeZone.getRegion().getBounds().left + timeZone.getRegion().getBounds().right) / 2 - 50;
-                //TODO finish implementing switch case
+            //TODO finish implementing switch case
         }
         return 0;
     }

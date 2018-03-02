@@ -14,7 +14,7 @@ public class TimeZone implements ITimeZone {
     private List<State> states = new ArrayList<State>();
     private String name;
     private String description;
-    private String code;
+    private TimeZoneEnum code;
     private Region region;
     private String color;
     private String colorCode;
@@ -23,12 +23,12 @@ public class TimeZone implements ITimeZone {
 
     public TimeZone (Context context, String colorCode, TimeZoneEnum timeZoneEnum, List<String> timeZoneStates, VectorMasterDrawable USMap) {
         this.context = context;
-        this.code = timeZoneEnum.toStringCode(); //todo should this use TimeZoneEnum enum value?
+        this.code = timeZoneEnum; //todo should this use TimeZoneEnum enum value?
         for (String stateCode : timeZoneStates) {
             State state = new State(this.context, stateCode, USMap);
             this.states.add(state);
         }
-        this.name = timeZoneEnum.toStringName();
+        this.name = timeZoneEnum.toString();
         //this.name = this.getStrResource("_name");
         //this.description = this.getStrResource("_description"); //TODO figure out how to display in textview onHover
         this.colorCode = colorCode;
@@ -45,7 +45,7 @@ public class TimeZone implements ITimeZone {
         return this.description;
     }
 
-    public String getCode() {
+    public TimeZoneEnum getCode() {
         return this.code;
     }
 

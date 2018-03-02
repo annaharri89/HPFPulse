@@ -1,6 +1,9 @@
 package org.humanitypreservationfoundation.pulse;
 
 import android.graphics.Region;
+
+import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
+
 import java.util.List;
 
 /**
@@ -10,7 +13,7 @@ import java.util.List;
 public interface ITimeZone {
     List<State> getStates();
     String getName();
-    String getCode();
+    TimeZoneEnum getCode();
     String getDescription();
     Region getRegion();
     void changeFillColor(String qualifier);
