@@ -43,7 +43,6 @@ class MapView extends View {
             switch (entry.getKey()) {
                 default:
                 case PST:
-                case WNC:
                     tz = new TimeZone(this.context, "1", entry.getKey(), entry.getValue(), USMap);
                     break;
                 case MT:
@@ -59,6 +58,7 @@ class MapView extends View {
                     tz = new TimeZone(this.context, "4", entry.getKey(), entry.getValue(), USMap);
                     break;
                 case SA:
+                case WNC:
                     tz = new TimeZone(this.context, "5", entry.getKey(), entry.getValue(), USMap);
                     break;
             }
@@ -190,13 +190,12 @@ class MapView extends View {
         this.paintBlack.setStrokeWidth(8);
 
         this.paintWhite.setColor(Color.WHITE);
-        this.paintWhite.setTextSize(40); //TODO figure out how to have multiple text sizes and top left ints for multiple screen sizes
+        this.paintWhite.setTextSize(40); //TODO figure out how to have multiple text sizes and top / left ints for multiple screen sizes
 
         // Code to draw time zone names as text on map
         for (TimeZone timeZone : this.timeZones) {
-            //TODO create switch case: cases being timezone names which set top and left ints so that each label is placed appropriately
-            int top = (timeZone.getRegion().getBounds().top + timeZone.getRegion().getBounds().bottom) / 2 + 50; //todo implement calculateTop
-            int left = (timeZone.getRegion().getBounds().left + timeZone.getRegion().getBounds().right) / 2 - 50; //todo implement calculateLeft
+            int top = calculateTop(timeZone);
+            int left = calculateLeft(timeZone);
             for (String line: timeZone.getName().split(" ")) {// makes words appear underneath each other
                 canvas.drawText(line, left, top, paintBlack);
                 canvas.drawText(line, left, top, paintWhite);
@@ -206,21 +205,39 @@ class MapView extends View {
         //(int) Math.floor(height*0.589) TODO remove
     }
 
-    private int calculateTop(TimeZone timeZone){
+    private int calculateTop(TimeZone timeZone){ //todo get working for multiple screen sizes
         switch (timeZone.getCode()) {
+            default:
             case PST:
-                return (timeZone.getRegion().getBounds().top + timeZone.getRegion().getBounds().bottom) / 2 + 50;
-            //TODO finish implementing switch case
+            case MT:
+            case WNC:
+            case WSC:
+            case MA:
+            case ENC:
+            case SA:
+                return (timeZone.getRegion().getBounds().top + timeZone.getRegion().getBounds().bottom) / 2 + 50; // move down
+            case ESC:
+                return (timeZone.getRegion().getBounds().top + timeZone.getRegion().getBounds().bottom) / 2 + 70; // move down
+            case NE:
+                return (timeZone.getRegion().getBounds().top + timeZone.getRegion().getBounds().bottom) / 2 + 10; // move down
         }
-        return 0;
     }
 
-    private int calculateLeft(TimeZone timeZone){
+    private int calculateLeft(TimeZone timeZone){ //todo get working for multiple screen sizes
         switch (timeZone.getCode()) {
+            default:
             case PST:
-                return (timeZone.getRegion().getBounds().left + timeZone.getRegion().getBounds().right) / 2 - 50;
-            //TODO finish implementing switch case
+            case MT:
+            case WNC:
+            case WSC:
+            case MA:
+            case ESC:
+            case NE:
+                return (timeZone.getRegion().getBounds().left + timeZone.getRegion().getBounds().right) / 2 - 50; //move to left
+            case SA:
+                return (timeZone.getRegion().getBounds().left + timeZone.getRegion().getBounds().right) / 2 + 75; // move to right
+            case ENC:
+                return (timeZone.getRegion().getBounds().left + timeZone.getRegion().getBounds().right) / 2 - 20; // move to left
         }
-        return 0;
     }
 }
