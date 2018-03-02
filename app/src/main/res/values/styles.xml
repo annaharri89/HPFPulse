@@ -18,10 +18,38 @@
         <item name="background">@drawable/action_bar_gradient</item>
     </style>
 
+    <style name="Background">
+        <item name="android:background">@color/colorBackground</item>
+    </style>
+
+    <style name="BlueButton">
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:background">@drawable/ic_blue_button</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="BlueButtonCaretRight">
+        <item name="android:padding">8dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:background">@drawable/ic_blue_button_caret_right</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:gravity">left|center</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="RegionSpinnerItem">
         <item name="android:padding">8dp</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">16sp</item>
     </style>
+
+
 
 </resources>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/Background"
     tools:context="org.humanitypreservationfoundation.pulse.MainActivity">
 
     <org.humanitypreservationfoundation.pulse.MapView
@@ -43,17 +44,17 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="330dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="TODO: RESULTS WILL GO HERE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/button2"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@id/button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/region_spinner" />
+        style="@style/BlueButtonCaretRight" />
+
+    <Button
+        android:id="@+id/button"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/BlueButton"/>
 
 </android.support.constraint.ConstraintLayout>

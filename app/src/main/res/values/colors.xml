@@ -5,6 +5,7 @@
     <color name="colorPrimaryLight">#FAB31B</color>
     <color name="colorAccent">#00A9D4</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBackground">#F4F4F4</color>
 
     <color name="map_1">#5a70fc</color>
     <color name="map_2">#3b48a0</color>
