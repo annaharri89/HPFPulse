@@ -23,3 +23,5 @@ resource available in every single state.
 # License #
 
 # Acknowledgements #
+* Thanks to [simplemaps.com](https://simplemaps.com/resources/svg-maps) for providing the svg US map used in this app.
+
