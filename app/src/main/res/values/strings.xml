@@ -3,8 +3,9 @@
     <string name="btn_child_abuse">Child Abuse</string>
     <string name="btn_bullying">Bullying</string>
     <string name="btn_domestic_violence">Domestic Violence</string>
-    <string name="CD_region_drop_down">Select Region Drop Down Button</string>
+    <string name="btn_call_911">Call 911</string>
 
+    <!--TODO REMOVE WHEN CONFIRMED NOT NEEDED
     <string name="PST_name">Pacific</string>
     <string name="PST_description">This includes child abuse and domestic violence abuse resources for the following states: \nAlaska, California, Hawaii, Oregon, Washington \nThis includes a link to the Department of Education website for the states listed previously.</string>
     <string name="MT_name">Mountain</string>
@@ -23,4 +24,5 @@
     <string name="SA_description">This includes child abuse and domestic violence abuse resources for the following states: \nDelaware, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia, West Virginia \nThis includes a link to the Department of Education website for the states listed previously.</string>
     <string name="NE_name">New England</string>
     <string name="NE_description">This includes child abuse and domestic violence abuse resources for the following states: \nConnecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont \nThis includes a link to the Department of Education website for the states listed previously.</string>
+-->
 </resources>
