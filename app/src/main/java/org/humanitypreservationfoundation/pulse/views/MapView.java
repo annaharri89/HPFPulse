@@ -21,7 +21,7 @@ import java.util.Map;
  * Created by ETASpare on 1/18/2018.
  */
 
-class MapView extends View {
+public class MapView extends View {
     static Map<TimeZoneEnum, List<String>> timeZoneTitlesAndStates = new HashMap<TimeZoneEnum, List<String>>();
     private List<TimeZone> timeZones = new ArrayList<TimeZone>();
     private TimeZoneEnum highlightedTimeZone;

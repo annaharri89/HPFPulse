@@ -14,8 +14,10 @@
     <!-- ActionBar styles -->
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@drawable/action_bar_gradient</item>
+        <item name="android:height">80dp</item>
         <!-- Support library compatibility-->
         <item name="background">@drawable/action_bar_gradient</item>
+        <item name="height">80dp</item>
     </style>
 
     <style name="Background">
@@ -29,19 +31,22 @@
         <item name="android:layout_margin">16dp</item>
         <item name="android:background">@drawable/ic_blue_button</item>
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAllCaps">false</item>
+
     </style>
 
-    <style name="BlueButtonCaretRight">
+    <style name="BlueButtonCaretRight_w320dp">
         <item name="android:padding">8dp</item>
         <item name="android:paddingStart">20dp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">75dp</item>
         <item name="android:layout_margin">16dp</item>
         <item name="android:background">@drawable/ic_blue_button_caret_right</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:gravity">left|center</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="RegionSpinner">

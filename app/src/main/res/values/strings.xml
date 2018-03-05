@@ -1,26 +1,36 @@
 <resources>
     <string name="app_name">HPF Pulse</string>
-    <string name="btn_child_abuse">Child Abuse</string>
-    <string name="btn_bullying">Bullying</string>
-    <string name="btn_domestic_violence">Domestic Violence</string>
-    <string name="btn_call_911">Call 911</string>
+    <string name="btn_main_child_abuse">Child Abuse</string>
+    <string name="btn_main_bullying">Bullying</string>
+    <string name="btn_main_domestic_violence">Domestic Violence</string>
+    <string name="btn_main_call_911">Call 911</string>
+    <string name="txt_main_crisis">If you are in crisis</string>
+    <string name="txt_main_app_summary">
+        Pulse is there to let you know who is out there and willing to help with a form of violence
+        that you may have experienced
+    </string>
+    <string name="txt_main_contact_to_add">
+        If you wish to have your organization listed, please contact us via the <a href="http://humanitypreservationfoundation.org/contact/">HPF Contact Page</a>
+    </string> <!--TODO get 'HPF Contact Page' to link to HPF's contact page-->
 
-    <string name="PST_name">Pacific</string>
     <string name="PST_description">This includes child abuse and domestic violence abuse resources for the following states: \nAlaska, California, Hawaii, Oregon, Washington \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="MT_name">Mountain</string>
     <string name="MT_description">This includes child abuse and domestic violence abuse resources for the following states: \nArizona, Colorado, Idaho, Montana, Nevada, New Mexico, Utah, Wyoming \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="WNC_name">West North Central</string>
     <string name="WNC_description">This includes child abuse and domestic violence abuse resources for the following states: \nIowa, Kansas, Minnesota, Missouri, Nebraska, North Dakota, South Dakota \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="WSC_name">West South Central</string>
     <string name="WSC_description">This includes child abuse and domestic violence abuse resources for the following states: \nArkansas, Louisiana, Oklahoma, Texas \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="ENC_name">East North Central</string>
     <string name="ENC_description">This includes child abuse and domestic violence abuse resources for the following states: \nIllinois, Indiana, Michigan, Ohio, Wisconsin \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="ESC_name">East South Central</string>
     <string name="ESC_description">This includes child abuse and domestic violence abuse resources for the following states: \nAlabama, Kentucky, Mississippi, Tennessee \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="MA_name">Mid Atlantic</string>
     <string name="MA_description">This includes child abuse and domestic violence abuse resources for the following states: \nNew Jersey, New York, Pennsylvania \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="SA_name">South Atlantic</string>
     <string name="SA_description">This includes child abuse and domestic violence abuse resources for the following states: \nDelaware, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia, West Virginia \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="NE_name">New England</string>
     <string name="NE_description">This includes child abuse and domestic violence abuse resources for the following states: \nConnecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont \nThis includes a link to the Department of Education website for the states listed previously.</string>
+
+    <!--TODO remove following-->
+    <string name="PST_name">Pacific</string>
+    <string name="MT_name">Mountain</string>
+    <string name="WNC_name">West North Central</string>
+    <string name="WSC_name">West South Central</string>
+    <string name="ENC_name">East North Central</string>
+    <string name="ESC_name">East South Central</string>
+    <string name="MA_name">Mid Atlantic</string>
+    <string name="SA_name">South Atlantic</string>
+    <string name="NE_name">New England</string>
 </resources>

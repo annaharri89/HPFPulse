@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <TextView
+        android:id="@+id/app_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:text="@string/txt_main_app_summary"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/child_abuse"
+        style="@style/BlueButtonCaretRight_w320dp"
+        android:text="@string/btn_main_child_abuse"
+        app:layout_constraintTop_toBottomOf="@id/app_summary"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bullying"
+        style="@style/BlueButtonCaretRight_w320dp"
+        android:text="@string/btn_main_bullying"
+        app:layout_constraintTop_toBottomOf="@id/child_abuse"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/domestic_violence"
+        style="@style/BlueButtonCaretRight_w320dp"
+        android:text="@string/btn_main_domestic_violence"
+        app:layout_constraintTop_toBottomOf="@id/bullying"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
