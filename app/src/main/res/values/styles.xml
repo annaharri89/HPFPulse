@@ -14,10 +14,8 @@
     <!-- ActionBar styles -->
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@drawable/action_bar_gradient</item>
-        <item name="android:height">80dp</item>
         <!-- Support library compatibility-->
         <item name="background">@drawable/action_bar_gradient</item>
-        <item name="height">80dp</item>
     </style>
 
     <style name="Background">
@@ -40,7 +38,7 @@
         <item name="android:padding">8dp</item>
         <item name="android:paddingStart">20dp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">75dp</item>
+        <item name="android:layout_height">85dp</item>
         <item name="android:layout_margin">16dp</item>
         <item name="android:background">@drawable/ic_blue_button_caret_right</item>
         <item name="android:textColor">@color/colorWhite</item>

@@ -1,13 +1,18 @@
 package org.humanitypreservationfoundation.pulse.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
+import android.view.View;
 import android.widget.TextView;
 
+import org.humanitypreservationfoundation.pulse.Config;
 import org.humanitypreservationfoundation.pulse.R;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final String INTENT_EXTRA = "ActivityTitle";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,5 +22,23 @@ public class MainActivity extends AppCompatActivity {
         TextView contactToAdd = (TextView) findViewById(R.id.contact_to_add);
         contactToAdd.setMovementMethod(LinkMovementMethod.getInstance());
 
+    }
+
+    public void openChildAbuse(View view) {
+        Intent intent = new Intent(this, MapActivity.class);
+        intent.putExtra(INTENT_EXTRA, Config.activities.CHILD_ABUSE);
+        startActivity(intent);
+    }
+
+    public void openBullying(View view) {
+        Intent intent = new Intent(this, MapActivity.class);
+        intent.putExtra(INTENT_EXTRA, Config.activities.BULLYING);
+        startActivity(intent);
+    }
+
+    public void openDomesticViolence(View view) {
+        Intent intent = new Intent(this, MapActivity.class);
+        intent.putExtra(INTENT_EXTRA, Config.activities.DOMESTIC_VIOLENCE);
+        startActivity(intent);
     }
 }

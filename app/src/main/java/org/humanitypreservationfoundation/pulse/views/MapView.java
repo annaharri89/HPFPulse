@@ -1,4 +1,4 @@
-package org.humanitypreservationfoundation.pulse;
+package org.humanitypreservationfoundation.pulse.views;
 
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.graphics.Canvas;
 import com.sdsmdg.harjot.vectormaster.VectorMasterDrawable;
 
+import org.humanitypreservationfoundation.pulse.R;
+import org.humanitypreservationfoundation.pulse.TimeZone;
 import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
 
 import java.util.ArrayList;

@@ -23,20 +23,23 @@
         style="@style/BlueButtonCaretRight_w320dp"
         android:text="@string/btn_main_child_abuse"
         app:layout_constraintTop_toBottomOf="@id/app_summary"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="openChildAbuse" />
 
     <Button
         android:id="@+id/bullying"
         style="@style/BlueButtonCaretRight_w320dp"
         android:text="@string/btn_main_bullying"
         app:layout_constraintTop_toBottomOf="@id/child_abuse"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="openBullying" />
 
     <Button
         android:id="@+id/domestic_violence"
         style="@style/BlueButtonCaretRight_w320dp"
         android:text="@string/btn_main_domestic_violence"
         app:layout_constraintTop_toBottomOf="@id/bullying"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="openDomesticViolence" />
 
 </android.support.constraint.ConstraintLayout>
