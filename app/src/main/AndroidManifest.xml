@@ -16,8 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MapActivity"
+        <activity
+            android:name=".activities.MapActivity"
             android:parentActivityName=".activities.MainActivity" />
+        <activity android:name=".activities.ResultsActivity"
+            android:parentActivityName=".activities.MapActivity" />
     </application>
 
 </manifest>

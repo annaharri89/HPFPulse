@@ -25,6 +25,7 @@ public class MapActivity extends AppCompatActivity {
     private String activityName;
     private MapView map;
     private TextView descriptionTextView;
+    private TimeZoneEnum tze;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +68,6 @@ public class MapActivity extends AppCompatActivity {
         regionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                TimeZoneEnum tze;
-
                 if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ALL.toStringName())) {
                     tze = TimeZoneEnum.ALL;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.PST.toStringName())) {
@@ -107,6 +106,16 @@ public class MapActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK && requestCode == 2404) {
+            if(data != null) {
+                this.activityName = data.getStringExtra(Config.intents.ACTIVITY_EXTRA);
+            }
+        }
+    }
+
     public void setDescriptionText(TimeZoneEnum timeZoneEnum) {
         String lcActivityName = this.activityName.toLowerCase();
         String description;
@@ -120,6 +129,9 @@ public class MapActivity extends AppCompatActivity {
     }
 
     public void getResults(View view) {
-        //TODO Implement
+        Intent intent = new Intent(this, ResultsActivity.class);
+        intent.putExtra(Config.intents.ACTIVITY_EXTRA, activityName);
+        intent.putExtra(Config.intents.REGION_EXTRA, this.tze);
+        startActivityForResult(intent, 2404);
     }
 }

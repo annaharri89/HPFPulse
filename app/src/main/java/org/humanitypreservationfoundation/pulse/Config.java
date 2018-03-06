@@ -17,5 +17,6 @@ public class Config {
 
     public static final class intents {
         public static final String ACTIVITY_EXTRA = "ActivityTitle";
+        public static final String REGION_EXTRA = "RegionTitle";
     }
 }
