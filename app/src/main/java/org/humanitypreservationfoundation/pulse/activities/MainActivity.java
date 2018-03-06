@@ -1,6 +1,7 @@
 package org.humanitypreservationfoundation.pulse.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
@@ -22,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
         TextView contactToAdd = (TextView) findViewById(R.id.contact_to_add);
         contactToAdd.setMovementMethod(LinkMovementMethod.getInstance());
 
+    }
+
+    public void call911(View view) {
+        String phoneNumber = "911";
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("tel:" + phoneNumber));
+        startActivity(intent);
     }
 
     public void openChildAbuse(View view) {
