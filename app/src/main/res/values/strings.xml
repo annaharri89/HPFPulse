@@ -11,19 +11,49 @@
     </string>
     <string name="txt_main_contact_to_add">
         If you wish to have your organization listed, please contact us via the <a href="http://humanitypreservationfoundation.org/contact/">HPF Contact Page</a>
-    </string> <!--TODO get 'HPF Contact Page' to link to HPF's contact page-->
+    </string>
 
-    <string name="PST_description">This includes child abuse and domestic violence abuse resources for the following states: \nAlaska, California, Hawaii, Oregon, Washington \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="MT_description">This includes child abuse and domestic violence abuse resources for the following states: \nArizona, Colorado, Idaho, Montana, Nevada, New Mexico, Utah, Wyoming \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="WNC_description">This includes child abuse and domestic violence abuse resources for the following states: \nIowa, Kansas, Minnesota, Missouri, Nebraska, North Dakota, South Dakota \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="WSC_description">This includes child abuse and domestic violence abuse resources for the following states: \nArkansas, Louisiana, Oklahoma, Texas \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="ENC_description">This includes child abuse and domestic violence abuse resources for the following states: \nIllinois, Indiana, Michigan, Ohio, Wisconsin \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="ESC_description">This includes child abuse and domestic violence abuse resources for the following states: \nAlabama, Kentucky, Mississippi, Tennessee \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="MA_description">This includes child abuse and domestic violence abuse resources for the following states: \nNew Jersey, New York, Pennsylvania \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="SA_description">This includes child abuse and domestic violence abuse resources for the following states: \nDelaware, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia, West Virginia \nThis includes a link to the Department of Education website for the states listed previously.</string>
-    <string name="NE_description">This includes child abuse and domestic violence abuse resources for the following states: \nConnecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont \nThis includes a link to the Department of Education website for the states listed previously.</string>
+    <string name="btn_map_get_results">Get Results</string>
 
-    <!--TODO remove following-->
+    <!--Time Zone Descriptions-->
+    <string name="START_description">
+        Please select the time zone region you reside in from the drop down menu and then press
+        "Get Results"
+    </string>
+    <string name="ALL_description">
+        This includes %1$s resources for all 50 states.
+    </string>
+    <string name="PST_description">
+        This includes %1$s resources for the following states: \n\nAlaska, California, Hawaii, Oregon,
+        Washington
+    </string>
+    <string name="MT_description">This includes %1$s resources for the following states: \n\nArizona,
+        Colorado, Idaho, Montana, Nevada, New Mexico, Utah, Wyoming
+    </string>
+    <string name="WNC_description">This includes %1$s resources for the following states: \n\nIowa,
+        Kansas, Minnesota, Missouri, Nebraska, North Dakota, South Dakota
+    </string>
+    <string name="WSC_description">This includes %1$s resources for the following states:
+        \n\nArkansas, Louisiana, Oklahoma, Texas
+    </string>
+    <string name="ENC_description">This includes %1$s resources for the following states:
+        \n\nIllinois, Indiana, Michigan, Ohio, Wisconsin
+    </string>
+    <string name="ESC_description">This includes %1$s resources for the following states:
+        \n\nAlabama, Kentucky, Mississippi, Tennessee
+    </string>
+    <string name="MA_description">This includes %1$s resources for the following states:
+        \n\nNew Jersey, New York, Pennsylvania
+    </string>
+    <string name="SA_description">This includes %1$s resources for the following states:
+        \n\nDelaware, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia,
+        West Virginia
+    </string>
+    <string name="NE_description">This includes %1$s resources for the following states:
+        \n\nConnecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont
+    </string>
+
+    <!--TODO remove following once confirmed it is unnecessary-->
     <string name="PST_name">Pacific</string>
     <string name="MT_name">Mountain</string>
     <string name="WNC_name">West North Central</string>

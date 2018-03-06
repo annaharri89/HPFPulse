@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/Background"
     tools:context="org.humanitypreservationfoundation.pulse.activities.MapActivity">
 
 
@@ -18,9 +19,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/region_spinner"
+    <include
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/map_view"
-        style="@style/RegionSpinner" />
+        layout="@layout/map_description" />
 
 </android.support.constraint.ConstraintLayout>

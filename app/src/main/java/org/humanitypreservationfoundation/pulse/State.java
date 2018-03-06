@@ -16,7 +16,7 @@ public class State implements IState {
 
     private Context context;
     private String code;
-    private VectorMasterDrawable vector;
+    private VectorMasterDrawable vector; //todo remove
     private Path path;
     private PathModel pathModel;
     private Region region;
@@ -49,13 +49,13 @@ public class State implements IState {
         this.pathModel.setFillColor(Color.parseColor(color));
     }
 
-    public void setDefaultFillColor() {//TODO Remove when confirmed unnecessary
+    public void setDefaultFillColor() {
         this.pathModel.setFillColor(Color.parseColor("#f9f9f9"));
-    }
+    } //TODO Remove when confirmed unnecessary
 
-    public Boolean checkForTap(int x, int y) { //TODO remove when confirmed unnecessary
+    public Boolean checkForTap(int x, int y) {
         return this.region.contains(x, y);
-    }
+    } //TODO remove when confirmed unnecessary
 
     private void setRegion() {
         RectF bounds = new RectF();

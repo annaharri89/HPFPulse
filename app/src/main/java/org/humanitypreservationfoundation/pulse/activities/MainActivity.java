@@ -13,8 +13,6 @@ import org.humanitypreservationfoundation.pulse.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String INTENT_EXTRA = "ActivityTitle";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,19 +32,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void openChildAbuse(View view) {
         Intent intent = new Intent(this, MapActivity.class);
-        intent.putExtra(INTENT_EXTRA, Config.activities.CHILD_ABUSE);
+        intent.putExtra(Config.intents.ACTIVITY_EXTRA, Config.categories.CHILD_ABUSE);
         startActivity(intent);
     }
 
     public void openBullying(View view) {
         Intent intent = new Intent(this, MapActivity.class);
-        intent.putExtra(INTENT_EXTRA, Config.activities.BULLYING);
+        intent.putExtra(Config.intents.ACTIVITY_EXTRA, Config.categories.BULLYING);
         startActivity(intent);
     }
 
     public void openDomesticViolence(View view) {
         Intent intent = new Intent(this, MapActivity.class);
-        intent.putExtra(INTENT_EXTRA, Config.activities.DOMESTIC_VIOLENCE);
+        intent.putExtra(Config.intents.ACTIVITY_EXTRA, Config.categories.DOMESTIC_VIOLENCE);
         startActivity(intent);
     }
 }

@@ -104,7 +104,6 @@ public class MapView extends View {
 
     /**
      * Highlight regions
-     * @param timeZoneEnum
      */
     private void setHighlightedTimeZone(TimeZoneEnum timeZoneEnum) {
 
@@ -131,15 +130,20 @@ public class MapView extends View {
         }
     }
 
-    private TimeZone getTimeZone(TimeZoneEnum timeZoneCode) {
+    public TimeZone getTimeZone(TimeZoneEnum timeZoneEnum) {
         for (TimeZone timeZone: this.timeZones) {
-            if (timeZone.getEnum().equals(timeZoneCode)) {
+            if (timeZone.getEnum().equals(timeZoneEnum)) {
                 return timeZone;
             }
         }
         return null;
     }
 
+    /**
+     * Changes the timezones fill color and calls <code>invalidate()</code> to redraw the map.
+     * @param qualifier string used to get appropriate color resource
+     *                  options: "highlight", "1", "2", "3", "4", "5"
+     */
     private void changeTimeZoneFillColor(TimeZone timeZone, String qualifier) {
         timeZone.changeFillColor(qualifier);
         invalidate(); //TODO is this the appropriate place to call this
@@ -177,6 +181,9 @@ public class MapView extends View {
 
     }
 
+    /**
+     * Draws the svg map of United States
+     */
     private void drawUSMap(Canvas canvas) {
         int height = canvas.getHeight();
         int width = canvas.getWidth();
@@ -184,6 +191,9 @@ public class MapView extends View {
         this.USMap.draw(canvas);
     }
 
+    /**
+     * Draws time zone labels
+     */
     private void drawTimeZoneLabels(Canvas canvas) {
         //TODO: find more attractive font for timezone names
         this.paintGrey.setColor(Color.DKGRAY);
@@ -207,6 +217,9 @@ public class MapView extends View {
         //(int) Math.floor(height*0.589) TODO remove
     }
 
+    /**
+     * Calculates the y position to draw the time zone labels.
+     */
     private int calculateTop(TimeZone timeZone){ //todo get working for multiple screen sizes
         switch (timeZone.getEnum()) {
             default:
@@ -225,6 +238,9 @@ public class MapView extends View {
         }
     }
 
+    /**
+     * Calculates the x position to draw the time zone labels.
+     */
     private int calculateLeft(TimeZone timeZone){ //todo get working for multiple screen sizes
         switch (timeZone.getEnum()) {
             default:

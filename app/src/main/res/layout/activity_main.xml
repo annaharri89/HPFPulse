@@ -20,7 +20,7 @@
 
     <Button
         android:id="@+id/call_911"
-        style="@style/BlueButton"
+        style="@style/BlueButton_w320dp"
         android:text="@string/btn_main_call_911"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

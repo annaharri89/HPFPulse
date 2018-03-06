@@ -9,15 +9,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
+import org.humanitypreservationfoundation.pulse.Config;
+import org.humanitypreservationfoundation.pulse.TimeZone;
 import org.humanitypreservationfoundation.pulse.views.MapView;
 import org.humanitypreservationfoundation.pulse.R;
 import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
 
 public class MapActivity extends AppCompatActivity {
+
+    private String activityName;
+    private MapView map;
+    private TextView descriptionTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +33,17 @@ public class MapActivity extends AppCompatActivity {
 
         ActionBar ab = getSupportActionBar();
         Intent intent = getIntent();
-        String name = intent.getStringExtra(MainActivity.INTENT_EXTRA);
-        ab.setTitle(name);
+        activityName = intent.getStringExtra(Config.intents.ACTIVITY_EXTRA);
+        try {
+            ab.setTitle(activityName);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
-        final MapView map = (MapView) findViewById(R.id.map_view);
+        map = (MapView) findViewById(R.id.map_view);
+        descriptionTextView = (TextView) findViewById(R.id.region_description);
+        final Button getResults = (Button) findViewById(R.id.get_results);
+        getResults.setEnabled(false);
 
         SpinnerAdapter adapter = new ArrayAdapter<String>(this, R.layout.region_spinner_item, getResources().getStringArray(R.array.timezones)) {
             @Override
@@ -78,7 +92,12 @@ public class MapActivity extends AppCompatActivity {
                 } else {
                     return;
                 }
+
+                if (!getResults.isEnabled()) {
+                    getResults.setEnabled(true);
+                }
                 map.changeHighlightedTimeZone(tze);
+                setDescriptionText(tze);
             }
 
             @Override
@@ -86,5 +105,21 @@ public class MapActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void setDescriptionText(TimeZoneEnum timeZoneEnum) {
+        String lcActivityName = this.activityName.toLowerCase();
+        String description;
+        if (timeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            description = String.format(getResources().getString(R.string.ALL_description), lcActivityName);
+        } else {
+            TimeZone tz = map.getTimeZone(timeZoneEnum);
+            description = String.format(tz.getDescription(), lcActivityName);
+        }
+        descriptionTextView.setText(description);
+    }
+
+    public void getResults(View view) {
+        //TODO Implement
     }
 }
