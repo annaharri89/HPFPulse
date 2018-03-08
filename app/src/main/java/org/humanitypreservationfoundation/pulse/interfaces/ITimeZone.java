@@ -1,7 +1,8 @@
-package org.humanitypreservationfoundation.pulse;
+package org.humanitypreservationfoundation.pulse.interfaces;
 
 import android.graphics.Region;
 
+import org.humanitypreservationfoundation.pulse.classes.State;
 import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
 
 import java.util.List;

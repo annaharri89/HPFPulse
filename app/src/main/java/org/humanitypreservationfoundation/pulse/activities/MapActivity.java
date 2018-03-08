@@ -15,17 +15,17 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import org.humanitypreservationfoundation.pulse.Config;
-import org.humanitypreservationfoundation.pulse.TimeZone;
+import org.humanitypreservationfoundation.pulse.classes.TimeZone;
 import org.humanitypreservationfoundation.pulse.views.MapView;
 import org.humanitypreservationfoundation.pulse.R;
 import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
 
 public class MapActivity extends AppCompatActivity {
 
-    private String activityName;
-    private MapView map;
-    private TextView descriptionTextView;
-    private TimeZoneEnum tze;
+    private String mActivityName;
+    private MapView mMap;
+    private TextView mDescriptionTextView;
+    private TimeZoneEnum mTZE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +34,15 @@ public class MapActivity extends AppCompatActivity {
 
         ActionBar ab = getSupportActionBar();
         Intent intent = getIntent();
-        activityName = intent.getStringExtra(Config.intents.ACTIVITY_EXTRA);
+        mActivityName = intent.getStringExtra(Config.intents.ACTIVITY_EXTRA);
         try {
-            ab.setTitle(activityName);
+            ab.setTitle(mActivityName);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
 
-        map = (MapView) findViewById(R.id.map_view);
-        descriptionTextView = (TextView) findViewById(R.id.region_description);
+        mMap = (MapView) findViewById(R.id.map_view);
+        mDescriptionTextView = (TextView) findViewById(R.id.region_description);
         final Button getResults = (Button) findViewById(R.id.get_results);
         getResults.setEnabled(false);
 
@@ -69,25 +69,25 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ALL.toStringName())) {
-                    tze = TimeZoneEnum.ALL;
+                    mTZE = TimeZoneEnum.ALL;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.PST.toStringName())) {
-                    tze = TimeZoneEnum.PST;
+                    mTZE = TimeZoneEnum.PST;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.MT.toStringName())) {
-                    tze = TimeZoneEnum.MT;
+                    mTZE = TimeZoneEnum.MT;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.WNC.toStringName())) {
-                    tze = TimeZoneEnum.WNC;
+                    mTZE = TimeZoneEnum.WNC;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.WSC.toStringName())) {
-                    tze = TimeZoneEnum.WSC;
+                    mTZE = TimeZoneEnum.WSC;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ENC.toStringName())) {
-                    tze = TimeZoneEnum.ENC;
+                    mTZE = TimeZoneEnum.ENC;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ESC.toStringName())) {
-                    tze = TimeZoneEnum.ESC;
+                    mTZE = TimeZoneEnum.ESC;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.MA.toStringName())) {
-                    tze = TimeZoneEnum.MA;
+                    mTZE = TimeZoneEnum.MA;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.SA.toStringName())) {
-                    tze = TimeZoneEnum.SA;
+                    mTZE = TimeZoneEnum.SA;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.NE.toStringName())) {
-                    tze = TimeZoneEnum.NE;
+                    mTZE = TimeZoneEnum.NE;
                 } else {
                     return;
                 }
@@ -95,8 +95,8 @@ public class MapActivity extends AppCompatActivity {
                 if (!getResults.isEnabled()) {
                     getResults.setEnabled(true);
                 }
-                map.changeHighlightedTimeZone(tze);
-                setDescriptionText(tze);
+                mMap.changeHighlightedTimeZone(mTZE);
+                setDescriptionText();
             }
 
             @Override
@@ -111,27 +111,36 @@ public class MapActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK && requestCode == 2404) {
             if(data != null) {
-                this.activityName = data.getStringExtra(Config.intents.ACTIVITY_EXTRA);
+                mActivityName = data.getStringExtra(Config.intents.ACTIVITY_EXTRA);
             }
         }
     }
 
-    public void setDescriptionText(TimeZoneEnum timeZoneEnum) {
-        String lcActivityName = this.activityName.toLowerCase();
-        String description;
-        if (timeZoneEnum.equals(TimeZoneEnum.ALL)) {
-            description = String.format(getResources().getString(R.string.ALL_description), lcActivityName);
-        } else {
-            TimeZone tz = map.getTimeZone(timeZoneEnum);
-            description = String.format(tz.getDescription(), lcActivityName);
-        }
-        descriptionTextView.setText(description);
+    public void setDescriptionText() {
+        String lcmActivityName = mActivityName.toLowerCase();
+        TimeZone tz = mMap.getTimeZone(mTZE);
+        String description = String.format(tz.getDescription(), lcmActivityName);
+
+        mDescriptionTextView.setText(description);
     }
 
     public void getResults(View view) {
-        Intent intent = new Intent(this, ResultsActivity.class);
-        intent.putExtra(Config.intents.ACTIVITY_EXTRA, activityName);
-        intent.putExtra(Config.intents.REGION_EXTRA, this.tze);
+        Intent intent = new Intent();
+        if (!mActivityName.equals(Config.categories.ALL_RESOURCES)) {
+            intent.setClass(this, CategoryResourcesActivity.class);
+        } else {
+            /*
+        if (mTZE.equals(TimeZoneEnum.ALL)) {
+            intent = new Intent(this, ALLAllResourcesActivity.class);
+        } else if (mTZE.equals(TimeZoneEnum.PST)) {
+            intent = new Intent(this, PSTAllResourcesActivity.class);
+        }
+        */
+        }
+
+
+        intent.putExtra(Config.intents.ACTIVITY_EXTRA, mActivityName);
+        intent.putExtra(Config.intents.TIMEZONE_EXTRA, mMap.getTimeZone(mTZE));
         startActivityForResult(intent, 2404);
     }
 }

@@ -15,6 +15,10 @@
 
     <string name="btn_map_get_results">Get Results</string>
 
+    <string name="btn_resource_web">Website</string>
+    <string name="btn_resource_call">Call</string>
+
+
     <!--Time Zone Descriptions-->
     <string name="START_description">
         Please select the time zone region you reside in from the drop down menu and then press
@@ -63,4 +67,5 @@
     <string name="MA_name">Mid Atlantic</string>
     <string name="SA_name">South Atlantic</string>
     <string name="NE_name">New England</string>
+
 </resources>

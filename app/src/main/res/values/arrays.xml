@@ -14,6 +14,7 @@
         <item>New England</item>
     </string-array>
 
+    <!--TODO REMOVE WHEN CONFIRMED UNNECESSARY-->
     <string-array name="PST_state_codes">
         <item>AK</item>
         <item>CA</item>
@@ -57,6 +58,7 @@
         <item>OH</item>
         <item>WI</item>
     </string-array>
+
     <string-array name="ESC_state_codes">
         <item>AL</item>
         <item>KY</item>

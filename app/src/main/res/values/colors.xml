@@ -10,6 +10,7 @@
     <color name="colorLightGrey">#e5e5e5</color>
     <color name="colorMidGrey">#888888</color>
 
+    <color name="map_0">#e80017</color><!--ALL timezone color - for debugging purposes-->
     <color name="map_1">#18768e</color>
     <color name="map_2">#00A9D4</color>
     <color name="map_3">#3999b2</color>

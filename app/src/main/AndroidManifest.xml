@@ -19,7 +19,7 @@
         <activity
             android:name=".activities.MapActivity"
             android:parentActivityName=".activities.MainActivity" />
-        <activity android:name=".activities.ResultsActivity"
+        <activity android:name=".activities.CategoryResourcesActivity"
             android:parentActivityName=".activities.MapActivity" />
     </application>
 

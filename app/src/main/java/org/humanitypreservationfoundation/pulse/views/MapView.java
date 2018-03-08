@@ -10,7 +10,11 @@ import android.graphics.Canvas;
 import com.sdsmdg.harjot.vectormaster.VectorMasterDrawable;
 
 import org.humanitypreservationfoundation.pulse.R;
-import org.humanitypreservationfoundation.pulse.TimeZone;
+import org.humanitypreservationfoundation.pulse.classes.DummyData;
+import org.humanitypreservationfoundation.pulse.classes.Resource;
+import org.humanitypreservationfoundation.pulse.classes.State;
+import org.humanitypreservationfoundation.pulse.classes.TimeZone;
+import org.humanitypreservationfoundation.pulse.enums.StateEnum;
 import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
 
 import java.util.ArrayList;
@@ -24,8 +28,8 @@ import java.util.Map;
  */
 
 public class MapView extends View {
-    static Map<TimeZoneEnum, List<String>> timeZoneTitlesAndStates = new HashMap<TimeZoneEnum, List<String>>();
-    private List<TimeZone> timeZones = new ArrayList<TimeZone>();
+    static Map<TimeZoneEnum, List<StateEnum>> timeZoneTitlesAndStates = new HashMap<TimeZoneEnum, List<StateEnum>>();
+    private List<TimeZone> timeZones = new ArrayList<TimeZone>(); // todo turn into hashmap with timezoneEnum as key, timezone as value
     private TimeZoneEnum highlightedTimeZone;
     private Context context;
     private VectorMasterDrawable USMap;
@@ -40,10 +44,13 @@ public class MapView extends View {
         this.context = context;
         this.setupTimeZoneTitlesAndStates();
         this.USMap = new VectorMasterDrawable(this.context.getApplicationContext(), R.drawable.ic_us_map_vector);
-        for (Map.Entry<TimeZoneEnum, List<String>> entry : MapView.timeZoneTitlesAndStates.entrySet()) {
+        for (Map.Entry<TimeZoneEnum, List<StateEnum>> entry : MapView.timeZoneTitlesAndStates.entrySet()) {
             TimeZone tz;
             switch (entry.getKey()) {
                 default:
+                case ALL:
+                    tz = new TimeZone(this.context, "0", entry.getKey(), entry.getValue(), USMap);
+                    break;
                 case PST:
                     tz = new TimeZone(this.context, "1", entry.getKey(), entry.getValue(), USMap);
                     break;
@@ -66,6 +73,7 @@ public class MapView extends View {
             }
             this.timeZones.add(tz);
         }
+        this.setDummyResources(); //todo remove once db is fully set up and hooked up to real data
     }
 
     /**
@@ -73,15 +81,31 @@ public class MapView extends View {
      * codes as the value to MapView.timeZoneTitlesAndStates.
      */
     private void setupTimeZoneTitlesAndStates() {
-        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.PST, Arrays.asList(getResources().getStringArray(R.array.PST_state_codes)));
-        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.MT, Arrays.asList(getResources().getStringArray(R.array.MT_state_codes)));
-        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.WNC, Arrays.asList(getResources().getStringArray(R.array.WNC_state_codes)));
-        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.WSC, Arrays.asList(getResources().getStringArray(R.array.WSC_state_codes)));
-        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.ENC, Arrays.asList(getResources().getStringArray(R.array.ENC_state_codes)));
-        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.ESC, Arrays.asList(getResources().getStringArray(R.array.ESC_state_codes)));
-        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.MA, Arrays.asList(getResources().getStringArray(R.array.MA_state_codes)));
-        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.SA, Arrays.asList(getResources().getStringArray(R.array.SA_state_codes)));
-        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.NE, Arrays.asList(getResources().getStringArray(R.array.NE_state_codes)));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.PST, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.PST));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.MT, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.MT));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.WNC, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.WNC));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.WSC, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.WSC));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.ENC, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.ENC));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.ESC, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.ESC));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.MA, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.MA));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.SA, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.SA));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.NE, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.NE));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.ALL, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.ALL));
+    }
+
+    //todo remove once db is fully set up and hooked up to real data
+    private void setDummyResources() {
+        Map<StateEnum, List<Resource>> resourceMap = new HashMap<StateEnum, List<Resource>>();
+        for (TimeZone tz : this.timeZones) {
+            if (tz.getEnum().equals(TimeZoneEnum.PST)) {
+                for (State state : tz.getStates()) {
+                    StateEnum stateEnum = state.getEnum();
+                    List<Resource> resourceList = DummyData.getResources(stateEnum);
+                    resourceMap.put(stateEnum, resourceList);
+                }
+            }
+            tz.setDummyResources(resourceMap);
+        }
     }
 
     /**
@@ -106,24 +130,19 @@ public class MapView extends View {
      * Highlight regions
      */
     private void setHighlightedTimeZone(TimeZoneEnum timeZoneEnum) {
-
         TimeZone timeZone = this.getTimeZone(timeZoneEnum);
-        if (timeZoneEnum.equals(TimeZoneEnum.ALL)) {
-            for (TimeZone tz: this.timeZones) {
-                this.changeTimeZoneFillColor(tz, "highlight");
-            }
-        } else {
-            this.changeTimeZoneFillColor(timeZone, "highlight");
-        }
+        this.changeTimeZoneFillColor(timeZone, "highlight");
     }
 
     /**
      * Unhighlight regions
      */
     private void resetHighlightedTimeZone() {
-        if (this.highlightedTimeZone.equals(TimeZoneEnum.ALL)) {
+        if (this.highlightedTimeZone.equals(TimeZoneEnum.ALL)) { //needed so that each time zone gets their original color
             for (TimeZone tz: this.timeZones) {
-                this.changeTimeZoneFillColor(tz, tz.getColorCode());
+                if (!tz.getEnum().equals(TimeZoneEnum.ALL)) { // needed to fix leak causing a couple of the timezones to highlight to the ALL timezone color
+                    this.changeTimeZoneFillColor(tz, tz.getColorCode());
+                }
             }
         } else {
             this.changeTimeZoneFillColor(this.getTimeZone(this.highlightedTimeZone), this.getTimeZone(this.highlightedTimeZone).getColorCode());
