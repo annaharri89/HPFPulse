@@ -37,12 +37,25 @@
     <style name="BlueButtonCaretRight_w320dp">
         <item name="android:paddingStart">20dp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">85dp</item>
+        <item name="android:layout_height">60dp</item>
         <item name="android:layout_margin">16dp</item>
         <item name="android:background">@drawable/ic_blue_button_caret_right</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:gravity">left|center</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="BlueBackground_w320dp">
+        <item name="android:paddingStart">35dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/ic_blue_background</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:gravity">left|center</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textAllCaps">false</item>
     </style>
 

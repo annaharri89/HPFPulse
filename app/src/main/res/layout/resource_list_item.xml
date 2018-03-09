@@ -27,19 +27,17 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Organization Name"
             android:textSize="16sp"
             android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_org_state"
+            android:id="@+id/txt_org_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="State"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_org_name" />
 
@@ -54,7 +52,7 @@
             app:layout_constraintEnd_toStartOf="@+id/btn_divider"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_org_state" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_org_subtitle" />
 
         <View
             android:id="@+id/btn_divider"
@@ -65,7 +63,7 @@
             app:layout_constraintEnd_toStartOf="@+id/btn_org_call"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_org_web"
-            app:layout_constraintTop_toBottomOf="@+id/txt_org_state" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_org_subtitle" />
 
         <Button
             android:id="@+id/btn_org_call"
@@ -78,7 +76,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_divider"
-            app:layout_constraintTop_toBottomOf="@+id/txt_org_state" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_org_subtitle" />
 
     </android.support.constraint.ConstraintLayout>
 

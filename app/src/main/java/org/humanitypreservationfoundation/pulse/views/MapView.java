@@ -90,9 +90,10 @@ public class MapView extends View {
         MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.MA, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.MA));
         MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.SA, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.SA));
         MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.NE, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.NE));
-        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.ALL, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.ALL));
+        MapView.timeZoneTitlesAndStates.put(TimeZoneEnum.ALL, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.ALL)); //TODO Is ALL timezone needed? doesn't it double the amount of data?
     }
 
+    //todo set real data using AsyncTask in class named ResourceLoader -->see youKNOWwhat for  --> call resourceLoader asynctask from MapView
     //todo remove once db is fully set up and hooked up to real data
     private void setDummyResources() {
         Map<StateEnum, List<Resource>> resourceMap = new HashMap<StateEnum, List<Resource>>();

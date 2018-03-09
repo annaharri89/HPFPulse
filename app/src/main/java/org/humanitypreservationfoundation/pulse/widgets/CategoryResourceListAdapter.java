@@ -20,11 +20,11 @@ import java.util.List;
  * Created by ETASpare on 3/8/2018.
  */
 
-public class DummyCategoryResourceListAdapter extends ArrayAdapter<Resource> { //todo turn into CursorAdapter
+public class CategoryResourceListAdapter extends ArrayAdapter<Resource> { //todo turn into CursorAdapter
 
     private Context mContext;
 
-    public DummyCategoryResourceListAdapter(Context context, List<Resource> resources) { //todo might need to turn resources into ArrayList
+    public CategoryResourceListAdapter(Context context, List<Resource> resources) { //todo make work with restful api
         super(context, 0, resources);
         this.mContext = context;
     }
@@ -38,29 +38,29 @@ public class DummyCategoryResourceListAdapter extends ArrayAdapter<Resource> { /
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.resource_list_item, parent, false);
         }
 
-        TextView orgName = (TextView) convertView.findViewById(R.id.txt_org_name);
-        TextView orgState = (TextView) convertView.findViewById(R.id.txt_org_state);
-        Button orgWeb = (Button) convertView.findViewById(R.id.btn_org_web);
-        Button orgCall = (Button) convertView.findViewById(R.id.btn_org_call);
+        if (resource != null) {
+            TextView orgName = (TextView) convertView.findViewById(R.id.txt_org_name);
+            TextView orgState = (TextView) convertView.findViewById(R.id.txt_org_subtitle);
+            Button orgWeb = (Button) convertView.findViewById(R.id.btn_org_web);
+            Button orgCall = (Button) convertView.findViewById(R.id.btn_org_call);
 
-        orgName.setText(resource.getName());
-        orgState.setText(resource.getStateName());
+            orgName.setText(resource.getName());
+            orgState.setText(resource.getStateName());
 
-        //orgWeb.setTag(position);
-        orgWeb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openWebsite(resource.getUrl());
-            }
-        });
+            orgWeb.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openWebsite(resource.getUrl());
+                }
+            });
 
-        orgCall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                call(resource.getPhoneNumber());
-            }
-        });
-
+            orgCall.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    call(resource.getPhoneNumber());
+                }
+            });
+        }
 
 
         return convertView;
@@ -77,5 +77,4 @@ public class DummyCategoryResourceListAdapter extends ArrayAdapter<Resource> { /
         intent.setData(Uri.parse("tel:" + phoneNumber));
         this.mContext.startActivity(intent);
     }
-    //todo add openWebsite() and makeCall() look at ExpandableResourceListAdapter to see how
 }

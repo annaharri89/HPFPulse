@@ -34,6 +34,8 @@ public class PSTExpandableResourceListAdapter extends ExpandableResourceListAdap
     public PSTExpandableResourceListAdapter(Context context) {
         this(context, new ArrayList<Resource>(), new ArrayList<Resource>(), new ArrayList<Resource>(),
                 new ArrayList<Resource>(), new ArrayList<Resource>());
+
+        //todo do I need to set mContext here? shouldn't need to right?
     }
 
     public PSTExpandableResourceListAdapter(Context context, List<Resource> AKData, List<Resource> CAData,
@@ -150,55 +152,6 @@ public class PSTExpandableResourceListAdapter extends ExpandableResourceListAdap
         }
 
         return 0;
-    }
-
-    /**
-     * Inflates a child view depending on <code>groupPosition</code> and <code>childPosition</code>
-     * @param groupPosition options: ALASKA = 0 CALIFORNIA = 1 HAWAII = 2 OREGON = 3 WASHINGTON = 4
-     * @param childPosition position of child in list
-     * @param isLastChild boolean
-     * @param parent parent ViewGroup
-     * @return
-     */
-    @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.resource_list_item, parent, false);
-
-        final Resource resource = (Resource) getChild(groupPosition, childPosition);
-
-        if (resource != null) {
-            /*
-            TextView primaryText = (TextView) view.findViewById(R.id.primary_text);
-            TextView secondaryText = (TextView) view.findViewById(R.id.secondary_text);
-            todo set result list item textviews and button data
-            */
-        }
-        return view;
-    }
-
-    /**
-     * Called when Website is clicked. Opens Website in user's browser
-     */
-    public void onWebsiteClick() {
-        /*todo is this needed here? or should it be in the ResultsActivity or should it be in ExpandableResourceListAdapter
-        todo implement correctly
-        Intent intent = new Intent(mContext,
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        mContext.startActivity(intent);
-        */
-    }
-
-    /**
-     * Called when Website is clicked. Opens Website in user's browser
-     */
-    public void onPhoneNumberClick() {
-        /*todo is this needed here? or should it be in the ResultsActivity or should it be in ExpandableResourceListAdapter
-        todo implement correctly
-        Intent intent = new Intent(mContext,
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        mContext.startActivity(intent);
-        */
     }
 
     /**

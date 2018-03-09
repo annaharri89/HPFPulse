@@ -21,6 +21,8 @@
             android:parentActivityName=".activities.MainActivity" />
         <activity android:name=".activities.CategoryResourcesActivity"
             android:parentActivityName=".activities.MapActivity" />
+        <activity android:name=".activities.PSTAllResourcesActivity"
+            android:parentActivityName=".activities.MapActivity" />
     </application>
 
 </manifest>

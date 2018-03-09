@@ -20,6 +20,10 @@ import org.humanitypreservationfoundation.pulse.views.MapView;
 import org.humanitypreservationfoundation.pulse.R;
 import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
 
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
 public class MapActivity extends AppCompatActivity {
 
     private String mActivityName;
@@ -117,10 +121,28 @@ public class MapActivity extends AppCompatActivity {
     }
 
     public void setDescriptionText() {
-        String lcmActivityName = mActivityName.toLowerCase();
         TimeZone tz = mMap.getTimeZone(mTZE);
-        String description = String.format(tz.getDescription(), lcmActivityName);
+        String description;
+        StringBuilder allCategories = new StringBuilder();
+        List<String> allCategoriesList = Arrays.asList(Config.categories.CHILD_ABUSE, Config.categories.BULLYING, Config.categories.DOMESTIC_VIOLENCE);
 
+        if (mActivityName.equals(Config.categories.ALL_RESOURCES)) {
+            for (int i = 0; i < allCategoriesList.size(); i++) {
+                if (i == allCategoriesList.size() - 1) {
+                    allCategories.append("and ");
+                }
+                allCategories.append(allCategoriesList.get(i).toLowerCase());
+                if (i < allCategoriesList.size() - 1) {
+                    allCategories.append(", ");
+                }
+            }
+            description = String.format(getResources().getString(R.string.description_header), allCategories.toString(), tz.getDescription());
+        } else {
+            String lowerCaseActivityName = mActivityName.toLowerCase();
+            description = String.format(getResources().getString(R.string.description_header), lowerCaseActivityName, tz.getDescription());
+            //todo fix bug: WSC, ENC, ESC, and MA timezone's descriptions for Child Abuse
+            //todo and Bullying categories have an increased margin for some reason
+        }
         mDescriptionTextView.setText(description);
     }
 
@@ -128,16 +150,11 @@ public class MapActivity extends AppCompatActivity {
         Intent intent = new Intent();
         if (!mActivityName.equals(Config.categories.ALL_RESOURCES)) {
             intent.setClass(this, CategoryResourcesActivity.class);
-        } else {
-            /*
-        if (mTZE.equals(TimeZoneEnum.ALL)) {
-            intent = new Intent(this, ALLAllResourcesActivity.class);
         } else if (mTZE.equals(TimeZoneEnum.PST)) {
-            intent = new Intent(this, PSTAllResourcesActivity.class);
+            intent.setClass(this, PSTAllResourcesActivity.class);
+        } else { //todo only needed to handle when All Activities is selected and then a timezone other than PST is selected todo: remove once all other timezone specific activities are implemented
+            intent.setClass(this, CategoryResourcesActivity.class);
         }
-        */
-        }
-
 
         intent.putExtra(Config.intents.ACTIVITY_EXTRA, mActivityName);
         intent.putExtra(Config.intents.TIMEZONE_EXTRA, mMap.getTimeZone(mTZE));

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">HPF Pulse</string>
+    <string name="btn_main_all_resources">All Resources</string>
     <string name="btn_main_child_abuse">Child Abuse</string>
     <string name="btn_main_bullying">Bullying</string>
     <string name="btn_main_domestic_violence">Domestic Violence</string>
@@ -7,7 +8,7 @@
     <string name="txt_main_crisis">If you are in crisis</string>
     <string name="txt_main_app_summary">
         Pulse is there to let you know who is out there and willing to help with a form of violence
-        that you may have experienced
+        that you may have experienced.
     </string>
     <string name="txt_main_contact_to_add">
         If you wish to have your organization listed, please contact us via the <a href="http://humanitypreservationfoundation.org/contact/">HPF Contact Page</a>
@@ -24,38 +25,17 @@
         Please select the time zone region you reside in from the drop down menu and then press
         "Get Results"
     </string>
-    <string name="ALL_description">
-        This includes %1$s resources for all 50 states.
-    </string>
-    <string name="PST_description">
-        This includes %1$s resources for the following states: \n\nAlaska, California, Hawaii, Oregon,
-        Washington
-    </string>
-    <string name="MT_description">This includes %1$s resources for the following states: \n\nArizona,
-        Colorado, Idaho, Montana, Nevada, New Mexico, Utah, Wyoming
-    </string>
-    <string name="WNC_description">This includes %1$s resources for the following states: \n\nIowa,
-        Kansas, Minnesota, Missouri, Nebraska, North Dakota, South Dakota
-    </string>
-    <string name="WSC_description">This includes %1$s resources for the following states:
-        \n\nArkansas, Louisiana, Oklahoma, Texas
-    </string>
-    <string name="ENC_description">This includes %1$s resources for the following states:
-        \n\nIllinois, Indiana, Michigan, Ohio, Wisconsin
-    </string>
-    <string name="ESC_description">This includes %1$s resources for the following states:
-        \n\nAlabama, Kentucky, Mississippi, Tennessee
-    </string>
-    <string name="MA_description">This includes %1$s resources for the following states:
-        \n\nNew Jersey, New York, Pennsylvania
-    </string>
-    <string name="SA_description">This includes %1$s resources for the following states:
-        \n\nDelaware, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia,
-        West Virginia
-    </string>
-    <string name="NE_description">This includes %1$s resources for the following states:
-        \n\nConnecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont
-    </string>
+    <string name="description_header">This includes %1$s resources for %2$s</string>
+    <string name="ALL_description">all 50 states.</string>
+    <string name="PST_description">\n\nAlaska, California, Hawaii, Oregon, and Washington</string>
+    <string name="MT_description">\n\nArizona, Colorado, Idaho, Montana, Nevada, New Mexico, Utah, and Wyoming</string>
+    <string name="WNC_description">\n\nIowa, Kansas, Minnesota, Missouri, Nebraska, North Dakota, and South Dakota</string>
+    <string name="WSC_description">\n\nArkansas, Louisiana, Oklahoma, and Texas</string>
+    <string name="ENC_description">\n\nIllinois, Indiana, Michigan, Ohio, and Wisconsin</string>
+    <string name="ESC_description">\n\nAlabama, Kentucky, Mississippi, and Tennessee</string>
+    <string name="MA_description">\n\nNew Jersey, New York, and Pennsylvania</string>
+    <string name="SA_description">\n\nDelaware, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia, and West Virginia</string>
+    <string name="NE_description">\n\nConnecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont</string>
 
     <!--TODO remove following once confirmed it is unnecessary-->
     <string name="PST_name">Pacific</string>

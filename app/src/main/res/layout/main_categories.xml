@@ -17,10 +17,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/all_resources"
+        style="@style/BlueButtonCaretRight_w320dp"
+        android:text="@string/btn_main_all_resources"
+        app:layout_constraintTop_toBottomOf="@id/app_summary"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="openAllResources" />
+
+    <Button
         android:id="@+id/child_abuse"
         style="@style/BlueButtonCaretRight_w320dp"
         android:text="@string/btn_main_child_abuse"
-        app:layout_constraintTop_toBottomOf="@id/app_summary"
+        app:layout_constraintTop_toBottomOf="@id/all_resources"
         app:layout_constraintStart_toStartOf="parent"
         android:onClick="openChildAbuse" />
 

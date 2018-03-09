@@ -12,25 +12,19 @@ import org.humanitypreservationfoundation.pulse.R;
 import org.humanitypreservationfoundation.pulse.classes.Resource;
 import org.humanitypreservationfoundation.pulse.classes.State;
 import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
-import org.humanitypreservationfoundation.pulse.widgets.DummyCategoryResourceListAdapter;
+import org.humanitypreservationfoundation.pulse.widgets.CategoryResourceListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryResourcesActivity extends ResourcesActivity {
 
-    //todo: think about subclassing this activity: one for each time zone and then one for all timezones
-    //TODO: example: PSTAllResourcesActivity implements ResultsActivity
+    ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_resources);
-
-
-
-        //todo set real data using AsyncTask in class named ResourceLoader -->see youKNOWwhat for reference
-
 
         List<Resource> resources = new ArrayList<Resource>();
         if (mTimeZone.getEnum().equals(TimeZoneEnum.PST)) { //todo remove once db is set up and hooked up to real data
@@ -48,9 +42,12 @@ public class CategoryResourcesActivity extends ResourcesActivity {
                 }
             }
 
-            DummyCategoryResourceListAdapter adapter = new DummyCategoryResourceListAdapter(this, resources);
-            ListView listView = (ListView) findViewById(R.id.category_resources_list);
-            listView.setAdapter(adapter);
+            if (resources.size() > 0) {
+                CategoryResourceListAdapter adapter = new CategoryResourceListAdapter(this, resources);
+                mListView = (ListView) findViewById(R.id.category_resources_list);
+                mListView.setAdapter(adapter);
+            }
+            //todo do i need this: mListView.invalidateViews();
         }
     }
 }

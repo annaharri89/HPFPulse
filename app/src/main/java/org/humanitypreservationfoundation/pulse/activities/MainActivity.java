@@ -30,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openAllResources(View view) {
+        Intent intent = new Intent(this, MapActivity.class);
+        intent.putExtra(Config.intents.ACTIVITY_EXTRA, Config.categories.ALL_RESOURCES);
+        startActivity(intent);
+    }
+
     public void openChildAbuse(View view) {
         Intent intent = new Intent(this, MapActivity.class);
         intent.putExtra(Config.intents.ACTIVITY_EXTRA, Config.categories.CHILD_ABUSE);
