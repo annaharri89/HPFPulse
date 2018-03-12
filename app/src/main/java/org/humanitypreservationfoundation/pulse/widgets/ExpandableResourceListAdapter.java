@@ -78,9 +78,14 @@ public class ExpandableResourceListAdapter implements ExpandableListAdapter {
             });
         }
 
+        //Adds 8dp padding to top of view if it's the first view
+        if (childPosition == 0) {
+            view.setPadding(0,(int) Utils.dpToPx(this.mContext, 8),0, 0);
+        }
+
         //Adds 16dp padding to bottom of view if it's that last view
         if (childPosition == 2) {
-            view.setPadding(0,0,0, Utils.dpToPx(this.mContext, 16));
+            view.setPadding(0,0,0, (int) Utils.dpToPx(this.mContext, 16));
         }
         return view;
     }
