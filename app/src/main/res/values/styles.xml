@@ -22,23 +22,85 @@
         <item name="android:background">@color/colorVeryLightGrey</item>
     </style>
 
-    <style name="BlueButton_w320dp">
-        <item name="android:padding">8dp</item>
-        <item name="android:layout_width">match_parent</item>
+    <style name="TxtCrisis">
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">16dp</item>
-        <item name="android:background">@drawable/ic_blue_button</item>
-        <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <style name="TxtCrisis_w200dp" parent="@style/TxtCrisis">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="TxtCrisis_w321dp" parent="@style/TxtCrisis">
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="TxtAppSummary">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
 
     </style>
 
-    <style name="BlueButtonCaretRight_w320dp">
-        <item name="android:paddingStart">20dp</item>
+    <style name="TxtAppSummary_w200dp" parent="@style/TxtAppSummary">
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="TxtAppSummary_w321dp" parent="@style/TxtAppSummary">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <style name="TxtContactToAdd">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="TxtContactToAdd_w200dp" parent="@style/TxtContactToAdd">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TxtContactToAdd_w321dp" parent="@style/TxtContactToAdd">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="BlueButton">
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/ic_blue_button</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="BlueButton_w200dp" parent="@style/BlueButton">
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="BlueButton_w321dp" parent="@style/BlueButton">
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="BlueButtonCaretRight">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">60dp</item>
         <item name="android:layout_margin">16dp</item>
+        <item name="android:paddingStart">20dp</item>
         <item name="android:background">@drawable/ic_blue_button_caret_right</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:gravity">left|center</item>
@@ -46,7 +108,17 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
-    <style name="BlueBackground_w320dp">
+    <style name="BlueButtonCaretRight_w200dp" parent="@style/BlueButtonCaretRight">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="BlueButtonCaretRight_w321dp" parent="@style/BlueButtonCaretRight">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="BlueHeader">
         <item name="android:paddingStart">35dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
@@ -66,21 +138,77 @@
         <item name="android:background">@color/colorWhite</item>
     </style>
 
+    <style name="Container_w200dp" parent="@style/Container">
+        <item name="android:paddingBottom">16dp</item>
+    </style>
+
+    <style name="Container_w321dp" parent="@style/Container">
+        <item name="android:paddingBottom">24dp</item>
+    </style>
+
+    <style name="Map">
+        <item name="android:layout_marginStart">-25dp</item>
+        <item name="android:layout_marginEnd">25dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="Map_200dp" parent="@style/Map">
+        <item name="android:layout_height">150dp</item>
+    </style>
+
+    <style name="Map_321dp" parent="@style/Map">
+        <item name="android:layout_height">300dp</item>
+    </style>
+
     <style name="RegionSpinner">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginEnd">16dp</item>
-        <item name="android:textSize">16sp</item>
         <item name="android:background">@drawable/ic_grey_spinner</item>
+    </style>
+
+    <style name="RegionSpinner_200dp" parent="@style/RegionSpinner">
+        <item name="android:textSize">12sp</item> <!--TODO remove-->
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <style name="RegionSpinner_321dp" parent="@style/RegionSpinner">
+        <item name="android:textSize">16sp</item> <!--TODO remove-->
+        <item name="android:layout_marginTop">24dp</item>
     </style>
 
     <style name="RegionSpinnerItem">
         <item name="android:padding">8dp</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="RegionSpinnerItem_w200dp" parent="@style/RegionSpinnerItem">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="RegionSpinnerItem_w321dp" parent="@style/RegionSpinnerItem">
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="TxtRegionDescription">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
 
+    <style name="TxtRegionDescription_w200dp" parent="@style/TxtRegionDescription">
+        <item name="android:layout_height">90dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+
+    </style>
+
+    <style name="TxtRegionDescription_w321dp" parent="@style/TxtRegionDescription">
+        <item name="android:layout_height">110dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">16dp</item>
+
+    </style>
 
 </resources>

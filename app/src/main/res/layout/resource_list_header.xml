@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/header"
-        style="@style/BlueBackground_w320dp"
+        style="@style/BlueHeader"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

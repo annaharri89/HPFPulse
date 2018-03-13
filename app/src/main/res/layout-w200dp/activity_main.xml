@@ -9,18 +9,14 @@
 
     <TextView
         android:id="@+id/crisis"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
         android:text="@string/txt_main_crisis"
-        android:textSize="22sp"
+        style="@style/TxtCrisis_w200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/call_911"
-        style="@style/BlueButton_w320dp"
+        style="@style/BlueButton_w200dp"
         android:text="@string/btn_main_call_911"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,26 +26,20 @@
     <include
         android:id="@+id/categories"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@+id/call_911"
+        app:layout_constraintBottom_toTopOf="@+id/contact_to_add"
         layout="@layout/main_categories" />
+    <!--TODO adding 0dp (match constraints) makes the categories container stretch to fit screen-->
 
     <TextView
         android:id="@+id/contact_to_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:paddingEnd="16dp"
-        android:paddingStart="16dp"
         android:text="@string/txt_main_contact_to_add"
-        android:textSize="14sp"
+        style="@style/TxtContactToAdd_w200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/categories"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
-
 
 </android.support.constraint.ConstraintLayout>

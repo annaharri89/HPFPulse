@@ -7,13 +7,9 @@
     style="@style/Background"
     tools:context="org.humanitypreservationfoundation.pulse.activities.MapActivity">
 
-
     <org.humanitypreservationfoundation.pulse.views.MapView
         android:id="@+id/map_view"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="-25dp"
+        style="@style/Map_200dp"
         android:textColor="#FFFFFF"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -22,8 +18,9 @@
     <include
         android:id="@+id/description"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@+id/map_view"
+        app:layout_constraintBottom_toBottomOf="parent"
         layout="@layout/map_description" />
 
 </android.support.constraint.ConstraintLayout>

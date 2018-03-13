@@ -140,8 +140,6 @@ public class MapActivity extends AppCompatActivity {
         } else {
             String lowerCaseActivityName = mActivityName.toLowerCase();
             description = String.format(getResources().getString(R.string.description_header), lowerCaseActivityName, tz.getDescription());
-            //todo fix bug: WSC, ENC, ESC, and MA timezone's descriptions for Child Abuse
-            //todo and Bullying categories have an increased margin for some reason
         }
         mDescriptionTextView.setText(description);
     }

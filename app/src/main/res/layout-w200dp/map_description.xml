@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Container_w200dp">
+
+    <Spinner
+        android:id="@+id/region_spinner"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/RegionSpinner_200dp" />
+
+    <TextView
+        android:id="@+id/region_description"
+        android:text="@string/START_description"
+        style="@style/TxtRegionDescription_w200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/region_spinner" />
+
+    <Button
+        android:id="@+id/get_results"
+        style="@style/BlueButtonCaretRight_w200dp"
+        android:layout_height="35dp"
+        android:text="@string/btn_map_get_results"
+        app:layout_constraintTop_toBottomOf="@id/region_description"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="getResults" />
+
+</android.support.constraint.ConstraintLayout>
