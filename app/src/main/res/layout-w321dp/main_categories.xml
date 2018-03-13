@@ -16,6 +16,8 @@
         style="@style/BlueButtonCaretRight_w321dp"
         android:text="@string/btn_main_all_resources"
         app:layout_constraintTop_toBottomOf="@id/app_summary"
+        app:layout_constraintBottom_toTopOf="@id/child_abuse"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:onClick="openAllResources" />
 
@@ -24,7 +26,9 @@
         style="@style/BlueButtonCaretRight_w321dp"
         android:text="@string/btn_main_child_abuse"
         app:layout_constraintTop_toBottomOf="@id/all_resources"
+        app:layout_constraintBottom_toTopOf="@id/bullying"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:onClick="openChildAbuse" />
 
     <Button
@@ -32,7 +36,9 @@
         style="@style/BlueButtonCaretRight_w321dp"
         android:text="@string/btn_main_bullying"
         app:layout_constraintTop_toBottomOf="@id/child_abuse"
+        app:layout_constraintBottom_toTopOf="@id/domestic_violence"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:onClick="openBullying" />
 
     <Button
@@ -40,7 +46,9 @@
         style="@style/BlueButtonCaretRight_w321dp"
         android:text="@string/btn_main_domestic_violence"
         app:layout_constraintTop_toBottomOf="@id/bullying"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:onClick="openDomesticViolence" />
 
 </android.support.constraint.ConstraintLayout>

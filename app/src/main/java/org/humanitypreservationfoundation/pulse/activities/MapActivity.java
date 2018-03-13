@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 
 import org.humanitypreservationfoundation.pulse.Config;
 import org.humanitypreservationfoundation.pulse.classes.TimeZone;
+import org.humanitypreservationfoundation.pulse.enums.DensitiesEnum;
+import org.humanitypreservationfoundation.pulse.utils.Utils;
 import org.humanitypreservationfoundation.pulse.views.MapView;
 import org.humanitypreservationfoundation.pulse.R;
 import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
@@ -36,6 +39,15 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+        mMap = (MapView) findViewById(R.id.map_view);
+        mDescriptionTextView = (TextView) findViewById(R.id.region_description);
+
+        DensitiesEnum dpi = Utils.getScreenDensity(this);
+        boolean isTablet = getResources().getBoolean(R.bool.isTablet);
+        if (!isTablet && dpi.equals(DensitiesEnum.XHDPI)) {
+            setXHDPIMapHeight();
+        }
+
         ActionBar ab = getSupportActionBar();
         Intent intent = getIntent();
         mActivityName = intent.getStringExtra(Config.intents.ACTIVITY_EXTRA);
@@ -45,8 +57,6 @@ public class MapActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        mMap = (MapView) findViewById(R.id.map_view);
-        mDescriptionTextView = (TextView) findViewById(R.id.region_description);
         final Button getResults = (Button) findViewById(R.id.get_results);
         getResults.setEnabled(false);
 
@@ -142,6 +152,15 @@ public class MapActivity extends AppCompatActivity {
             description = String.format(getResources().getString(R.string.description_header), lowerCaseActivityName, tz.getDescription());
         }
         mDescriptionTextView.setText(description);
+    }
+
+    private void setXHDPIMapHeight() {
+        ViewGroup.LayoutParams params = mMap.getLayoutParams();
+        DisplayMetrics displayMetrics = this.getResources().getDisplayMetrics();
+        int deviceHeight = displayMetrics.heightPixels;
+        double mapHeight = deviceHeight * 0.35;
+        params.height = (int) mapHeight;
+        mMap.setLayoutParams(params);
     }
 
     public void getResults(View view) {

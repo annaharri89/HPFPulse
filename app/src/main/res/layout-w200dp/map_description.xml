@@ -21,7 +21,7 @@
         style="@style/BlueButtonCaretRight_w200dp"
         android:layout_height="35dp"
         android:text="@string/btn_map_get_results"
-        app:layout_constraintTop_toBottomOf="@id/region_description"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:onClick="getResults" />
 

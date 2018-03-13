@@ -134,16 +134,13 @@
     <style name="Container">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingBottom">24dp</item>
         <item name="android:background">@color/colorWhite</item>
     </style>
 
     <style name="Container_w200dp" parent="@style/Container">
-        <item name="android:paddingBottom">16dp</item>
     </style>
 
     <style name="Container_w321dp" parent="@style/Container">
-        <item name="android:paddingBottom">24dp</item>
     </style>
 
     <style name="Map">
@@ -198,14 +195,14 @@
     </style>
 
     <style name="TxtRegionDescription_w200dp" parent="@style/TxtRegionDescription">
-        <item name="android:layout_height">90dp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">14sp</item>
         <item name="android:layout_marginTop">8dp</item>
 
     </style>
 
     <style name="TxtRegionDescription_w321dp" parent="@style/TxtRegionDescription">
-        <item name="android:layout_height">110dp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">18sp</item>
         <item name="android:layout_marginTop">16dp</item>
 

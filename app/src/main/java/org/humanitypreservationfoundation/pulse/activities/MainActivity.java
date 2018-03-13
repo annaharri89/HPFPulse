@@ -44,23 +44,21 @@ public class MainActivity extends AppCompatActivity {
             switch (Utils.getScreenDensity(this)) {
                 case LDPI:
                 case HDPI:
-                case MDPI://todo make sure this is working after w200dp layout created
+                    break;
+                case MDPI:
+                //todo make sure this is working after w200dp layout created
                     buttonHeight = deviceHeight * 0.05;
                     params.height = (int) buttonHeight;
                     categoryButton.setLayoutParams(params);
                     break;
                 case XHDPI:
-                    buttonHeight = deviceHeight * 0.07;
+                    buttonHeight = deviceHeight * 0.065;
                     params.height = (int) buttonHeight;
                     categoryButton.setLayoutParams(params);
                     break;
                 case XXHDPI:
-                    buttonHeight = deviceHeight * 0.09;
-                    params.height = (int) buttonHeight;
-                    categoryButton.setLayoutParams(params);
-                    break;
                 case XXXHDPI:
-                    buttonHeight = deviceHeight * 0.11;
+                    buttonHeight = deviceHeight * 0.09;
                     params.height = (int) buttonHeight;
                     categoryButton.setLayoutParams(params);
                     break;
