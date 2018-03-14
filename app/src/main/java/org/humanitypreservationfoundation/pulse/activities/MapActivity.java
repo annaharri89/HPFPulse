@@ -156,10 +156,7 @@ public class MapActivity extends AppCompatActivity {
 
     private void setXHDPIMapHeight() {
         ViewGroup.LayoutParams params = mMap.getLayoutParams();
-        DisplayMetrics displayMetrics = this.getResources().getDisplayMetrics();
-        int deviceHeight = displayMetrics.heightPixels;
-        double mapHeight = deviceHeight * 0.35;
-        params.height = (int) mapHeight;
+        params.height = 200;
         mMap.setLayoutParams(params);
     }
 
