@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.content.res.AppCompatResources;
 import android.text.method.LinkMovementMethod;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true); //needed so that vector drawables can be used in backgrounds
         setContentView(R.layout.activity_main);
 
         TextView contactToAdd = (TextView) findViewById(R.id.contact_to_add);
@@ -29,6 +32,18 @@ public class MainActivity extends AppCompatActivity {
         setCategoryButtonHeight(R.id.child_abuse);
         setCategoryButtonHeight(R.id.bullying);
         setCategoryButtonHeight(R.id.domestic_violence);
+        
+        setCategoryButtonBackground(R.id.all_resources);
+        setCategoryButtonBackground(R.id.child_abuse);
+        setCategoryButtonBackground(R.id.bullying);
+        setCategoryButtonBackground(R.id.domestic_violence);
+
+    }
+
+    private void setCategoryButtonBackground(int id) {
+        TextView categoryButton = (TextView) findViewById(id);
+        categoryButton.setBackground(AppCompatResources.getDrawable(this, R.drawable.ic_blue_button_caret_right));
+
     }
 
     private void setCategoryButtonHeight(int id) {
@@ -52,11 +67,11 @@ public class MainActivity extends AppCompatActivity {
                     categoryButton.setLayoutParams(params);
                     break;
                 case XHDPI:
-                    buttonHeight = deviceHeight * 0.065;
+                case XXHDPI:
+                    buttonHeight = deviceHeight * 0.07;
                     params.height = (int) buttonHeight;
                     categoryButton.setLayoutParams(params);
                     break;
-                case XXHDPI:
                 case XXXHDPI:
                     buttonHeight = deviceHeight * 0.09;
                     params.height = (int) buttonHeight;

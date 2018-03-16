@@ -1,10 +1,15 @@
 package org.humanitypreservationfoundation.pulse.activities;
 
+import android.support.graphics.drawable.VectorDrawableCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.content.res.AppCompatResources;
+import android.support.v7.widget.AppCompatDrawableManager;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +21,7 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import org.humanitypreservationfoundation.pulse.Config;
+import org.humanitypreservationfoundation.pulse.classes.Resource;
 import org.humanitypreservationfoundation.pulse.classes.TimeZone;
 import org.humanitypreservationfoundation.pulse.enums.DensitiesEnum;
 import org.humanitypreservationfoundation.pulse.utils.Utils;
@@ -37,10 +43,14 @@ public class MapActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true); //needed so that vector drawables can be used in backgrounds
         setContentView(R.layout.activity_map);
 
         mMap = (MapView) findViewById(R.id.map_view);
         mDescriptionTextView = (TextView) findViewById(R.id.region_description);
+        Spinner regionSpinner = (Spinner) findViewById(R.id.region_spinner);
+        final Button getResults = (Button) findViewById(R.id.get_results);
+        getResults.setEnabled(false);
 
         DensitiesEnum dpi = Utils.getScreenDensity(this);
         boolean isTablet = getResources().getBoolean(R.bool.isTablet);
@@ -56,9 +66,6 @@ public class MapActivity extends AppCompatActivity {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
-
-        final Button getResults = (Button) findViewById(R.id.get_results);
-        getResults.setEnabled(false);
 
         SpinnerAdapter adapter = new ArrayAdapter<String>(this, R.layout.region_spinner_item, getResources().getStringArray(R.array.timezones)) {
             @Override
@@ -77,7 +84,8 @@ public class MapActivity extends AppCompatActivity {
                 return view;
             }
         };
-        Spinner regionSpinner = (Spinner) findViewById(R.id.region_spinner);
+        //regionSpinner.setBackground(VectorDrawableCompat.create(getResources(), R.drawable.ic_grey_spinner, null));
+        //regionSpinner.setBackground(ContextCompat.getDrawable(this, R.drawable.ic_grey_spinner));
         regionSpinner.setAdapter(adapter);
         regionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -118,6 +126,11 @@ public class MapActivity extends AppCompatActivity {
 
             }
         });
+
+        // Set background here for backwards compatibility
+        regionSpinner.setBackground(AppCompatResources.getDrawable(this, R.drawable.ic_grey_spinner));
+        getResults.setBackground(AppCompatResources.getDrawable(this, R.drawable.ic_blue_button_caret_right));
+
     }
 
     @Override
@@ -156,7 +169,7 @@ public class MapActivity extends AppCompatActivity {
 
     private void setXHDPIMapHeight() {
         ViewGroup.LayoutParams params = mMap.getLayoutParams();
-        params.height = 200;
+        params.height = 400;
         mMap.setLayoutParams(params);
     }
 
