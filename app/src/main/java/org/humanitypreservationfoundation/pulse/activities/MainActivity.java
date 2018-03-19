@@ -56,16 +56,14 @@ public class MainActivity extends AppCompatActivity {
         DisplayMetrics displayMetrics = this.getResources().getDisplayMetrics();
         int deviceHeight = displayMetrics.heightPixels;
         double buttonHeight;
-        boolean isTablet = getResources().getBoolean(R.bool.isTablet);
-        if (isTablet) {
-            //todo remove when confirmed unnecessary
-        } else {
-            TypedValue decimal = new TypedValue();
-            this.getResources().getValue(R.dimen.main_button_height_decimal, decimal, true);
-            buttonHeight = deviceHeight * decimal.getFloat();
-            params.height = (int) buttonHeight;
-            categoryButton.setLayoutParams(params);
-        }
+
+        TypedValue decimal = new TypedValue();
+        this.getResources().getValue(R.dimen.main_button_height_decimal, decimal, true);
+
+        buttonHeight = deviceHeight * decimal.getFloat();
+        params.height = (int) buttonHeight;
+        categoryButton.setLayoutParams(params);
+
     }
 
     public void call911(View view) {

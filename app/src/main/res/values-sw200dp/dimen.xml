@@ -29,7 +29,7 @@
 
     <!-- RegionSpinner -->
     <dimen name="region_spinner_margin_top">16dp</dimen>
-    <dimen name="region_spinner_text_size">12sp</dimen>
+    <dimen name="region_spinner_height">30dp</dimen>
 
     <!-- RegionSpinnerItem -->
     <dimen name="region_spinner_item_text_size">12sp</dimen>

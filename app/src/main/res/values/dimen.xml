@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="custom_wrap_content">-2dp</dimen>
-    <dimen name="custom_match_parent">-1px</dimen>
+    <dimen name="custom_match_parent">-1dp</dimen>
+
+    <!-- Resource List Dimensions -->
+
+    <!-- BlueHeader -->
+    <dimen name="blue_header_height">50dp</dimen>
+    <dimen name="blue_header_text_size">18sp</dimen>
+
+    <!-- TxtOrgName -->
+    <dimen name="txt_org_name_margin_start">16dp</dimen>
+    <dimen name="txt_org_name_margin_top">16dp</dimen>
+    <dimen name="txt_org_name_text_size">16sp</dimen>
+
+    <!-- TxtOrgName -->
+    <dimen name="txt_org_subtitle_margin_start">16dp</dimen>
+    <dimen name="txt_org_subtitle_margin_top">8dp</dimen>
+    <dimen name="txt_org_subtitle_text_size">14sp</dimen>
+
+    <!-- BtnOrg -->
+    <dimen name="btn_org_height">60dp</dimen>
+    <dimen name="btn_org_margin_top">16dp</dimen>
+    <dimen name="btn_org_text_size">14sp</dimen>
+
+    <!-- BtnOrg -->
+    <dimen name="btn_org_divider_height">60dp</dimen>
+    <dimen name="btn_org_divider_margin_top">16dp</dimen>
+
+    <!-- End Resource List Dimensions -->
+
 
     <!-- Fallbacks for devices that somehow don't match any of the options -->
     <!-- TxtCrisis -->
@@ -41,7 +69,11 @@
     <dimen name="txt_region_description_text_size">18sp</dimen>
     <dimen name="txt_region_description_margin_top">16dp</dimen>
 
-    <!-- Fallbacks: Left margin for button carets for support library compatibility -->
+    <!-- Fallbacks-->
+    <!-- Left margin for button carets for support library compatibility -->
     <dimen name="right_caret_left">270dp</dimen>
     <dimen name="down_caret_left">270dp</dimen>
+
+    <!-- Category button height percent-->
+    <item name="main_button_height_decimal" format="float" type="dimen">0.07</item>
 </resources>

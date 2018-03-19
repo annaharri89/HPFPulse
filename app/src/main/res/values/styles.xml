@@ -81,14 +81,54 @@
     <style name="BlueHeader">
         <item name="android:paddingStart">35dp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_height">@dimen/blue_header_height</item>
         <item name="android:layout_margin">8dp</item>
         <item name="android:padding">8dp</item>
         <item name="android:background">@drawable/ic_blue_background</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:gravity">left|center</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">@dimen/blue_header_text_size</item>
         <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="TxtOrgName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/txt_org_name_margin_start</item>
+        <item name="android:layout_marginTop">@dimen/txt_org_name_margin_top</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/txt_org_name_text_size</item>
+    </style>
+
+    <style name="TxtOrgSubtitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/txt_org_subtitle_margin_start</item>
+        <item name="android:layout_marginTop">@dimen/txt_org_subtitle_margin_top</item>
+        <item name="android:textSize">@dimen/txt_org_subtitle_text_size</item>
+    </style>
+
+    <style name="BtnOrg">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/btn_org_height</item>
+        <item name="android:layout_marginTop">@dimen/btn_org_margin_top</item>
+        <item name="android:textSize">@dimen/btn_org_text_size</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="BtnOrgWeb" parent="@style/BtnOrg">
+        <item name="android:background">@drawable/ic_resource_button_left</item>
+    </style>
+
+    <style name="BtnOrgCall" parent="@style/BtnOrg">
+        <item name="android:background">@drawable/ic_resource_button_right</item>
+    </style>
+
+    <style name="BtnOrgDivider">
+        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_height">@dimen/btn_org_divider_height</item>
+        <item name="android:layout_marginTop">@dimen/btn_org_divider_margin_top</item>
+        <item name="android:background">#bababa</item>
     </style>
 
     <style name="Container">
@@ -106,13 +146,12 @@
 
     <style name="RegionSpinner">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">@dimen/region_spinner_height</item>
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginEnd">16dp</item>
         <!-- Background is being set in MapActivity in order to support vector drawables in API 20 and below
         <item name="android:background">@drawable/ic_grey_spinner</item>
         -->
-        <item name="android:textSize">@dimen/region_spinner_text_size</item>
         <item name="android:layout_marginTop">@dimen/region_spinner_margin_top</item>
     </style>
 
