@@ -52,12 +52,6 @@ public class MapActivity extends AppCompatActivity {
         final Button getResults = (Button) findViewById(R.id.get_results);
         getResults.setEnabled(false);
 
-        DensitiesEnum dpi = Utils.getScreenDensity(this);
-        boolean isTablet = getResources().getBoolean(R.bool.isTablet);
-        if (!isTablet && dpi.equals(DensitiesEnum.XHDPI)) {
-            setXHDPIMapHeight();
-        }
-
         ActionBar ab = getSupportActionBar();
         Intent intent = getIntent();
         mActivityName = intent.getStringExtra(Config.intents.ACTIVITY_EXTRA);
@@ -165,12 +159,6 @@ public class MapActivity extends AppCompatActivity {
             description = String.format(getResources().getString(R.string.description_header), lowerCaseActivityName, tz.getDescription());
         }
         mDescriptionTextView.setText(description);
-    }
-
-    private void setXHDPIMapHeight() {
-        ViewGroup.LayoutParams params = mMap.getLayoutParams();
-        params.height = 400;
-        mMap.setLayoutParams(params);
     }
 
     public void getResults(View view) {

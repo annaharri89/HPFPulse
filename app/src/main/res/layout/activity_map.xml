@@ -9,7 +9,7 @@
 
     <org.humanitypreservationfoundation.pulse.views.MapView
         android:id="@+id/map_view"
-        style="@style/Map_200dp"
+        style="@style/Map"
         android:textColor="#FFFFFF"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

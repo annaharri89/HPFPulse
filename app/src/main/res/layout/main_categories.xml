@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/Container_w321dp">
+    style="@style/Container">
 
     <TextView
         android:id="@+id/app_summary"
         android:text="@string/txt_main_app_summary"
-        style="@style/TxtAppSummary_w321dp"
+        style="@style/TxtAppSummary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/all_resources"
-        style="@style/BlueButtonCaretRight_w321dp"
+        style="@style/BlueButtonCaretRight"
         android:text="@string/btn_main_all_resources"
         app:layout_constraintTop_toBottomOf="@id/app_summary"
         app:layout_constraintBottom_toTopOf="@id/child_abuse"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:onClick="openAllResources" />
 
     <Button
         android:id="@+id/child_abuse"
-        style="@style/BlueButtonCaretRight_w321dp"
+        style="@style/BlueButtonCaretRight"
         android:text="@string/btn_main_child_abuse"
         app:layout_constraintTop_toBottomOf="@id/all_resources"
         app:layout_constraintBottom_toTopOf="@id/bullying"
@@ -33,7 +33,7 @@
 
     <Button
         android:id="@+id/bullying"
-        style="@style/BlueButtonCaretRight_w321dp"
+        style="@style/BlueButtonCaretRight"
         android:text="@string/btn_main_bullying"
         app:layout_constraintTop_toBottomOf="@id/child_abuse"
         app:layout_constraintBottom_toTopOf="@id/domestic_violence"
@@ -43,7 +43,7 @@
 
     <Button
         android:id="@+id/domestic_violence"
-        style="@style/BlueButtonCaretRight_w321dp"
+        style="@style/BlueButtonCaretRight"
         android:text="@string/btn_main_domestic_violence"
         app:layout_constraintTop_toBottomOf="@id/bullying"
         app:layout_constraintBottom_toBottomOf="parent"

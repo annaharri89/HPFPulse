@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- TxtCrisis -->
+    <dimen name="txt_crisis_margin_top">8dp</dimen>
+    <dimen name="txt_crisis_text_size">17sp</dimen>
+
+    <!-- TxtAppSummary -->
+    <dimen name="txt_app_summary_margin_top">8dp</dimen>
+    <dimen name="txt_app_summary_text_size">12sp</dimen>
+
+    <!-- TxtContactToAdd -->
+    <dimen name="txt_contact_to_add_text_size">10sp</dimen>
+
+    <!-- BlueButton -->
+    <dimen name="btn_blue_text_size">15sp</dimen>
+    <dimen name="btn_blue_margin_start">16dp</dimen>
+    <dimen name="btn_blue_margin_end">16dp</dimen>
+    <dimen name="btn_blue_margin_top">8dp</dimen>
+    <dimen name="btn_blue_margin_bottom">8dp</dimen>
+    <dimen name="btn_blue_height">35dp</dimen>
+
+    <!-- BlueButtonCaretRight -->
+    <dimen name="btn_blue_caret_text_size">16sp</dimen>
+    <dimen name="btn_blue_caret_height">40dp</dimen>
+
+    <!-- Map -->
+    <dimen name="map_height">150dp</dimen>
+
+    <!-- RegionSpinner -->
+    <dimen name="region_spinner_margin_top">16dp</dimen>
+    <dimen name="region_spinner_text_size">12sp</dimen>
+
+    <!-- RegionSpinnerItem -->
+    <dimen name="region_spinner_item_text_size">12sp</dimen>
+
+    <!-- TxtRegionDescription -->
+    <dimen name="txt_region_description_text_size">14sp</dimen>
+    <dimen name="txt_region_description_margin_top">8dp</dimen>
+
+    <!-- Categories' Include Margin Top-->
+    <dimen name="categories_margin_top">16dp</dimen>
+
+    <!-- Fallbacks-->
+
+    <!--Left margin for button carets for support library compatibility -->
+    <dimen name="right_caret_left">245dp</dimen>
+    <dimen name="down_caret_left">245dp</dimen>
+
+    <!-- Category button height percent-->
+    <item name="main_button_height_decimal" format="float" type="dimen">0.06</item>
+
+</resources>

@@ -12,7 +12,7 @@
                 </shape>
             </item>
 
-            <item android:gravity="center|right" android:left="300dp" android:drawable="@drawable/caret_right24dp" android:right="15dp"/>
+            <item android:gravity="center|right" android:left="@dimen/right_caret_left" android:drawable="@drawable/caret_right24dp" android:right="15dp"/>
 
         </layer-list>
     </item>

@@ -10,13 +10,13 @@
     <TextView
         android:id="@+id/crisis"
         android:text="@string/txt_main_crisis"
-        style="@style/TxtCrisis_w200dp"
+        style="@style/TxtCrisis"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/call_911"
-        style="@style/BlueButton_w200dp"
+        style="@style/BlueButton"
         android:text="@string/btn_main_call_911"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         android:id="@+id/categories"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/categories_margin_top"
         app:layout_constraintTop_toBottomOf="@+id/call_911"
         app:layout_constraintBottom_toTopOf="@+id/contact_to_add"
         layout="@layout/main_categories" />
@@ -36,7 +36,7 @@
     <TextView
         android:id="@+id/contact_to_add"
         android:text="@string/txt_main_contact_to_add"
-        style="@style/TxtContactToAdd_w200dp"
+        style="@style/TxtContactToAdd"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/categories"

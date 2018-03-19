@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.content.res.AppCompatResources;
 import android.text.method.LinkMovementMethod;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setCategoryButtonHeight(R.id.child_abuse);
         setCategoryButtonHeight(R.id.bullying);
         setCategoryButtonHeight(R.id.domestic_violence);
-        
+
         setCategoryButtonBackground(R.id.all_resources);
         setCategoryButtonBackground(R.id.child_abuse);
         setCategoryButtonBackground(R.id.bullying);
@@ -46,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Sets the category buttons height to a percent of the device's height
+     */
     private void setCategoryButtonHeight(int id) {
         TextView categoryButton = (TextView) findViewById(id);
         ViewGroup.LayoutParams params = categoryButton.getLayoutParams();
@@ -54,30 +58,13 @@ public class MainActivity extends AppCompatActivity {
         double buttonHeight;
         boolean isTablet = getResources().getBoolean(R.bool.isTablet);
         if (isTablet) {
-            //todo implement for tablets
+            //todo remove when confirmed unnecessary
         } else {
-            switch (Utils.getScreenDensity(this)) {
-                case LDPI:
-                case HDPI:
-                    break;
-                case MDPI:
-                //todo make sure this is working after w200dp layout created
-                    buttonHeight = deviceHeight * 0.05;
-                    params.height = (int) buttonHeight;
-                    categoryButton.setLayoutParams(params);
-                    break;
-                case XHDPI:
-                case XXHDPI:
-                    buttonHeight = deviceHeight * 0.07;
-                    params.height = (int) buttonHeight;
-                    categoryButton.setLayoutParams(params);
-                    break;
-                case XXXHDPI:
-                    buttonHeight = deviceHeight * 0.09;
-                    params.height = (int) buttonHeight;
-                    categoryButton.setLayoutParams(params);
-                    break;
-            }
+            TypedValue decimal = new TypedValue();
+            this.getResources().getValue(R.dimen.main_button_height_decimal, decimal, true);
+            buttonHeight = deviceHeight * decimal.getFloat();
+            params.height = (int) buttonHeight;
+            categoryButton.setLayoutParams(params);
         }
     }
 
