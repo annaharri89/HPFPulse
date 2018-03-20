@@ -41,7 +41,7 @@
     <!-- Categories' Include Margin Top-->
     <dimen name="categories_margin_top">16dp</dimen>
 
-    <!-- Fallbacks-->
+    <!-- Defaults-->
 
     <!--Left margin for button carets for support library compatibility -->
     <dimen name="right_caret_left">245dp</dimen>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Text Settings -->
+    <integer name="label_text_size">27</integer>
+    <integer name="label_stroke_size">7</integer>
+
+    <!-- Top: negative numbers = move up; positive numbers = move down -->
+    <integer name="PST_top">-55</integer>
+    <integer name="MT_top">-50</integer>
+    <integer name="WNC_top">-50</integer>
+    <integer name="WSC_top">-80</integer>
+    <integer name="ENC_top">-45</integer>
+    <integer name="ESC_top">-50</integer>
+    <integer name="MA_top">-45</integer>
+    <integer name="SA_top">-70</integer>
+    <integer name="NE_top">-35</integer>
+
+    <!-- Left: negative numbers = move left; positive numbers = move right-->
+    <integer name="PST_left">-60</integer>
+    <integer name="MT_left">-80</integer>
+    <integer name="WNC_left">-110</integer>
+    <integer name="WSC_left">-100</integer>
+    <integer name="ENC_left">-125</integer>
+    <integer name="ESC_left">-130</integer>
+    <integer name="MA_left">-160</integer>
+    <integer name="SA_left">-110</integer>
+    <integer name="NE_left">-160</integer>
+</resources>

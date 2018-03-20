@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Left margin for button carets for support library compatibility -->
-    <dimen name="right_caret_left">490dp</dimen>
-    <dimen name="down_caret_left">500dp</dimen>
-
     <!-- Resource List Dimensions -->
 
     <!-- BlueHeader -->
@@ -75,6 +71,10 @@
     <!-- Categories' Include Margin Top-->
     <dimen name="categories_margin_top">32dp</dimen>
 
-    <!-- Fallbacks-->
+    <!-- Left margin for button carets for support library compatibility -->
+    <dimen name="right_caret_left">490dp</dimen>
+    <dimen name="down_caret_left">500dp</dimen>
+
+    <!-- Defaults-->
 
 </resources>

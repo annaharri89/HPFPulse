@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Left margin for button carets for support library compatibility -->
-    <dimen name="right_caret_left">630dp</dimen>
-    <dimen name="down_caret_left">680dp</dimen>
 
     <!-- Resource List Dimensions -->
 
@@ -75,6 +72,10 @@
     <!-- Categories' Include Margin Top-->
     <dimen name="categories_margin_top">40dp</dimen>
 
-    <!-- Fallbacks-->
+    <!-- Left margin for button carets for support library compatibility -->
+    <dimen name="right_caret_left">630dp</dimen>
+    <dimen name="down_caret_left">680dp</dimen>
+
+    <!-- Defaults-->
 
 </resources>

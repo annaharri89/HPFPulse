@@ -31,7 +31,7 @@
     <!-- End Resource List Dimensions -->
 
 
-    <!-- Fallbacks for devices that somehow don't match any of the options -->
+    <!-- Defaults for devices that somehow don't match any of the options -->
     <!-- TxtCrisis -->
     <dimen name="txt_crisis_margin_top">24dp</dimen>
     <dimen name="txt_crisis_text_size">22sp</dimen>
@@ -69,7 +69,6 @@
     <dimen name="txt_region_description_text_size">18sp</dimen>
     <dimen name="txt_region_description_margin_top">16dp</dimen>
 
-    <!-- Fallbacks-->
     <!-- Left margin for button carets for support library compatibility -->
     <dimen name="right_caret_left">270dp</dimen>
     <dimen name="down_caret_left">270dp</dimen>

@@ -2,7 +2,6 @@ package org.humanitypreservationfoundation.pulse.views;
 
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.content.Context;
@@ -16,13 +15,10 @@ import org.humanitypreservationfoundation.pulse.classes.MapViewController;
 import org.humanitypreservationfoundation.pulse.classes.Resource;
 import org.humanitypreservationfoundation.pulse.classes.State;
 import org.humanitypreservationfoundation.pulse.classes.TimeZone;
-import org.humanitypreservationfoundation.pulse.enums.DensitiesEnum;
 import org.humanitypreservationfoundation.pulse.enums.StateEnum;
 import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
-import org.humanitypreservationfoundation.pulse.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,10 +35,7 @@ public class MapView extends View {
     private VectorMasterDrawable mUSMap;
     private Paint mPaintGrey = new Paint();
     private Paint mPaintWhite = new Paint();
-    private DensitiesEnum mDPI;
-
-    private int mTextSize;
-    private int mStrokeWidth;
+    private MapViewController mController;
 
     /**
      *MapView Constructor
@@ -50,7 +43,7 @@ public class MapView extends View {
     public MapView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.mContext = context;
-        this.mDPI = Utils.getScreenDensity(this.mContext);
+        this.mController = new MapViewController(this.mContext);
         this.setupTimeZoneTitlesAndStates();
         this.mUSMap = new VectorMasterDrawable(this.mContext.getApplicationContext(), R.drawable.ic_us_map_vector);
         for (Map.Entry<TimeZoneEnum, List<StateEnum>> entry : MapView.mTimeZoneTitlesAndStates.entrySet()) {
@@ -226,22 +219,22 @@ public class MapView extends View {
      * Draws time zone labels
      */
     private void drawTimeZoneLabels(Canvas canvas) {
-        this.mTextSize = MapViewController.getTimeZoneLabelTextSize(this.mDPI);
-        this.mStrokeWidth = MapViewController.getTimeZoneLabelTextStroke(this.mDPI);
+        int textSize = this.mController.getTimeZoneLabelTextSize();
+        int strokeWidth = this.mController.getTimeZoneLabelStrokeSize();
         //TODO: find more attractive font for timezone names
         this.mPaintGrey.setColor(Color.DKGRAY);
-        this.mPaintGrey.setTextSize(this.mTextSize);
+        this.mPaintGrey.setTextSize(textSize);
         this.mPaintGrey.setStyle(Paint.Style.STROKE);
-        this.mPaintGrey.setStrokeWidth(this.mStrokeWidth);
+        this.mPaintGrey.setStrokeWidth(strokeWidth);
 
         this.mPaintWhite.setColor(Color.WHITE);
-        this.mPaintWhite.setTextSize(this.mTextSize);
+        this.mPaintWhite.setTextSize(textSize);
 
         // Code to draw time zone names as text on map
         for (TimeZone timeZone : this.mTimeZones) {
             if (!timeZone.getEnum().equals(TimeZoneEnum.ALL)) {
-                float top = MapViewController.calculateTop(this.mContext, this.mDPI, timeZone);
-                float left = MapViewController.calculateLeft(this.mContext, this.mDPI, timeZone);
+                float top = this.mController.calculateTop(timeZone);
+                float left = this.mController.calculateLeft(timeZone);
                 for (String line: timeZone.getName().split(" ")) {// makes words appear underneath each other
                     canvas.drawText(line, left, top, mPaintGrey);
                     canvas.drawText(line, left, top, mPaintWhite);
