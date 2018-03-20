@@ -27,9 +27,6 @@
 
     <!-- End Resource List Dimensions -->
 
-    <!-- Category button height percent-->
-    <item name="main_button_height_decimal" format="float" type="dimen">0.1</item>
-
     <!-- TxtCrisis -->
     <dimen name="txt_crisis_margin_top">32dp</dimen>
     <dimen name="txt_crisis_text_size">30sp</dimen>
@@ -53,7 +50,7 @@
     <dimen name="btn_blue_caret_text_size">24sp</dimen>
     <dimen name="btn_blue_caret_height">75dp</dimen>
 
-    <!-- Map todo get labels placement correct in MapViewController -->
+    <!-- Map -->
     <dimen name="map_height">350dp</dimen>
     <!-- Map height is in each dpi dependent folder for xhdpi-xxxhdpi-->
 
@@ -71,10 +68,13 @@
     <!-- Categories' Include Margin Top-->
     <dimen name="categories_margin_top">32dp</dimen>
 
+    <!-- Defaults-->
+
     <!-- Left margin for button carets for support library compatibility -->
     <dimen name="right_caret_left">490dp</dimen>
     <dimen name="down_caret_left">500dp</dimen>
 
-    <!-- Defaults-->
+    <!-- Category button height percent-->
+    <item name="main_button_height_decimal" format="float" type="dimen">0.1</item>
 
 </resources>

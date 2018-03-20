@@ -28,9 +28,6 @@
 
     <!-- End Resource List Dimensions -->
 
-    <!-- Category button height percent-->
-    <item name="main_button_height_decimal" format="float" type="dimen">0.11</item>
-
     <!-- TxtCrisis -->
     <dimen name="txt_crisis_margin_top">40dp</dimen>
     <dimen name="txt_crisis_text_size">45sp</dimen>
@@ -72,10 +69,13 @@
     <!-- Categories' Include Margin Top-->
     <dimen name="categories_margin_top">40dp</dimen>
 
+    <!-- Defaults-->
+
     <!-- Left margin for button carets for support library compatibility -->
     <dimen name="right_caret_left">630dp</dimen>
     <dimen name="down_caret_left">680dp</dimen>
 
-    <!-- Defaults-->
+    <!-- Category button height percent-->
+    <item name="main_button_height_decimal" format="float" type="dimen">0.11</item>
 
 </resources>

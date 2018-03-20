@@ -24,9 +24,6 @@
     <dimen name="btn_blue_caret_text_size">20sp</dimen>
     <dimen name="btn_blue_caret_height">75dp</dimen>
 
-    <!-- Map -->
-    <!-- Map height is in each dpi dependent folder for xhdpi-xxxhdpi-->
-
     <!-- RegionSpinner -->
     <dimen name="region_spinner_margin_top">24dp</dimen>
     <dimen name="region_spinner_height">40dp</dimen>
@@ -42,6 +39,10 @@
     <dimen name="categories_margin_top">24dp</dimen>
 
     <!-- Defaults-->
+
+    <!-- Map -->
+    <dimen name="map_height">300dp</dimen>
+    <!-- Map height is in each dpi dependent folder for xhdpi-xxxhdpi-->
 
     <!-- Left margin for button carets for support library compatibility -->
     <dimen name="right_caret_left">270dp</dimen>
