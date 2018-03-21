@@ -8,5 +8,7 @@
     <dimen name="down_caret_left">270dp</dimen>
 
     <!-- Map -->
+    <dimen name="map_width">370dp</dimen>
     <dimen name="map_height">200dp</dimen>
+
 </resources>

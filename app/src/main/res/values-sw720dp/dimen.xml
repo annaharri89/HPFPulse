@@ -51,9 +51,10 @@
     <dimen name="btn_blue_caret_text_size">37sp</dimen>
     <dimen name="btn_blue_caret_height">110dp</dimen>
 
-    <!-- Map todo get labels placement correct in MapViewController-->
-    <dimen name="map_height">450dp</dimen>
-    <!-- Map height is in each dpi dependent folder for xhdpi-xxxhdpi-->
+    <!-- Map todo get labels placement correct-->
+    <dimen name="map_width">1000dp</dimen>
+    <dimen name="map_height">500dp</dimen>
+    <!-- Map height is in each dpi dependent folder for mdpi-xhdpi -->
 
     <!-- RegionSpinner -->
     <dimen name="region_spinner_margin_top">32dp</dimen>

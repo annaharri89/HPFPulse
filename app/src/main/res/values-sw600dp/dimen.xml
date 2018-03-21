@@ -51,8 +51,8 @@
     <dimen name="btn_blue_caret_height">75dp</dimen>
 
     <!-- Map -->
+    <dimen name="map_width">600dp</dimen>
     <dimen name="map_height">350dp</dimen>
-    <!-- Map height is in each dpi dependent folder for xhdpi-xxxhdpi-->
 
     <!-- RegionSpinner -->
     <dimen name="region_spinner_margin_top">32dp</dimen>

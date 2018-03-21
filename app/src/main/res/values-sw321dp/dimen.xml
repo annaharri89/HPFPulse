@@ -38,11 +38,12 @@
     <!-- Categories' Include Margin Top-->
     <dimen name="categories_margin_top">24dp</dimen>
 
-    <!-- Defaults-->
+    <!-- Defaults (using xhdpi values)-->
 
     <!-- Map -->
+    <dimen name="map_width">370dp</dimen>
     <dimen name="map_height">300dp</dimen>
-    <!-- Map height is in each dpi dependent folder for xhdpi-xxxhdpi-->
+    <!-- Map height and width is in each dpi dependent folder for mdpi-xxxhdpi-->
 
     <!-- Left margin for button carets for support library compatibility -->
     <dimen name="right_caret_left">270dp</dimen>

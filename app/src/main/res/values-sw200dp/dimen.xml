@@ -26,6 +26,7 @@
 
     <!-- Map -->
     <dimen name="map_height">150dp</dimen>
+    <dimen name="map_width">320dp</dimen>
 
     <!-- RegionSpinner -->
     <dimen name="region_spinner_margin_top">16dp</dimen>
@@ -41,7 +42,7 @@
     <!-- Categories' Include Margin Top-->
     <dimen name="categories_margin_top">16dp</dimen>
 
-    <!-- Defaults-->
+    <!-- Defaults (using mdpi values)-->
 
     <!--Left margin for button carets for support library compatibility -->
     <dimen name="right_caret_left">245dp</dimen>

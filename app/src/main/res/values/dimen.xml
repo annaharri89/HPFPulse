@@ -29,7 +29,10 @@
     <!-- End Resource List Dimensions -->
 
 
-    <!-- Defaults for devices that somehow don't match any of the options -->
+    <!--
+    Defaults for devices that somehow don't match any of the options
+    (using sw321dp values)
+    -->
     <!-- TxtCrisis -->
     <dimen name="txt_crisis_margin_top">24dp</dimen>
     <dimen name="txt_crisis_text_size">22sp</dimen>
@@ -54,6 +57,7 @@
     <dimen name="btn_blue_caret_height">60dp</dimen>
 
     <!-- Map -->
+    <dimen name="map_width">400dp</dimen>
     <dimen name="map_height">300dp</dimen>
 
     <!-- RegionSpinner -->

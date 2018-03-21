@@ -140,7 +140,7 @@
     <style name="Map">
         <item name="android:layout_marginStart">-25dp</item>
         <item name="android:layout_marginEnd">25dp</item>
-        <item name="android:layout_width">match_parent</item><!-- todo Changing to 0 dp throws off the timezone label placements a smidge-->
+        <item name="android:layout_width">@dimen/map_width</item>
         <item name="android:layout_height">@dimen/map_height</item>
     </style>
 
