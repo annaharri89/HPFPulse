@@ -6,6 +6,8 @@
     <Spinner
         android:id="@+id/region_spinner"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         style="@style/RegionSpinner" />
 
     <TextView
@@ -22,6 +24,7 @@
         android:text="@string/btn_map_get_results"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:onClick="getResults" />
 
 </android.support.constraint.ConstraintLayout>

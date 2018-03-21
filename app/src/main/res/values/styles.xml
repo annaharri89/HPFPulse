@@ -51,7 +51,7 @@
 
     <style name="BlueButton">
         <item name="android:padding">8dp</item>
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/btn_blue_height</item>
         <item name="android:background">@drawable/ic_blue_button</item>
         <item name="android:textColor">@color/colorWhite</item>
@@ -64,7 +64,7 @@
     </style>
 
     <style name="BlueButtonCaretRight">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/btn_blue_caret_height</item>
         <item name="android:layout_margin">16dp</item>
         <item name="android:padding">0dp</item>
@@ -80,7 +80,7 @@
 
     <style name="BlueHeader">
         <item name="android:paddingStart">35dp</item>
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/blue_header_height</item>
         <item name="android:layout_margin">8dp</item>
         <item name="android:padding">8dp</item>
@@ -132,7 +132,7 @@
     </style>
 
     <style name="Container">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/colorWhite</item>
     </style>
@@ -140,12 +140,12 @@
     <style name="Map">
         <item name="android:layout_marginStart">-25dp</item>
         <item name="android:layout_marginEnd">25dp</item>
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">match_parent</item><!-- todo Changing to 0 dp throws off the timezone label placements a smidge-->
         <item name="android:layout_height">@dimen/map_height</item>
     </style>
 
     <style name="RegionSpinner">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/region_spinner_height</item>
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginEnd">16dp</item>
@@ -162,7 +162,7 @@
     </style>
 
     <style name="TxtRegionDescription">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingStart">16dp</item>
         <item name="android:paddingEnd">16dp</item>
