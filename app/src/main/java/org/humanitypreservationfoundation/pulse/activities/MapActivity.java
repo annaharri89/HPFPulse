@@ -1,7 +1,5 @@
 package org.humanitypreservationfoundation.pulse.activities;
 
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.content.res.AppCompatResources;
-import android.support.v7.widget.AppCompatDrawableManager;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -21,16 +17,12 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import org.humanitypreservationfoundation.pulse.Config;
-import org.humanitypreservationfoundation.pulse.classes.Resource;
 import org.humanitypreservationfoundation.pulse.classes.TimeZone;
-import org.humanitypreservationfoundation.pulse.enums.DensitiesEnum;
-import org.humanitypreservationfoundation.pulse.utils.Utils;
 import org.humanitypreservationfoundation.pulse.views.MapView;
 import org.humanitypreservationfoundation.pulse.R;
 import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 public class MapActivity extends AppCompatActivity {
@@ -50,7 +42,6 @@ public class MapActivity extends AppCompatActivity {
         mDescriptionTextView = (TextView) findViewById(R.id.region_description);
         Spinner regionSpinner = (Spinner) findViewById(R.id.region_spinner);
         final Button getResults = (Button) findViewById(R.id.get_results);
-        getResults.setEnabled(false);
 
         ActionBar ab = getSupportActionBar();
         Intent intent = getIntent();
@@ -78,8 +69,7 @@ public class MapActivity extends AppCompatActivity {
                 return view;
             }
         };
-        //regionSpinner.setBackground(VectorDrawableCompat.create(getResources(), R.drawable.ic_grey_spinner, null));
-        //regionSpinner.setBackground(ContextCompat.getDrawable(this, R.drawable.ic_grey_spinner));
+
         regionSpinner.setAdapter(adapter);
         regionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

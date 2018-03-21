@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <layer-list>
-            <item>
-                <shape>
 
-                    <corners android:radius="3dp" />
+    <item android:state_enabled="false" android:drawable="@drawable/ic_button_caret_right_disabled" />
+    <item android:state_enabled="true" android:drawable="@drawable/ic_button_caret_right_enabled" />
 
-                    <solid android:color="@color/colorAccent"/>
-
-                </shape>
-            </item>
-
-            <item android:left="@dimen/right_caret_left" android:gravity="center|right" android:drawable="@drawable/caret_right24dp" android:right="15dp"/>
-
-        </layer-list>
-    </item>
 </selector>

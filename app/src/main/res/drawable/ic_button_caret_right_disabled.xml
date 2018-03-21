@@ -7,12 +7,12 @@
 
                     <corners android:radius="3dp" />
 
-                    <solid android:color="@color/colorAccent"/>
+                    <solid android:color="@color/colorLightGrey"/>
 
                 </shape>
             </item>
 
-            <item android:left="@dimen/right_caret_left" android:gravity="center|right" android:drawable="@drawable/caret_right24dp" android:right="15dp"/>
+            <item android:left="@dimen/right_caret_left" android:gravity="center|right" android:drawable="@drawable/caret_right_grey" android:right="15dp"/>
 
         </layer-list>
     </item>

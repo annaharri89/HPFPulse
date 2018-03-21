@@ -8,8 +8,7 @@
                 android:right="3dp"
                 android:top="20dp"
                 android:bottom="10dp"
-                android:drawable="@drawable/caret_down_white24dp">
-            </item>
+                android:drawable="@drawable/caret_down_white" />
         </layer-list>
     </item>
 
@@ -21,8 +20,7 @@
                 android:right="3dp"
                 android:top="20dp"
                 android:bottom="10dp"
-                android:drawable="@drawable/caret_up_white24dp">
-            </item>
+                android:drawable="@drawable/caret_up_white" />
         </layer-list>
     </item>
 </selector>
