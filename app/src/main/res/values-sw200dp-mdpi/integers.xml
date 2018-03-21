@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Map Labels -->
     <!-- Text Settings -->
     <integer name="label_text_size">10</integer>
     <integer name="label_stroke_size">4</integer>
