@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Map -->
+    <dimen name="map_width">400dp</dimen>
+    <dimen name="map_height">300dp</dimen>
+</resources>

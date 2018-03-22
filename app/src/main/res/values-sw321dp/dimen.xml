@@ -22,7 +22,7 @@
 
     <!-- BlueButtonCaretRight -->
     <dimen name="btn_blue_caret_text_size">20sp</dimen>
-    <dimen name="btn_blue_caret_height">75dp</dimen>
+    <dimen name="btn_blue_caret_height">55dp</dimen>
 
     <!-- RegionSpinner -->
     <dimen name="region_spinner_margin_top">24dp</dimen>
@@ -32,8 +32,8 @@
     <dimen name="region_spinner_item_text_size">16sp</dimen>
 
     <!-- TxtRegionDescription -->
-    <dimen name="txt_region_description_text_size">18sp</dimen>
-    <dimen name="txt_region_description_margin_top">16dp</dimen>
+    <dimen name="txt_region_description_text_size">17sp</dimen>
+    <dimen name="txt_region_description_margin_top">8dp</dimen>
 
     <!-- Categories' Include Margin Top-->
     <dimen name="categories_margin_top">24dp</dimen>
