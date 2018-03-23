@@ -15,7 +15,7 @@ import java.util.List;
 public class Resource implements Parcelable {
 
     private long mId; //todo get mID from parcel when database is set up // (SEE HOW youKNOWwhat GETS ITS ID)
-    private String mName;
+    private String mOrgName;
     private String mUrl;
     private String mPhoneNumber;
     private StateEnum mStateEnum;
@@ -36,7 +36,7 @@ public class Resource implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.mCategory);
         dest.writeLong(this.mId);
-        dest.writeString(this.mName);
+        dest.writeString(this.mOrgName);
         dest.writeString(this.mPhoneNumber);
         dest.writeSerializable(this.mStateEnum);
         dest.writeString(this.mStateName);
@@ -74,7 +74,7 @@ public class Resource implements Parcelable {
     public Resource (Parcel in, ClassLoader loader) {
         this.mCategory = in.readString();
         this.mId = in.readLong();
-        this.mName = in.readString();
+        this.mOrgName = in.readString();
         this.mPhoneNumber = in.readString();
         this.mStateEnum = (StateEnum) in.readSerializable();
         this.mStateName = in.readString();
@@ -88,7 +88,7 @@ public class Resource implements Parcelable {
     public Resource(String category, Long id, String name, String phone, StateEnum stateEnum, String url) {
         this.mCategory = category;
         this.mId = id;
-        this.mName = name;
+        this.mOrgName = name;
         this.mPhoneNumber = phone;
         this.mStateEnum = stateEnum;
         this.mStateName = this.mStateEnum.toStringName();
@@ -104,7 +104,7 @@ public class Resource implements Parcelable {
     }
 
     public String getName() {
-        return this.mName;
+        return this.mOrgName;
     }
 
     public String getPhoneNumber() {

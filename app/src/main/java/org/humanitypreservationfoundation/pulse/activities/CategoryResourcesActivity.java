@@ -27,18 +27,18 @@ public class CategoryResourcesActivity extends ResourcesActivity {
         setContentView(R.layout.activity_category_resources);
 
         List<Resource> resources = new ArrayList<Resource>();
-        if (mTimeZone.getEnum().equals(TimeZoneEnum.PST)) { //todo remove once db is set up and hooked up to real data
+        if (mTimeZone.getEnum().equals(TimeZoneEnum.PST)) { //todo remove PST check once db is set up and hooked up to real data
             if (mActivityName.equals(Config.categories.CHILD_ABUSE)) {
                 for (State state: mTimeZone.getStates()) {
-                    resources.add(state.getChildAbuseResources());
+                    resources.addAll(mTimeZone.getStateChildAbuseResources(state.getCode()));
                 }
             } else if (mActivityName.equals(Config.categories.BULLYING)) {
                 for (State state: mTimeZone.getStates()) {
-                    resources.add(state.getBullyingResources());
+                    resources.addAll(mTimeZone.getStateBullyingResources(state.getCode()));
                 }
             } else if (mActivityName.equals(Config.categories.DOMESTIC_VIOLENCE)) {
                 for (State state: mTimeZone.getStates()) {
-                    resources.add(state.getDomesticViolenceResources());
+                    resources.addAll(mTimeZone.getStateDomesticViolenceResources(state.getCode()));
                 }
             }
 

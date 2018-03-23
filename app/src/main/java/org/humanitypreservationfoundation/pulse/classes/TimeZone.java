@@ -121,6 +121,7 @@ public class TimeZone implements ITimeZone, Parcelable {
         return null;
     }
 
+    //todo: update to work with multiple resources per category (nevada: carson, las vegas)
     public void setResources(Map<StateEnum, List<Resource>> resourceMap) {
         for (State state : this.getStates()) {
             for (Map.Entry<StateEnum, List<Resource>> entry : resourceMap.entrySet())
@@ -141,17 +142,17 @@ public class TimeZone implements ITimeZone, Parcelable {
         }
     }
 
-    public Resource getStateChildAbuseResources(String stateCode) {
+    public List<Resource> getStateChildAbuseResources(String stateCode) {
         State state = this.getState(stateCode);
         return state.getChildAbuseResources();
     }
 
-    public Resource getStateBullyingResources(String stateCode) {
+    public List<Resource> getStateBullyingResources(String stateCode) {
         State state = this.getState(stateCode);
         return state.getBullyingResources();
     }
 
-    public Resource getStateDomesticViolenceResources(String stateCode) {
+    public List<Resource> getStateDomesticViolenceResources(String stateCode) {
         State state = this.getState(stateCode);
         return state.getDomesticViolenceResources();
     }

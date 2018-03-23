@@ -11,12 +11,11 @@ import android.os.Parcelable;
 import com.sdsmdg.harjot.vectormaster.VectorMasterDrawable;
 import com.sdsmdg.harjot.vectormaster.models.PathModel;
 
+import org.humanitypreservationfoundation.pulse.Config;
 import org.humanitypreservationfoundation.pulse.enums.StateEnum;
-import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
 import org.humanitypreservationfoundation.pulse.interfaces.IState;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -25,7 +24,7 @@ import java.util.List;
 
 public class State implements IState, Parcelable {
 
-    private Context context;
+    private Context context; //todo remove when confirmed unnecessary
     private String mCode;
     private String mName;
     private StateEnum mEnum;
@@ -34,10 +33,9 @@ public class State implements IState, Parcelable {
     private PathModel mPathModel;
     private Region mRegion;
 
-    //TODO test following
-    private Resource mChildAbuseResource;
-    private Resource mBullyingResource;
-    private Resource mDomesticViolenceResource;
+    private List<Resource> mChildAbuseResource = new ArrayList<Resource>();
+    private List<Resource> mBullyingResource = new ArrayList<Resource>();
+    private List<Resource> mDomesticViolenceResource = new ArrayList<Resource>();
 
     /* Defines the kind of object that will be parcelled */
     @Override
@@ -54,9 +52,9 @@ public class State implements IState, Parcelable {
         dest.writeString(this.mCode);
         dest.writeString(this.mName);
         dest.writeSerializable(this.mEnum);
-        dest.writeParcelable(this.mChildAbuseResource, flags);
-        dest.writeParcelable(this.mBullyingResource, flags);
-        dest.writeParcelable(this.mDomesticViolenceResource, flags);
+        dest.writeList(this.mChildAbuseResource);
+        dest.writeList(this.mBullyingResource);
+        dest.writeList(this.mDomesticViolenceResource);
     }
 
     /**
@@ -91,9 +89,9 @@ public class State implements IState, Parcelable {
         this.mCode = in.readString();
         this.mName = in.readString();
         this.mEnum = (StateEnum) in.readSerializable();
-        this.mChildAbuseResource = (Resource) in.readParcelable(loader);
-        this.mBullyingResource = (Resource) in.readParcelable(loader);
-        this.mDomesticViolenceResource = (Resource) in.readParcelable(loader);
+        this.mChildAbuseResource = (List<Resource>) in.readArrayList(loader);
+        this.mBullyingResource = (List<Resource>) in.readArrayList(loader);
+        this.mDomesticViolenceResource = (List<Resource>) in.readArrayList(loader);
     }
 
     public State(Context context, StateEnum stateEnum, VectorMasterDrawable USMap) {
@@ -149,33 +147,57 @@ public class State implements IState, Parcelable {
         this.mRegion.setPath(this.mPath, new Region((int) bounds.left, (int) bounds.top, (int) bounds.right, (int) bounds.bottom));
     }
 
-    //todo: test following
-    public void setResources(List<Resource> resourceList) { //todo remove resourceList: contact db | or? can the db pass in resourceList
-        this.mChildAbuseResource = resourceList.get(0);
-        this.mBullyingResource = resourceList.get(1);
-        this.mDomesticViolenceResource = resourceList.get(2); //todo
+    public void setResources(List<Resource> resourceList) {
+        for (Resource resource : resourceList) {
+            switch (resource.getCategory()) {
+                case Config.categories.CHILD_ABUSE:
+                    this.mChildAbuseResource.add(resource);
+                    break;
+                case Config.categories.BULLYING:
+                    this.mBullyingResource.add(resource);
+                    break;
+                case Config.categories.DOMESTIC_VIOLENCE:
+                    this.mDomesticViolenceResource.add(resource);
+                    break;
+            }
+        }
     }
 
     //todo remove once db is fully set up and hooked up to real data
     public void setDummyResources(List<Resource> resourceList) {
-        this.mChildAbuseResource = resourceList.get(0);
-        this.mBullyingResource = resourceList.get(1);
-        this.mDomesticViolenceResource = resourceList.get(2); //todo
+        for (Resource resource : resourceList) {
+            switch (resource.getCategory()) {
+                case Config.categories.CHILD_ABUSE:
+                    this.mChildAbuseResource.add(resource);
+                    break;
+                case Config.categories.BULLYING:
+                    this.mBullyingResource.add(resource);
+                    break;
+                case Config.categories.DOMESTIC_VIOLENCE:
+                    this.mDomesticViolenceResource.add(resource);
+                    break;
+            }
+        }
+
     }
 
-    public Resource getChildAbuseResources() {
+    public List<Resource> getChildAbuseResources() {
         return this.mChildAbuseResource;
     }
 
-    public Resource getBullyingResources() {
+    public List<Resource> getBullyingResources() {
         return this.mBullyingResource;
     }
 
-    public Resource getDomesticViolenceResources() {
+    public List<Resource> getDomesticViolenceResources() {
         return this.mDomesticViolenceResource;
     }
 
     public List<Resource> getAllResources() {
-        return Arrays.asList(this.mChildAbuseResource, this.mBullyingResource, this.mDomesticViolenceResource);
+        List<Resource> resources = new ArrayList<>();
+        resources.addAll(this.mChildAbuseResource);
+        resources.addAll(this.mBullyingResource);
+        resources.addAll(this.mDomesticViolenceResource);
+        return resources;
     }
 }

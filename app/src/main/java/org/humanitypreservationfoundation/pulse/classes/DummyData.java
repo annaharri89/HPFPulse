@@ -25,9 +25,11 @@ public class DummyData {
         private static final Resource resource1 = new Resource(Config.categories.CHILD_ABUSE, (long) 3, "Helpful Organization 4", "111-222-3333", StateEnum.CALIFORNIA, "https://google.com");
         private static final Resource resource2 = new Resource(Config.categories.BULLYING, (long) 4, "Helpful Organization 5", "123-456-7890", StateEnum.CALIFORNIA, "https://google.com");
         private static final Resource resource3 = new Resource(Config.categories.DOMESTIC_VIOLENCE, (long) 5, "Helpful Organization 6", "123-456-7890", StateEnum.CALIFORNIA, "https://google.com");
+        private static final Resource resource4 = new Resource(Config.categories.BULLYING, (long) 12, "Helpful Organization 13", "123-456-7890", StateEnum.CALIFORNIA, "https://google.com");
+
 
         private static List<Resource> getResources() {
-            return Arrays.asList(resource1, resource2, resource3);
+            return Arrays.asList(resource1, resource2, resource4, resource3);
         }
     }
 
