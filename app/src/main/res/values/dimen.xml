@@ -57,6 +57,8 @@
     <dimen name="btn_blue_caret_height">60dp</dimen>
 
     <!-- Map -->
+    <dimen name="map_margin_start">-25dp</dimen> <!-- Applies to sw200dp and sw321dp devices -->
+    <dimen name="map_margin_end">25dp</dimen> <!-- Applies to sw200dp and sw321dp devices -->
     <dimen name="map_width">400dp</dimen>
     <dimen name="map_height">300dp</dimen>
 

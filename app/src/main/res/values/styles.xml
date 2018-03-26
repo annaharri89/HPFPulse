@@ -138,8 +138,8 @@
     </style>
 
     <style name="Map">
-        <item name="android:layout_marginStart">-25dp</item>
-        <item name="android:layout_marginEnd">25dp</item>
+        <item name="android:layout_marginStart">@dimen/map_margin_start</item>
+        <item name="android:layout_marginEnd">@dimen/map_margin_end</item>
         <item name="android:layout_width">@dimen/map_width</item>
         <item name="android:layout_height">@dimen/map_height</item>
     </style>

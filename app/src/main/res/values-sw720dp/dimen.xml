@@ -52,6 +52,8 @@
     <dimen name="btn_blue_caret_height">110dp</dimen>
 
     <!-- Map-->
+    <dimen name="map_margin_start">-100dp</dimen>
+    <dimen name="map_margin_end">100dp</dimen>
     <dimen name="map_width">1000dp</dimen>
     <dimen name="map_height">500dp</dimen>
     <!-- Map height is in each dpi dependent folder for mdpi-xhdpi -->

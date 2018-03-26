@@ -51,6 +51,8 @@
     <dimen name="btn_blue_caret_height">75dp</dimen>
 
     <!-- Map -->
+    <dimen name="map_margin_start">-75dp</dimen>
+    <dimen name="map_margin_end">75dp</dimen>
     <dimen name="map_width">600dp</dimen>
     <dimen name="map_height">350dp</dimen>
 
