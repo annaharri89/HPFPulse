@@ -1,0 +1,1933 @@
+package org.humanitypreservationfoundation.pulse.widgets;
+
+/**
+ * Created by ETASpare on 3/6/2018.
+ */
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import org.humanitypreservationfoundation.pulse.R;
+import org.humanitypreservationfoundation.pulse.classes.DummyData;
+import org.humanitypreservationfoundation.pulse.classes.Resource;
+import org.humanitypreservationfoundation.pulse.classes.TimeZone;
+import org.humanitypreservationfoundation.pulse.enums.StateEnum;
+import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ALLExpandableResourceListAdapter extends ExpandableResourceListAdapter {
+    public static int ALABAMA;
+    public static int ALASKA;
+    public static int ARIZONA;
+    public static int ARKANSAS;
+    public static int CALIFORNIA;
+    public static int COLORADO;
+    public static int CONNECTICUT;
+    public static int DELAWARE;
+    public static int FLORIDA;
+    public static int GEORGIA;
+    public static int HAWAII;
+    public static int IDAHO;
+    public static int ILLINOIS;
+    public static int INDIANA;
+    public static int IOWA;
+    public static int KANSAS;
+    public static int KENTUCKY;
+    public static int LOUISIANA;
+    public static int MAINE;
+    public static int MARYLAND;
+    public static int MASSACHUSETTS;
+    public static int MICHIGAN;
+    public static int MINNESOTA;
+    public static int MISSISSIPPI;
+    public static int MISSOURI;
+    public static int MONTANA;
+    public static int NEBRASKA;
+    public static int NEVADA;
+    public static int NEW_HAMPSHIRE;
+    public static int NEW_JERSEY;
+    public static int NEW_MEXICO;
+    public static int NEW_YORK;
+    public static int NORTH_CAROLINA;
+    public static int NORTH_DAKOTA;
+    public static int OHIO;
+    public static int OKLAHOMA;
+    public static int OREGON;
+    public static int PENNSYLVANIA;
+    public static int RHODE_ISLAND;
+    public static int SOUTH_CAROLINA;
+    public static int SOUTH_DAKOTA;
+    public static int TENNESSEE;
+    public static int TEXAS;
+    public static int UTAH;
+    public static int VERMONT;
+    public static int VIRGINIA;
+    public static int WASHINGTON;
+    public static int WEST_VIRGINIA;
+    public static int WISCONSIN;
+    public static int WYOMING;
+
+    private Context mContext;
+    private int mStateCount;
+    private TimeZoneEnum mTimeZoneEnum;
+
+    //PST States
+    private List<Resource> mAlaskaData;
+    private List<Resource> mCaliforniaData;
+    private List<Resource> mHawaiiData;
+    private List<Resource> mOregonData;
+    private List<Resource> mWashingtonData;
+
+    //MT States
+    private List<Resource> mArizonaData;
+    private List<Resource> mColoradoData;
+    private List<Resource> mIdahoData;
+    private List<Resource> mMontanaData;
+    private List<Resource> mNevadaData;
+    private List<Resource> mNewMexicoData;
+    private List<Resource> mUtahData;
+    private List<Resource> mWyomingData;
+
+    //WNC States
+    private List<Resource> mIowaData;
+    private List<Resource> mKansasData;
+    private List<Resource> mMinnesotaData;
+    private List<Resource> mMissouriData;
+    private List<Resource> mNebraskaData;
+    private List<Resource> mNorthDakotaData;
+    private List<Resource> mSouthDakotaData;
+
+    //WSC States
+    private List<Resource> mArkansasData;
+    private List<Resource> mLouisianaData;
+    private List<Resource> mOklahomaData;
+    private List<Resource> mTexasData;
+
+    //ENC States
+    private List<Resource> mIllinoisData;
+    private List<Resource> mIndianaData;
+    private List<Resource> mMichiganData;
+    private List<Resource> mOhioData;
+    private List<Resource> mWisconsinData;
+
+    //EST States
+    private List<Resource> mAlabamaData;
+    private List<Resource> mKentuckyData;
+    private List<Resource> mMississippiData;
+    private List<Resource> mTennesseeData;
+
+    //MA States
+    private List<Resource> mNewJerseyData;
+    private List<Resource> mNewYorkData;
+    private List<Resource> mPennsylvaniaData;
+
+    //SA States
+    private List<Resource> mDelawareData;
+    private List<Resource> mFloridaData;
+    private List<Resource> mGeorgiaData;
+    private List<Resource> mMarylandData;
+    private List<Resource> mNorthCarolinaData;
+    private List<Resource> mSouthCarolinaData;
+    private List<Resource> mVirginiaData;
+    private List<Resource> mWestVirginiaData;
+
+    //NE States
+    private List<Resource> mConnecticutData;
+    private List<Resource> mMaineData;
+    private List<Resource> mMassachusettsData;
+    private List<Resource> mNewHampshireData;
+    private List<Resource> mRhodeIslandData;
+    private List<Resource> mVermontData;
+
+    public ALLExpandableResourceListAdapter(Context context, int stateCount, TimeZoneEnum timeZoneEnum) {
+        super(context);
+        this.mContext = context;
+        this.mStateCount = stateCount;
+        this.mTimeZoneEnum = timeZoneEnum;
+        this.setGroupPosition(StateEnum.getTimeZoneStateCodes(this.mTimeZoneEnum));
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.PST) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            //PST States
+            this.mAlaskaData = new ArrayList<>();
+            this.mCaliforniaData = new ArrayList<>();
+            this.mHawaiiData = new ArrayList<>();
+            this.mOregonData = new ArrayList<>();
+            this.mWashingtonData = new ArrayList<>();
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.MT) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            //MT States
+            this.mArizonaData = new ArrayList<>();
+            this.mColoradoData = new ArrayList<>();
+            this.mIdahoData = new ArrayList<>();
+            this.mMontanaData = new ArrayList<>();
+            this.mNevadaData = new ArrayList<>();
+            this.mNewMexicoData = new ArrayList<>();
+            this.mUtahData = new ArrayList<>();
+            this.mWyomingData = new ArrayList<>();
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.WNC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            //WNC States
+            this.mIowaData = new ArrayList<>();
+            this.mKansasData = new ArrayList<>();
+            this.mMinnesotaData = new ArrayList<>();
+            this.mMissouriData = new ArrayList<>();
+            this.mNebraskaData = new ArrayList<>();
+            this.mNorthDakotaData = new ArrayList<>();
+            this.mSouthDakotaData = new ArrayList<>();
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.WSC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            //WSC States
+            this.mArkansasData = new ArrayList<>();
+            this.mLouisianaData = new ArrayList<>();
+            this.mOklahomaData = new ArrayList<>();
+            this.mTexasData = new ArrayList<>();
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.ENC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            //ENC States
+            this.mIllinoisData = new ArrayList<>();
+            this.mIndianaData = new ArrayList<>();
+            this.mMichiganData = new ArrayList<>();
+            this.mOhioData = new ArrayList<>();
+            this.mWisconsinData = new ArrayList<>();
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.ESC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            //ESC States
+            this.mAlabamaData = new ArrayList<>();
+            this.mKentuckyData = new ArrayList<>();
+            this.mMississippiData = new ArrayList<>();
+            this.mTennesseeData = new ArrayList<>();
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.MA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            //MA States
+            this.mNewJerseyData = new ArrayList<>();
+            this.mNewYorkData = new ArrayList<>();
+            this.mPennsylvaniaData = new ArrayList<>();
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.SA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            //SA States
+            this.mDelawareData = new ArrayList<>();
+            this.mFloridaData = new ArrayList<>();
+            this.mGeorgiaData = new ArrayList<>();
+            this.mMarylandData = new ArrayList<>();
+            this.mNorthCarolinaData = new ArrayList<>();
+            this.mSouthCarolinaData = new ArrayList<>();
+            this.mVirginiaData = new ArrayList<>();
+            this.mWestVirginiaData = new ArrayList<>();
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.NE) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            //NE States
+            this.mConnecticutData = new ArrayList<>();
+            this.mMaineData = new ArrayList<>();
+            this.mMassachusettsData = new ArrayList<>();
+            this.mNewHampshireData = new ArrayList<>();
+            this.mRhodeIslandData = new ArrayList<>();
+            this.mVermontData = new ArrayList<>();
+        }
+    }
+
+    private void setGroupPosition(List<StateEnum> states) {
+        int position = 0;
+        for (int i = 0; i < states.size(); i++) {
+            if (this.mTimeZoneEnum.equals(TimeZoneEnum.PST) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+                if (states.get(i).equals(StateEnum.ALASKA)) {
+                    ALASKA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.CALIFORNIA)) {
+                    CALIFORNIA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.HAWAII)) {
+                    HAWAII = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.OREGON)) {
+                    OREGON = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.WASHINGTON)) {
+                    WASHINGTON = position;
+                    position += 1;
+                }
+            }
+
+            if (this.mTimeZoneEnum.equals(TimeZoneEnum.MT) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+                if (states.get(i).equals(StateEnum.ARIZONA)) {
+                    ARIZONA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.COLORADO)) {
+                    COLORADO = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.IDAHO)) {
+                    IDAHO = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.MONTANA)) {
+                    MONTANA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.NEVADA)) {
+                    NEVADA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.NEW_MEXICO)) {
+                    NEVADA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.UTAH)) {
+                    NEVADA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.WYOMING)) {
+                    NEVADA = position;
+                    position += 1;
+                }
+            }
+
+            if (this.mTimeZoneEnum.equals(TimeZoneEnum.WNC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+                if (states.get(i).equals(StateEnum.IOWA)) {
+                    IOWA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.KANSAS)) {
+                    KANSAS = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.MINNESOTA)) {
+                    MINNESOTA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.MISSOURI)) {
+                    MISSOURI = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.NEBRASKA)) {
+                    NEBRASKA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.NORTH_DAKOTA)) {
+                    NORTH_DAKOTA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.SOUTH_DAKOTA)) {
+                    SOUTH_DAKOTA = position;
+                    position += 1;
+                }
+            }
+
+            if (this.mTimeZoneEnum.equals(TimeZoneEnum.WSC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+                if (states.get(i).equals(StateEnum.ARKANSAS)) {
+                    ARKANSAS = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.LOUISIANA)) {
+                    LOUISIANA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.OKLAHOMA)) {
+                    OKLAHOMA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.TEXAS)) {
+                    TEXAS = position;
+                    position += 1;
+                }
+            }
+
+            if (this.mTimeZoneEnum.equals(TimeZoneEnum.ENC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+                if (states.get(i).equals(StateEnum.ILLINOIS)) {
+                    ILLINOIS = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.INDIANA)) {
+                    INDIANA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.MICHIGAN)) {
+                    MICHIGAN = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.OHIO)) {
+                    OHIO = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.WISCONSIN)) {
+                    WISCONSIN = position;
+                    position += 1;
+                }
+            }
+
+            if (this.mTimeZoneEnum.equals(TimeZoneEnum.ESC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+                if (states.get(i).equals(StateEnum.ALABAMA)) {
+                    ALABAMA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.KENTUCKY)) {
+                    KENTUCKY = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.MISSISSIPPI)) {
+                    MISSISSIPPI = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.TENNESSEE)) {
+                    TENNESSEE = position;
+                    position += 1;
+                }
+            }
+
+            if (this.mTimeZoneEnum.equals(TimeZoneEnum.MA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+                if (states.get(i).equals(StateEnum.NEW_JERSEY)) {
+                    NEW_JERSEY = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.NEW_YORK)) {
+                    NEW_YORK = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.PENNSYLVANIA)) {
+                    PENNSYLVANIA = position;
+                    position += 1;
+                }
+            }
+
+            if (this.mTimeZoneEnum.equals(TimeZoneEnum.SA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+                if (states.get(i).equals(StateEnum.DELAWARE)) {
+                    DELAWARE = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.FLORIDA)) {
+                    FLORIDA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.GEORGIA)) {
+                    GEORGIA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.MARYLAND)) {
+                    MARYLAND = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.NORTH_CAROLINA)) {
+                    NORTH_CAROLINA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.SOUTH_CAROLINA)) {
+                    SOUTH_CAROLINA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.VIRGINIA)) {
+                    VIRGINIA = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.WEST_VIRGINIA)) {
+                    WEST_VIRGINIA = position;
+                    position += 1;
+                }
+            }
+
+            if (this.mTimeZoneEnum.equals(TimeZoneEnum.NE) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+                if (states.get(i).equals(StateEnum.CONNECTICUT)) {
+                    CONNECTICUT = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.MAINE)) {
+                    MAINE = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.MASSACHUSETTS)) {
+                    MASSACHUSETTS = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.NEW_HAMPSHIRE)) {
+                    NEW_HAMPSHIRE = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.RHODE_ISLAND)) {
+                    RHODE_ISLAND = position;
+                    position += 1;
+                } else if (states.get(i).equals(StateEnum.VERMONT)) {
+                    VERMONT = position;
+                    position += 1;
+                }
+            }
+        }
+    }
+
+    /**
+     * Adds Resource results to appropriate list depending on the <code>groupPosition</code>
+     * @param groupPosition options: one of the public static ints declared at top of file
+     * @param data list of Resources
+     */
+    //TODO: Call in ResultsActivity adapter.addDataToGroup()
+    @Override
+    public void addDataToGroup(int groupPosition, List<? extends Resource> data) {
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.PST) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ALASKA) {
+                mAlaskaData.addAll(data);
+            } else if (groupPosition == CALIFORNIA) {
+                mCaliforniaData.addAll(data);
+            } else if (groupPosition == HAWAII) {
+                mHawaiiData.addAll(data);
+            } else if (groupPosition == OREGON) {
+                mOregonData.addAll(data);
+            } else if (groupPosition == WASHINGTON) {
+                mWashingtonData.addAll(data);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.MT) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ARIZONA) {
+                mArizonaData.addAll(data);
+            } else if (groupPosition == COLORADO) {
+                mColoradoData.addAll(data);
+            } else if (groupPosition == IDAHO) {
+                mIdahoData.addAll(data);
+            } else if (groupPosition == MONTANA) {
+                mMontanaData.addAll(data);
+            } else if (groupPosition == NEVADA) {
+                mNevadaData.addAll(data);
+            } else if (groupPosition == NEW_MEXICO) {
+                mNewMexicoData.addAll(data);
+            } else if (groupPosition == UTAH) {
+                mUtahData.addAll(data);
+            } else if (groupPosition == WYOMING) {
+                mWyomingData.addAll(data);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.WNC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == IOWA) {
+                mIowaData.addAll(data);
+            } else if (groupPosition == KANSAS) {
+                mKansasData.addAll(data);
+            } else if (groupPosition == MINNESOTA) {
+                mMinnesotaData.addAll(data);
+            } else if (groupPosition == MISSOURI) {
+                mMissouriData.addAll(data);
+            } else if (groupPosition == NEBRASKA) {
+                mNebraskaData.addAll(data);
+            } else if (groupPosition == NORTH_DAKOTA) {
+                mNorthDakotaData.addAll(data);
+            } else if (groupPosition == SOUTH_DAKOTA) {
+                mSouthDakotaData.addAll(data);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.WSC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ARKANSAS) {
+                mArkansasData.addAll(data);
+            } else if (groupPosition == LOUISIANA) {
+                mLouisianaData.addAll(data);
+            } else if (groupPosition == OKLAHOMA) {
+                mOklahomaData.addAll(data);
+            } else if (groupPosition == TEXAS) {
+                mTexasData.addAll(data);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.ENC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ILLINOIS) {
+                mIllinoisData.addAll(data);
+            } else if (groupPosition == INDIANA) {
+                mIndianaData.addAll(data);
+            } else if (groupPosition == MICHIGAN) {
+                mMichiganData.addAll(data);
+            } else if (groupPosition == OHIO) {
+                mOhioData.addAll(data);
+            } else if (groupPosition == WISCONSIN) {
+                mWisconsinData.addAll(data);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.ESC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ALABAMA) {
+                mAlabamaData.addAll(data);
+            } else if (groupPosition == KENTUCKY) {
+                mKentuckyData.addAll(data);
+            } else if (groupPosition == MISSISSIPPI) {
+                mMississippiData.addAll(data);
+            } else if (groupPosition == TENNESSEE) {
+                mTennesseeData.addAll(data);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.MA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == NEW_JERSEY) {
+                mNewJerseyData.addAll(data);
+            } else if (groupPosition == NEW_YORK) {
+                mNewYorkData.addAll(data);
+            } else if (groupPosition == PENNSYLVANIA) {
+                mPennsylvaniaData.addAll(data);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.SA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == DELAWARE) {
+                mDelawareData.addAll(data);
+            } else if (groupPosition == FLORIDA) {
+                mFloridaData.addAll(data);
+            } else if (groupPosition == GEORGIA) {
+                mGeorgiaData.addAll(data);
+            } else if (groupPosition == MARYLAND) {
+                mMarylandData.addAll(data);
+            } else if (groupPosition == NORTH_CAROLINA) {
+                mNorthCarolinaData.addAll(data);
+            } else if (groupPosition == SOUTH_CAROLINA) {
+                mSouthCarolinaData.addAll(data);
+            } else if (groupPosition == VIRGINIA) {
+                mVirginiaData.addAll(data);
+            } else if (groupPosition == WEST_VIRGINIA) {
+                mWestVirginiaData.addAll(data);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.NE) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == CONNECTICUT) {
+                mConnecticutData.addAll(data);
+            } else if (groupPosition == MAINE) {
+                mMaineData.addAll(data);
+            } else if (groupPosition == MASSACHUSETTS) {
+                mMassachusettsData.addAll(data);
+            } else if (groupPosition == NEW_HAMPSHIRE) {
+                mNewHampshireData.addAll(data);
+            } else if (groupPosition == RHODE_ISLAND) {
+                mRhodeIslandData.addAll(data);
+            } else if (groupPosition == VERMONT) {
+                mVermontData.addAll(data);
+            }
+        }
+        /*
+        switch (groupPosition) {
+            //PST States
+            case ALASKA:
+                mAlaskaData.addAll(data);
+                break;
+            case CALIFORNIA:
+                mCaliforniaData.addAll(data);
+                break;
+            case HAWAII:
+                mHawaiiData.addAll(data);
+                break;
+            case OREGON:
+                mOregonData.addAll(data);
+                break;
+            case WASHINGTON:
+                mWashingtonData.addAll(data);
+                break;
+
+            //MT States
+            case ARIZONA:
+                mArizonaData.addAll(data);
+                break;
+            case COLORADO:
+                mColoradoData.addAll(data);
+                break;
+            case IDAHO:
+                mIdahoData.addAll(data);
+                break;
+            case MONTANA:
+                mMontanaData.addAll(data);
+                break;
+            case NEVADA:
+                mNevadaData.addAll(data);
+                break;
+            case NEW_MEXICO:
+                mNewMexicoData.addAll(data);
+                break;
+            case UTAH:
+                mUtahData.addAll(data);
+                break;
+            case WYOMING:
+                mWyomingData.addAll(data);
+                break;
+
+            //WNC States
+            case IOWA:
+                mIowaData.addAll(data);
+                break;
+            case KANSAS:
+                mKansasData.addAll(data);
+                break;
+            case MINNESOTA:
+                mMinnesotaData.addAll(data);
+                break;
+            case MISSOURI:
+                mMissouriData.addAll(data);
+                break;
+            case NEBRASKA:
+                mNebraskaData.addAll(data);
+                break;
+            case NORTH_DAKOTA:
+                mNorthDakotaData.addAll(data);
+                break;
+            case SOUTH_DAKOTA:
+                mSouthDakotaData.addAll(data);
+                break;
+
+            //WSC States
+            case ARKANSAS:
+                mArkansasData.addAll(data);
+                break;
+            case LOUISIANA:
+                mLouisianaData.addAll(data);
+                break;
+            case OKLAHOMA:
+                mOklahomaData.addAll(data);
+                break;
+            case TEXAS:
+                mTexasData.addAll(data);
+                break;
+
+            //ENC States
+            case ILLINOIS:
+                mIllinoisData.addAll(data);
+                break;
+            case INDIANA:
+                mIndianaData.addAll(data);
+                break;
+            case MICHIGAN:
+                mMichiganData.addAll(data);
+                break;
+            case OHIO:
+                mOhioData.addAll(data);
+                break;
+            case WISCONSIN:
+                mWisconsinData.addAll(data);
+                break;
+
+            //ESC States
+            case ALABAMA:
+                mAlabamaData.addAll(data);
+                break;
+            case KENTUCKY:
+                mKentuckyData.addAll(data);
+                break;
+            case MISSISSIPPI:
+                mMississippiData.addAll(data);
+                break;
+            case TENNESSEE:
+                mTennesseeData.addAll(data);
+                break;
+
+            //MA States
+            case NEW_JERSEY:
+                mNewJerseyData.addAll(data);
+                break;
+            case NEW_YORK:
+                mNewYorkData.addAll(data);
+                break;
+            case PENNSYLVANIA:
+                mPennsylvaniaData.addAll(data);
+                break;
+
+            //SA States
+            case DELAWARE:
+                mDelawareData.addAll(data);
+                break;
+            case FLORIDA:
+                mFloridaData.addAll(data);
+                break;
+            case GEORGIA:
+                mGeorgiaData.addAll(data);
+                break;
+            case MARYLAND:
+                mMarylandData.addAll(data);
+                break;
+            case NORTH_CAROLINA:
+                mNorthCarolinaData.addAll(data);
+                break;
+            case SOUTH_CAROLINA:
+                mSouthCarolinaData.addAll(data);
+                break;
+            case VIRGINIA:
+                mVirginiaData.addAll(data);
+                break;
+            case WEST_VIRGINIA:
+                mWestVirginiaData.addAll(data);
+                break;
+
+            //NE States
+            case CONNECTICUT:
+                mConnecticutData.addAll(data);
+                break;
+            case MAINE:
+                mMaineData.addAll(data);
+                break;
+            case MASSACHUSETTS:
+                mMassachusettsData.addAll(data);
+                break;
+            case NEW_HAMPSHIRE:
+                mNewHampshireData.addAll(data);
+                break;
+            case RHODE_ISLAND:
+                mRhodeIslandData.addAll(data);
+                break;
+            case VERMONT:
+                mVermontData.addAll(data);
+                break;
+
+        }
+        */
+    }
+
+    /**
+     * Depending on groupPosition, returns the data for a helper result or returns the data for a
+     * resource.
+     * @param groupPosition options: one of the public static ints declared at top of file
+     * @param childPosition dictates which result is returned
+     */
+    @Override
+    public Object getChild(int groupPosition, int childPosition) {
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.PST) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ALASKA) {
+                return mAlaskaData.get(childPosition);
+            } else if (groupPosition == CALIFORNIA) {
+                return mCaliforniaData.get(childPosition);
+            } else if (groupPosition == HAWAII) {
+                return mHawaiiData.get(childPosition);
+            } else if (groupPosition == OREGON) {
+                return mOregonData.get(childPosition);
+            } else if (groupPosition == WASHINGTON) {
+                return mWashingtonData.get(childPosition);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.MT) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ARIZONA) {
+                return mArizonaData.get(childPosition);
+            } else if (groupPosition == COLORADO) {
+                return mColoradoData.get(childPosition);
+            } else if (groupPosition == IDAHO) {
+                return mIdahoData.get(childPosition);
+            } else if (groupPosition == MONTANA) {
+                return mMontanaData.get(childPosition);
+            } else if (groupPosition == NEVADA) {
+                return mNevadaData.get(childPosition);
+            } else if (groupPosition == NEW_MEXICO) {
+                return mNewMexicoData.get(childPosition);
+            } else if (groupPosition == UTAH) {
+                return mUtahData.get(childPosition);
+            } else if (groupPosition == WYOMING) {
+                return mWyomingData.get(childPosition);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.WNC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == IOWA) {
+                return mIowaData.get(childPosition);
+            } else if (groupPosition == KANSAS) {
+                return mKansasData.get(childPosition);
+            } else if (groupPosition == MINNESOTA) {
+                return mMinnesotaData.get(childPosition);
+            } else if (groupPosition == MISSOURI) {
+                return mMissouriData.get(childPosition);
+            } else if (groupPosition == NEBRASKA) {
+                return mNebraskaData.get(childPosition);
+            } else if (groupPosition == NORTH_DAKOTA) {
+                return mNorthDakotaData.get(childPosition);
+            } else if (groupPosition == SOUTH_DAKOTA) {
+                return mSouthDakotaData.get(childPosition);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.WSC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ARKANSAS) {
+                return mArkansasData.get(childPosition);
+            } else if (groupPosition == LOUISIANA) {
+                return mLouisianaData.get(childPosition);
+            } else if (groupPosition == OKLAHOMA) {
+                return mOklahomaData.get(childPosition);
+            } else if (groupPosition == TEXAS) {
+                return mTexasData.get(childPosition);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.ENC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ILLINOIS) {
+                return mIllinoisData.get(childPosition);
+            } else if (groupPosition == INDIANA) {
+                return mIndianaData.get(childPosition);
+            } else if (groupPosition == MICHIGAN) {
+                return mMichiganData.get(childPosition);
+            } else if (groupPosition == OHIO) {
+                return mOhioData.get(childPosition);
+            } else if (groupPosition == WISCONSIN) {
+                return mWisconsinData.get(childPosition);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.ESC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ALABAMA) {
+                return mAlabamaData.get(childPosition);
+            } else if (groupPosition == KENTUCKY) {
+                return mKentuckyData.get(childPosition);
+            } else if (groupPosition == MISSISSIPPI) {
+                return mMississippiData.get(childPosition);
+            } else if (groupPosition == TENNESSEE) {
+                return mTennesseeData.get(childPosition);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.MA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == NEW_JERSEY) {
+                return mNewJerseyData.get(childPosition);
+            } else if (groupPosition == NEW_YORK) {
+                return mNewYorkData.get(childPosition);
+            } else if (groupPosition == PENNSYLVANIA) {
+                return mPennsylvaniaData.get(childPosition);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.SA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == DELAWARE) {
+                return mDelawareData.get(childPosition);
+            } else if (groupPosition == FLORIDA) {
+                return mFloridaData.get(childPosition);
+            } else if (groupPosition == GEORGIA) {
+                return mGeorgiaData.get(childPosition);
+            } else if (groupPosition == MARYLAND) {
+                return mMarylandData.get(childPosition);
+            } else if (groupPosition == NORTH_CAROLINA) {
+                return mNorthCarolinaData.get(childPosition);
+            } else if (groupPosition == SOUTH_CAROLINA) {
+                return mSouthCarolinaData.get(childPosition);
+            } else if (groupPosition == VIRGINIA) {
+                return mVirginiaData.get(childPosition);
+            } else if (groupPosition == WEST_VIRGINIA) {
+                return mWestVirginiaData.get(childPosition);
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.NE) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == CONNECTICUT) {
+                return mConnecticutData.get(childPosition);
+            } else if (groupPosition == MAINE) {
+                return mMaineData.get(childPosition);
+            } else if (groupPosition == MASSACHUSETTS) {
+                return mMassachusettsData.get(childPosition);
+            } else if (groupPosition == NEW_HAMPSHIRE) {
+                return mNewHampshireData.get(childPosition);
+            } else if (groupPosition == RHODE_ISLAND) {
+                return mRhodeIslandData.get(childPosition);
+            } else if (groupPosition == VERMONT) {
+                return mVermontData.get(childPosition);
+            }
+        }
+        /*
+        switch (groupPosition) {
+            //PST States
+            case ALASKA:
+                return mAlaskaData.get(childPosition);
+            case CALIFORNIA:
+                return mCaliforniaData.get(childPosition);
+            case HAWAII:
+                return mHawaiiData.get(childPosition);
+            case OREGON:
+                return mOregonData.get(childPosition);
+            case WASHINGTON:
+                return mWashingtonData.get(childPosition);
+
+            //MT States
+            case ARIZONA:
+                return mArizonaData.get(childPosition);
+            case COLORADO:
+                return mColoradoData.get(childPosition);
+            case IDAHO:
+                return mIdahoData.get(childPosition);
+            case MONTANA:
+                return mMontanaData.get(childPosition);
+            case NEVADA:
+                return mNevadaData.get(childPosition);
+            case NEW_MEXICO:
+                return mNewMexicoData.get(childPosition);
+            case UTAH:
+                return mUtahData.get(childPosition);
+            case WYOMING:
+                return mWyomingData.get(childPosition);
+
+            //WNC States
+            case IOWA:
+                return mIowaData.get(childPosition);
+            case KANSAS:
+                return mKansasData.get(childPosition);
+            case MINNESOTA:
+                return mMinnesotaData.get(childPosition);
+            case MISSOURI:
+                return mMissouriData.get(childPosition);
+            case NEBRASKA:
+                return mNebraskaData.get(childPosition);
+            case NORTH_DAKOTA:
+                return mNorthDakotaData.get(childPosition);
+            case SOUTH_DAKOTA:
+                return mSouthDakotaData.get(childPosition);
+
+            //WSC States
+            case ARKANSAS:
+                return mArkansasData.get(childPosition);
+            case LOUISIANA:
+                return mLouisianaData.get(childPosition);
+            case OKLAHOMA:
+                return mOklahomaData.get(childPosition);
+            case TEXAS:
+                return mTexasData.get(childPosition);
+
+            //ENC States
+            case ILLINOIS:
+                return mIllinoisData.get(childPosition);
+            case INDIANA:
+                return mIndianaData.get(childPosition);
+            case MICHIGAN:
+                return mMichiganData.get(childPosition);
+            case OHIO:
+                return mOhioData.get(childPosition);
+            case WISCONSIN:
+                return mWisconsinData.get(childPosition);
+
+            //ESC States
+            case ALABAMA:
+                return mAlabamaData.get(childPosition);
+            case KENTUCKY:
+                return mKentuckyData.get(childPosition);
+            case MISSISSIPPI:
+                return mMississippiData.get(childPosition);
+            case TENNESSEE:
+                return mTennesseeData.get(childPosition);
+
+            //MA States
+            case NEW_JERSEY:
+                return mNewJerseyData.get(childPosition);
+            case NEW_YORK:
+                return mNewYorkData.get(childPosition);
+            case PENNSYLVANIA:
+                return mPennsylvaniaData.get(childPosition);
+
+            //SA States
+            case DELAWARE:
+                return mDelawareData.get(childPosition);
+            case FLORIDA:
+                return mFloridaData.get(childPosition);
+            case GEORGIA:
+                return mGeorgiaData.get(childPosition);
+            case MARYLAND:
+                return mMarylandData.get(childPosition);
+            case NORTH_CAROLINA:
+                return mNorthCarolinaData.get(childPosition);
+            case SOUTH_CAROLINA:
+                return mSouthCarolinaData.get(childPosition);
+            case VIRGINIA:
+                return mVirginiaData.get(childPosition);
+            case WEST_VIRGINIA:
+                return mWestVirginiaData.get(childPosition);
+
+            //NE States
+            case CONNECTICUT:
+                return mConnecticutData.get(childPosition);
+            case MAINE:
+                return mMaineData.get(childPosition);
+            case MASSACHUSETTS:
+                return mMassachusettsData.get(childPosition);
+            case NEW_HAMPSHIRE:
+                return mNewHampshireData.get(childPosition);
+            case RHODE_ISLAND:
+                return mRhodeIslandData.get(childPosition);
+            case VERMONT:
+                return mVermontData.get(childPosition);
+        }
+        */
+
+        return null;
+    }
+
+    /**
+     * Returns a resources's Id
+     * @param groupPosition options: one of the public static ints declared at top of file
+     * @param childPosition dictates which result is stored in <code>resource</code>
+     */
+    @Override
+    public long getChildId(int groupPosition, int childPosition) {
+        Resource resource = (Resource) getChild(groupPosition, childPosition);
+        if (resource != null) {
+            return resource.getId();
+        }
+
+        return -childPosition; //todo: look into: is this what it should be returning?
+    }
+
+    /**
+     * Depending on the <code>groupPosition</code>, returns the size of the appropriate data group
+     * @param groupPosition options: one of the public static ints declared at top of file
+     * @return size of data group
+     */
+    @Override
+    public int getChildrenCount(int groupPosition) {
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.PST) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ALASKA) {
+                return mAlaskaData.size();
+            } else if (groupPosition == CALIFORNIA) {
+                return mCaliforniaData.size();
+            } else if (groupPosition == HAWAII) {
+                return mHawaiiData.size();
+            } else if (groupPosition == OREGON) {
+                return mOregonData.size();
+            } else if (groupPosition == WASHINGTON) {
+                return mWashingtonData.size();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.MT) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ARIZONA) {
+                return mArizonaData.size();
+            } else if (groupPosition == COLORADO) {
+                return mColoradoData.size();
+            } else if (groupPosition == IDAHO) {
+                return mIdahoData.size();
+            } else if (groupPosition == MONTANA) {
+                return mMontanaData.size();
+            } else if (groupPosition == NEVADA) {
+                return mNevadaData.size();
+            } else if (groupPosition == NEW_MEXICO) {
+                return mNewMexicoData.size();
+            } else if (groupPosition == UTAH) {
+                return mUtahData.size();
+            } else if (groupPosition == WYOMING) {
+                return mWyomingData.size();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.WNC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == IOWA) {
+                return mIowaData.size();
+            } else if (groupPosition == KANSAS) {
+                return mKansasData.size();
+            } else if (groupPosition == MINNESOTA) {
+                return mMinnesotaData.size();
+            } else if (groupPosition == MISSOURI) {
+                return mMissouriData.size();
+            } else if (groupPosition == NEBRASKA) {
+                return mNebraskaData.size();
+            } else if (groupPosition == NORTH_DAKOTA) {
+                return mNorthDakotaData.size();
+            } else if (groupPosition == SOUTH_DAKOTA) {
+                return mSouthDakotaData.size();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.WSC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ARKANSAS) {
+                return mArkansasData.size();
+            } else if (groupPosition == LOUISIANA) {
+                return mLouisianaData.size();
+            } else if (groupPosition == OKLAHOMA) {
+                return mOklahomaData.size();
+            } else if (groupPosition == TEXAS) {
+                return mTexasData.size();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.ENC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ILLINOIS) {
+                return mIllinoisData.size();
+            } else if (groupPosition == INDIANA) {
+                return mIndianaData.size();
+            } else if (groupPosition == MICHIGAN) {
+                return mMichiganData.size();
+            } else if (groupPosition == OHIO) {
+                return mOhioData.size();
+            } else if (groupPosition == WISCONSIN) {
+                return mWisconsinData.size();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.ESC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ALABAMA) {
+                return mAlabamaData.size();
+            } else if (groupPosition == KENTUCKY) {
+                return mKentuckyData.size();
+            } else if (groupPosition == MISSISSIPPI) {
+                return mMississippiData.size();
+            } else if (groupPosition == TENNESSEE) {
+                return mTennesseeData.size();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.MA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == NEW_JERSEY) {
+                return mNewJerseyData.size();
+            } else if (groupPosition == NEW_YORK) {
+                return mNewYorkData.size();
+            } else if (groupPosition == PENNSYLVANIA) {
+                return mPennsylvaniaData.size();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.SA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == DELAWARE) {
+                return mDelawareData.size();
+            } else if (groupPosition == FLORIDA) {
+                return mFloridaData.size();
+            } else if (groupPosition == GEORGIA) {
+                return mGeorgiaData.size();
+            } else if (groupPosition == MARYLAND) {
+                return mMarylandData.size();
+            } else if (groupPosition == NORTH_CAROLINA) {
+                return mNorthCarolinaData.size();
+            } else if (groupPosition == SOUTH_CAROLINA) {
+                return mSouthCarolinaData.size();
+            } else if (groupPosition == VIRGINIA) {
+                return mVirginiaData.size();
+            } else if (groupPosition == WEST_VIRGINIA) {
+                return mWestVirginiaData.size();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.NE) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == CONNECTICUT) {
+                return mConnecticutData.size();
+            } else if (groupPosition == MAINE) {
+                return mMaineData.size();
+            } else if (groupPosition == MASSACHUSETTS) {
+                return mMassachusettsData.size();
+            } else if (groupPosition == NEW_HAMPSHIRE) {
+                return mNewHampshireData.size();
+            } else if (groupPosition == RHODE_ISLAND) {
+                return mRhodeIslandData.size();
+            } else if (groupPosition == VERMONT) {
+                return mVermontData.size();
+            }
+        }
+
+        /*
+        switch (groupPosition) {
+            //PST States
+            case ALASKA:
+                return mAlaskaData.size();
+            case CALIFORNIA:
+                return mCaliforniaData.size();
+            case HAWAII:
+                return mHawaiiData.size();
+            case OREGON:
+                return mOregonData.size();
+            case WASHINGTON:
+                return mWashingtonData.size();
+
+            //MT States
+            case ARIZONA:
+                return mArizonaData.size();
+            case COLORADO:
+                return mColoradoData.size();
+            case IDAHO:
+                return mIdahoData.size();
+            case MONTANA:
+                return mMontanaData.size();
+            case NEVADA:
+                return mNevadaData.size();
+            case NEW_MEXICO:
+                return mNewMexicoData.size();
+            case UTAH:
+                return mUtahData.size();
+            case WYOMING:
+                return mWyomingData.size();
+
+            //WNC States
+            case IOWA:
+                return mIowaData.size();
+            case KANSAS:
+                return mKansasData.size();
+            case MINNESOTA:
+                return mMinnesotaData.size();
+            case MISSOURI:
+                return mMissouriData.size();
+            case NEBRASKA:
+                return mNebraskaData.size();
+            case NORTH_DAKOTA:
+                return mNorthDakotaData.size();
+            case SOUTH_DAKOTA:
+                return mSouthDakotaData.size();
+
+            //WSC States
+            case ARKANSAS:
+                return mArkansasData.size();
+            case LOUISIANA:
+                return mLouisianaData.size();
+            case OKLAHOMA:
+                return mOklahomaData.size();
+            case TEXAS:
+                return mTexasData.size();
+
+            //ENC States
+            case ILLINOIS:
+                return mIllinoisData.size();
+            case INDIANA:
+                return mIndianaData.size();
+            case MICHIGAN:
+                return mMichiganData.size();
+            case OHIO:
+                return mOhioData.size();
+            case WISCONSIN:
+                return mWisconsinData.size();
+
+            //ESC States
+            case ALABAMA:
+                return mAlabamaData.size();
+            case KENTUCKY:
+                return mKentuckyData.size();
+            case MISSISSIPPI:
+                return mMississippiData.size();
+            case TENNESSEE:
+                return mTennesseeData.size();
+
+            //MA States
+            case NEW_JERSEY:
+                return mNewJerseyData.size();
+            case NEW_YORK:
+                return mNewYorkData.size();
+            case PENNSYLVANIA:
+                return mPennsylvaniaData.size();
+
+            //SA States
+            case DELAWARE:
+                return mDelawareData.size();
+            case FLORIDA:
+                return mFloridaData.size();
+            case GEORGIA:
+                return mGeorgiaData.size();
+            case MARYLAND:
+                return mMarylandData.size();
+            case NORTH_CAROLINA:
+                return mNorthCarolinaData.size();
+            case SOUTH_CAROLINA:
+                return mSouthCarolinaData.size();
+            case VIRGINIA:
+                return mVirginiaData.size();
+            case WEST_VIRGINIA:
+                return mWestVirginiaData.size();
+
+            //NE States
+            case CONNECTICUT:
+                return mConnecticutData.size();
+            case MAINE:
+                return mMaineData.size();
+            case MASSACHUSETTS:
+                return mMassachusettsData.size();
+            case NEW_HAMPSHIRE:
+                return mNewHampshireData.size();
+            case RHODE_ISLAND:
+                return mRhodeIslandData.size();
+            case VERMONT:
+                return mVermontData.size();
+        }
+        */
+
+        return 0;
+    }
+
+    /**
+     * Depending on <code>groupPosition</code>, returns appropriate group's data
+     * @param groupPosition options: one of the public static ints declared at top of file
+     */
+    @Override
+    public Object getGroup(int groupPosition) {
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.PST) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ALASKA) {
+                return mAlaskaData;
+            } else if (groupPosition == CALIFORNIA) {
+                return mCaliforniaData;
+            } else if (groupPosition == HAWAII) {
+                return mHawaiiData;
+            } else if (groupPosition == OREGON) {
+                return mOregonData;
+            } else if (groupPosition == WASHINGTON) {
+                return mWashingtonData;
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.MT) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ARIZONA) {
+                return mArizonaData;
+            } else if (groupPosition == COLORADO) {
+                return mColoradoData;
+            } else if (groupPosition == IDAHO) {
+                return mIdahoData;
+            } else if (groupPosition == MONTANA) {
+                return mMontanaData;
+            } else if (groupPosition == NEVADA) {
+                return mNevadaData;
+            } else if (groupPosition == NEW_MEXICO) {
+                return mNewMexicoData;
+            } else if (groupPosition == UTAH) {
+                return mUtahData;
+            } else if (groupPosition == WYOMING) {
+                return mWyomingData;
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.WNC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == IOWA) {
+                return mIowaData;
+            } else if (groupPosition == KANSAS) {
+                return mKansasData;
+            } else if (groupPosition == MINNESOTA) {
+                return mMinnesotaData;
+            } else if (groupPosition == MISSOURI) {
+                return mMissouriData;
+            } else if (groupPosition == NEBRASKA) {
+                return mNebraskaData;
+            } else if (groupPosition == NORTH_DAKOTA) {
+                return mNorthDakotaData;
+            } else if (groupPosition == SOUTH_DAKOTA) {
+                return mSouthDakotaData;
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.WSC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ARKANSAS) {
+                return mArkansasData;
+            } else if (groupPosition == LOUISIANA) {
+                return mLouisianaData;
+            } else if (groupPosition == OKLAHOMA) {
+                return mOklahomaData;
+            } else if (groupPosition == TEXAS) {
+                return mTexasData;
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.ENC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ILLINOIS) {
+                return mIllinoisData;
+            } else if (groupPosition == INDIANA) {
+                return mIndianaData;
+            } else if (groupPosition == MICHIGAN) {
+                return mMichiganData;
+            } else if (groupPosition == OHIO) {
+                return mOhioData;
+            } else if (groupPosition == WISCONSIN) {
+                return mWisconsinData;
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.ESC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ALABAMA) {
+                return mAlabamaData;
+            } else if (groupPosition == KENTUCKY) {
+                return mKentuckyData;
+            } else if (groupPosition == MISSISSIPPI) {
+                return mMississippiData;
+            } else if (groupPosition == TENNESSEE) {
+                return mTennesseeData;
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.MA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == NEW_JERSEY) {
+                return mNewJerseyData;
+            } else if (groupPosition == NEW_YORK) {
+                return mNewYorkData;
+            } else if (groupPosition == PENNSYLVANIA) {
+                return mPennsylvaniaData;
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.SA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == DELAWARE) {
+                return mDelawareData;
+            } else if (groupPosition == FLORIDA) {
+                return mFloridaData;
+            } else if (groupPosition == GEORGIA) {
+                return mGeorgiaData;
+            } else if (groupPosition == MARYLAND) {
+                return mMarylandData;
+            } else if (groupPosition == NORTH_CAROLINA) {
+                return mNorthCarolinaData;
+            } else if (groupPosition == SOUTH_CAROLINA) {
+                return mSouthCarolinaData;
+            } else if (groupPosition == VIRGINIA) {
+                return mVirginiaData;
+            } else if (groupPosition == WEST_VIRGINIA) {
+                return mWestVirginiaData;
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.NE) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == CONNECTICUT) {
+                return mConnecticutData;
+            } else if (groupPosition == MAINE) {
+                return mMaineData;
+            } else if (groupPosition == MASSACHUSETTS) {
+                return mMassachusettsData;
+            } else if (groupPosition == NEW_HAMPSHIRE) {
+                return mNewHampshireData;
+            } else if (groupPosition == RHODE_ISLAND) {
+                return mRhodeIslandData;
+            } else if (groupPosition == VERMONT) {
+                return mVermontData;
+            }
+        }
+
+        return null;
+        /*
+        switch (groupPosition) {
+            //PST States
+            case ALASKA:
+                return mAlaskaData;
+            case CALIFORNIA:
+                return mCaliforniaData;
+            case HAWAII:
+                return mHawaiiData;
+            case OREGON:
+                return mOregonData;
+            case WASHINGTON:
+                return mWashingtonData;
+
+            //MT States
+            case ARIZONA:
+                return mArizonaData;
+            case COLORADO:
+                return mColoradoData;
+            case IDAHO:
+                return mIdahoData;
+            case MONTANA:
+                return mMontanaData;
+            case NEVADA:
+                return mNevadaData;
+            case NEW_MEXICO:
+                return mNewMexicoData;
+            case UTAH:
+                return mUtahData;
+            case WYOMING:
+                return mWyomingData;
+
+            //WNC States
+            case IOWA:
+                return mIowaData;
+            case KANSAS:
+                return mKansasData;
+            case MINNESOTA:
+                return mMinnesotaData;
+            case MISSOURI:
+                return mMissouriData;
+            case NEBRASKA:
+                return mNebraskaData;
+            case NORTH_DAKOTA:
+                return mNorthDakotaData;
+            case SOUTH_DAKOTA:
+                return mSouthDakotaData;
+
+            //WSC States
+            case ARKANSAS:
+                return mArkansasData;
+            case LOUISIANA:
+                return mLouisianaData;
+            case OKLAHOMA:
+                return mOklahomaData;
+            case TEXAS:
+                return mTexasData;
+
+            //ENC States
+            case ILLINOIS:
+                return mIllinoisData;
+            case INDIANA:
+                return mIndianaData;
+            case MICHIGAN:
+                return mMichiganData;
+            case OHIO:
+                return mOhioData;
+            case WISCONSIN:
+                return mWisconsinData;
+
+            //ESC States
+            case ALABAMA:
+                return mAlabamaData;
+            case KENTUCKY:
+                return mKentuckyData;
+            case MISSISSIPPI:
+                return mMississippiData;
+            case TENNESSEE:
+                return mTennesseeData;
+
+            //MA States
+            case NEW_JERSEY:
+                return mNewJerseyData;
+            case NEW_YORK:
+                return mNewYorkData;
+            case PENNSYLVANIA:
+                return mPennsylvaniaData;
+
+            //SA States
+            case DELAWARE:
+                return mDelawareData;
+            case FLORIDA:
+                return mFloridaData;
+            case GEORGIA:
+                return mGeorgiaData;
+            case MARYLAND:
+                return mMarylandData;
+            case NORTH_CAROLINA:
+                return mNorthCarolinaData;
+            case SOUTH_CAROLINA:
+                return mSouthCarolinaData;
+            case VIRGINIA:
+                return mVirginiaData;
+            case WEST_VIRGINIA:
+                return mWestVirginiaData;
+
+            //NE States
+            case CONNECTICUT:
+                return mConnecticutData;
+            case MAINE:
+                return mMaineData;
+            case MASSACHUSETTS:
+                return mMassachusettsData;
+            case NEW_HAMPSHIRE:
+                return mNewHampshireData;
+            case RHODE_ISLAND:
+                return mRhodeIslandData;
+            case VERMONT:
+                return mVermontData;
+
+            default:
+                return null;
+
+        }
+        */
+    }
+
+    /**
+     * Returns the number of groups in <code>ExpandableListView</code>, 50
+     */
+    @Override
+    public int getGroupCount() {
+        return this.mStateCount;
+    }
+
+    /**
+     * Inflates <code>R.layout.list_header</code>, set's <code>title</code>, and set's each group
+     * header with the string associated with <code>title</code>.
+     */
+    @Override
+    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.resource_list_header, null, false);
+
+        String title = "";
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.PST) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ALASKA) {
+                title = StateEnum.ALASKA.toStringName();
+            } else if (groupPosition == CALIFORNIA) {
+                title = StateEnum.CALIFORNIA.toStringName();
+            } else if (groupPosition == HAWAII) {
+                title = StateEnum.HAWAII.toStringName();
+            } else if (groupPosition == OREGON) {
+                title = StateEnum.OREGON.toStringName();
+            } else if (groupPosition == WASHINGTON) {
+                title = StateEnum.WASHINGTON.toStringName();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.MT) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ARIZONA) {
+                title = StateEnum.ARIZONA.toStringName();
+            } else if (groupPosition == COLORADO) {
+                title = StateEnum.COLORADO.toStringName();
+            } else if (groupPosition == IDAHO) {
+                title = StateEnum.IDAHO.toStringName();
+            } else if (groupPosition == MONTANA) {
+                title = StateEnum.MONTANA.toStringName();
+            } else if (groupPosition == NEVADA) {
+                title = StateEnum.NEVADA.toStringName();
+            } else if (groupPosition == NEW_MEXICO) {
+                title = StateEnum.NEW_MEXICO.toStringName();
+            } else if (groupPosition == UTAH) {
+                title = StateEnum.UTAH.toStringName();
+            } else if (groupPosition == WYOMING) {
+                title = StateEnum.WYOMING.toStringName();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.WNC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == IOWA) {
+                title = StateEnum.IOWA.toStringName();
+            } else if (groupPosition == KANSAS) {
+                title = StateEnum.KANSAS.toStringName();
+            } else if (groupPosition == MINNESOTA) {
+                title = StateEnum.MINNESOTA.toStringName();
+            } else if (groupPosition == MISSOURI) {
+                title = StateEnum.MISSOURI.toStringName();
+            } else if (groupPosition == NEBRASKA) {
+                title = StateEnum.NEBRASKA.toStringName();
+            } else if (groupPosition == NORTH_DAKOTA) {
+                title = StateEnum.NORTH_DAKOTA.toStringName();
+            } else if (groupPosition == SOUTH_DAKOTA) {
+                title = StateEnum.SOUTH_DAKOTA.toStringName();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.WSC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ARKANSAS) {
+                title = StateEnum.ARKANSAS.toStringName();
+            } else if (groupPosition == LOUISIANA) {
+                title = StateEnum.LOUISIANA.toStringName();
+            } else if (groupPosition == OKLAHOMA) {
+                title = StateEnum.OKLAHOMA.toStringName();
+            } else if (groupPosition == TEXAS) {
+                title = StateEnum.TEXAS.toStringName();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.ENC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ILLINOIS) {
+                title = StateEnum.ILLINOIS.toStringName();
+            } else if (groupPosition == INDIANA) {
+                title = StateEnum.INDIANA.toStringName();
+            } else if (groupPosition == MICHIGAN) {
+                title = StateEnum.MICHIGAN.toStringName();
+            } else if (groupPosition == OHIO) {
+                title = StateEnum.OHIO.toStringName();
+            } else if (groupPosition == WISCONSIN) {
+                title = StateEnum.WISCONSIN.toStringName();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.ESC) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == ALABAMA) {
+                title = StateEnum.ALABAMA.toStringName();
+            } else if (groupPosition == KENTUCKY) {
+                title = StateEnum.KENTUCKY.toStringName();
+            } else if (groupPosition == MISSISSIPPI) {
+                title = StateEnum.MISSISSIPPI.toStringName();
+            } else if (groupPosition == TENNESSEE) {
+                title = StateEnum.TENNESSEE.toStringName();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.MA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == NEW_JERSEY) {
+                title = StateEnum.NEW_JERSEY.toStringName();
+            } else if (groupPosition == NEW_YORK) {
+                title = StateEnum.NEW_YORK.toStringName();
+            } else if (groupPosition == PENNSYLVANIA) {
+                title = StateEnum.PENNSYLVANIA.toStringName();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.SA) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == DELAWARE) {
+                title = StateEnum.DELAWARE.toStringName();
+            } else if (groupPosition == FLORIDA) {
+                title = StateEnum.FLORIDA.toStringName();
+            } else if (groupPosition == GEORGIA) {
+                title = StateEnum.GEORGIA.toStringName();
+            } else if (groupPosition == MARYLAND) {
+                title = StateEnum.MARYLAND.toStringName();
+            } else if (groupPosition == NORTH_CAROLINA) {
+                title = StateEnum.NORTH_CAROLINA.toStringName();
+            } else if (groupPosition == SOUTH_CAROLINA) {
+                title = StateEnum.SOUTH_CAROLINA.toStringName();
+            } else if (groupPosition == VIRGINIA) {
+                title = StateEnum.VIRGINIA.toStringName();
+            } else if (groupPosition == WEST_VIRGINIA) {
+                title = StateEnum.WEST_VIRGINIA.toStringName();
+            }
+        }
+
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.NE) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            if (groupPosition == CONNECTICUT) {
+                title = StateEnum.CONNECTICUT.toStringName();
+            } else if (groupPosition == MAINE) {
+                title = StateEnum.MAINE.toStringName();
+            } else if (groupPosition == MASSACHUSETTS) {
+                title = StateEnum.MASSACHUSETTS.toStringName();
+            } else if (groupPosition == NEW_HAMPSHIRE) {
+                title = StateEnum.NEW_HAMPSHIRE.toStringName();
+            } else if (groupPosition == RHODE_ISLAND) {
+                title = StateEnum.RHODE_ISLAND.toStringName();
+            } else if (groupPosition == VERMONT) {
+                title = StateEnum.VERMONT.toStringName();
+            }
+        }
+
+
+        /*
+        switch (groupPosition) {
+            //PST States
+            case ALASKA:
+                title = StateEnum.ALASKA.toStringName();
+                break;
+            case CALIFORNIA:
+                title = StateEnum.CALIFORNIA.toStringName();
+                break;
+            case HAWAII:
+                title = StateEnum.HAWAII.toStringName();
+                break;
+            case OREGON:
+                title = StateEnum.OREGON.toStringName();
+                break;
+            case WASHINGTON:
+                title = StateEnum.WASHINGTON.toStringName();
+                break;
+
+            //MT States
+            case ARIZONA:
+                title = StateEnum.ARIZONA.toStringName();
+                break;
+            case COLORADO:
+                title = StateEnum.COLORADO.toStringName();
+                break;
+            case IDAHO:
+                title = StateEnum.IDAHO.toStringName();
+                break;
+            case MONTANA:
+                title = StateEnum.MONTANA.toStringName();
+                break;
+            case NEVADA:
+                title = StateEnum.NEVADA.toStringName();
+                break;
+            case NEW_MEXICO:
+                title = StateEnum.NEW_MEXICO.toStringName();
+                break;
+            case UTAH:
+                title = StateEnum.UTAH.toStringName();
+                break;
+            case WYOMING:
+                title = StateEnum.WYOMING.toStringName();
+                break;
+
+            //WNC States
+            case IOWA:
+                title = StateEnum.IOWA.toStringName();
+                break;
+            case KANSAS:
+                title = StateEnum.KANSAS.toStringName();
+                break;
+            case MINNESOTA:
+                title = StateEnum.MINNESOTA.toStringName();
+                break;
+            case MISSOURI:
+                title = StateEnum.MISSOURI.toStringName();
+                break;
+            case NEBRASKA:
+                title = StateEnum.NEBRASKA.toStringName();
+                break;
+            case NORTH_DAKOTA:
+                title = StateEnum.NORTH_DAKOTA.toStringName();
+                break;
+            case SOUTH_DAKOTA:
+                title = StateEnum.SOUTH_DAKOTA.toStringName();
+                break;
+
+            //WSC States
+            case ARKANSAS:
+                title = StateEnum.ARKANSAS.toStringName();
+                break;
+            case LOUISIANA:
+                title = StateEnum.LOUISIANA.toStringName();
+                break;
+            case OKLAHOMA:
+                title = StateEnum.OKLAHOMA.toStringName();
+                break;
+            case TEXAS:
+                title = StateEnum.TEXAS.toStringName();
+                break;
+
+            //ENC States
+            case ILLINOIS:
+                title = StateEnum.ILLINOIS.toStringName();
+                break;
+            case INDIANA:
+                title = StateEnum.INDIANA.toStringName();
+                break;
+            case MICHIGAN:
+                title = StateEnum.MICHIGAN.toStringName();
+                break;
+            case OHIO:
+                title = StateEnum.OHIO.toStringName();
+                break;
+            case WISCONSIN:
+                title = StateEnum.WISCONSIN.toStringName();
+                break;
+
+            //ESC States
+            case ALABAMA:
+                title = StateEnum.ALABAMA.toStringName();
+                break;
+            case KENTUCKY:
+                title = StateEnum.KENTUCKY.toStringName();
+                break;
+            case MISSISSIPPI:
+                title = StateEnum.MISSISSIPPI.toStringName();
+                break;
+            case TENNESSEE:
+                title = StateEnum.TENNESSEE.toStringName();
+                break;
+
+            //MA States
+            case NEW_JERSEY:
+                title = StateEnum.NEW_JERSEY.toStringName();
+                break;
+            case NEW_YORK:
+                title = StateEnum.NEW_YORK.toStringName();
+                break;
+            case PENNSYLVANIA:
+                title = StateEnum.PENNSYLVANIA.toStringName();
+                break;
+
+            //SA States
+            case DELAWARE:
+                title = StateEnum.DELAWARE.toStringName();
+                break;
+            case FLORIDA:
+                title = StateEnum.FLORIDA.toStringName();
+                break;
+            case GEORGIA:
+                title = StateEnum.GEORGIA.toStringName();
+                break;
+            case MARYLAND:
+                title = StateEnum.MARYLAND.toStringName();
+                break;
+            case NORTH_CAROLINA:
+                title = StateEnum.NORTH_CAROLINA.toStringName();
+                break;
+            case SOUTH_CAROLINA:
+                title = StateEnum.SOUTH_CAROLINA.toStringName();
+                break;
+            case VIRGINIA:
+                title = StateEnum.VIRGINIA.toStringName();
+                break;
+            case WEST_VIRGINIA:
+                title = StateEnum.WEST_VIRGINIA.toStringName();
+                break;
+
+            //NE States
+            case CONNECTICUT:
+                title = StateEnum.CONNECTICUT.toStringName();
+                break;
+            case MAINE:
+                title = StateEnum.MAINE.toStringName();
+                break;
+            case MASSACHUSETTS:
+                title = StateEnum.MASSACHUSETTS.toStringName();
+                break;
+            case NEW_HAMPSHIRE:
+                title = StateEnum.NEW_HAMPSHIRE.toStringName();
+                break;
+            case RHODE_ISLAND:
+                title = StateEnum.RHODE_ISLAND.toStringName();
+                break;
+            case VERMONT:
+                title = StateEnum.VERMONT.toStringName();
+                break;
+
+            default:
+                title = "";
+        }
+        */
+
+        ((TextView) view.findViewById(R.id.header)).setText(title);
+
+        return view;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return mAlaskaData.size()== 0 && mCaliforniaData.size() == 0
+                && mHawaiiData.size() == 0 && mOregonData.size() == 0
+                && mWashingtonData.size() == 0 && mArizonaData.size()== 0
+                && mColoradoData.size() == 0 && mIdahoData.size() == 0
+                && mMontanaData.size() == 0 && mNevadaData.size() == 0
+                && mNewMexicoData.size() == 0 && mUtahData.size() == 0
+                && mWyomingData.size() == 0 && mIowaData.size()== 0
+                && mKansasData.size() == 0 && mMinnesotaData.size() == 0
+                && mMissouriData.size() == 0 && mNebraskaData.size() == 0
+                && mNorthDakotaData.size() == 0 && mSouthDakotaData.size() == 0
+                && mArkansasData.size()== 0 && mLouisianaData.size() == 0
+                && mOklahomaData.size() == 0 && mTexasData.size() == 0
+                && mIllinoisData.size()== 0 && mIndianaData.size() == 0
+                && mMichiganData.size() == 0 && mOhioData.size() == 0
+                && mWisconsinData.size() == 0 && mAlabamaData.size()== 0
+                && mKentuckyData.size() == 0 && mMississippiData.size() == 0
+                && mTennesseeData.size() == 0 && mNewJerseyData.size()== 0
+                && mNewYorkData.size() == 0 && mPennsylvaniaData.size() == 0
+                && mDelawareData.size()== 0 && mFloridaData.size() == 0
+                && mGeorgiaData.size() == 0 && mMarylandData.size() == 0
+                && mNorthCarolinaData.size() == 0 && mSouthCarolinaData.size() == 0
+                && mVirginiaData.size() == 0 && mWestVirginiaData.size() == 0
+                && mConnecticutData.size()== 0 && mMaineData.size() == 0
+                && mMassachusettsData.size() == 0 && mNewHampshireData.size() == 0
+                && mRhodeIslandData.size() == 0 && mVermontData.size() == 0;
+    }
+}
