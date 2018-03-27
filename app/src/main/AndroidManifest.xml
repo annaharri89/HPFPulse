@@ -30,7 +30,47 @@
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden" />
         <activity
-            android:name=".activities.PSTAllResourcesActivity"
+            android:name=".activities.AllResourcesActivityPST"
+            android:parentActivityName=".activities.MapActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".activities.AllResourcesActivityMT"
+            android:parentActivityName=".activities.MapActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".activities.AllResourcesActivityWNC"
+            android:parentActivityName=".activities.MapActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".activities.AllResourcesActivityWSC"
+            android:parentActivityName=".activities.MapActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".activities.AllResourcesActivityENC"
+            android:parentActivityName=".activities.MapActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".activities.AllResourcesActivityESC"
+            android:parentActivityName=".activities.MapActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".activities.AllResourcesActivityMA"
+            android:parentActivityName=".activities.MapActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".activities.AllResourcesActivitySA"
+            android:parentActivityName=".activities.MapActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".activities.AllResourcesActivityNE"
             android:parentActivityName=".activities.MapActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden" />

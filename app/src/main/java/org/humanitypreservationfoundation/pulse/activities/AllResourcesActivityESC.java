@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import org.humanitypreservationfoundation.pulse.classes.Resource;
 import org.humanitypreservationfoundation.pulse.enums.StateEnum;
-import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
 import org.humanitypreservationfoundation.pulse.widgets.ExpandableResourceListAdapter;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ import java.util.List;
  * Created by ETASpare on 3/7/2018.
  */
 
-public class ESCAllResourcesActivity extends AllResourcesActivity {
+public class AllResourcesActivityESC extends AllResourcesActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class ESCAllResourcesActivity extends AllResourcesActivity {
         mississippi.addAll(mTimeZone.getAllStateResources(StateEnum.MISSISSIPPI.toStringCode()));
         tennessee.addAll(mTimeZone.getAllStateResources(StateEnum.TENNESSEE.toStringCode()));
 
-        final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(ESCAllResourcesActivity.this, 4, this.mTimeZoneEnum);
+        final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(AllResourcesActivityESC.this, 4, this.mTimeZoneEnum);
 
         adapter.addDataToGroup(ExpandableResourceListAdapter.ALABAMA, alabama);
         adapter.addDataToGroup(ExpandableResourceListAdapter.KENTUCKY, kentucky);

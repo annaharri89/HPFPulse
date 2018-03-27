@@ -7,16 +7,14 @@ import org.humanitypreservationfoundation.pulse.enums.StateEnum;
 import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
 import org.humanitypreservationfoundation.pulse.widgets.ExpandableResourceListAdapter;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by ETASpare on 3/7/2018.
  */
 
-public class ALLAllResourcesActivity extends AllResourcesActivity {
+public class AllResourcesActivityALL extends AllResourcesActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +140,7 @@ public class ALLAllResourcesActivity extends AllResourcesActivity {
         wisconsin.addAll(mTimeZone.getAllStateResources(StateEnum.WISCONSIN.toStringCode()));
         wyoming.addAll(mTimeZone.getAllStateResources(StateEnum.WYOMING.toStringCode()));
 
-        final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(ALLAllResourcesActivity.this, 50, TimeZoneEnum.ALL);
+        final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(AllResourcesActivityALL.this, 50, TimeZoneEnum.ALL);
 
         adapter.addDataToGroup(ExpandableResourceListAdapter.ALABAMA, alabama);
         adapter.addDataToGroup(ExpandableResourceListAdapter.ALASKA, alaska);
