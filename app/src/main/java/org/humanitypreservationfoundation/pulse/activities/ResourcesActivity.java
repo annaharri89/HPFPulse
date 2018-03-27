@@ -43,9 +43,7 @@ public class ResourcesActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //todo why do I need the timezone enum? if you figure it out, you can get it from the timezone object passed through the intent
-
         mTimeZone = (TimeZone) intent.getParcelableExtra(Config.intents.TIMEZONE_EXTRA);
-        mTimeZoneEnum = mTimeZone.getEnum(); // todo why do i need the timezone enum?
+        mTimeZoneEnum = mTimeZone.getEnum();
     }
 }

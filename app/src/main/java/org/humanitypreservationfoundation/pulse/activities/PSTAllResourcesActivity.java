@@ -32,7 +32,7 @@ public class PSTAllResourcesActivity extends AllResourcesActivity {
         oregon.addAll(mTimeZone.getAllStateResources(StateEnum.OREGON.toStringCode()));
         washington.addAll(mTimeZone.getAllStateResources(StateEnum.WASHINGTON.toStringCode()));
 
-        final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(PSTAllResourcesActivity.this, 5, TimeZoneEnum.PST);
+        final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(PSTAllResourcesActivity.this, 5, this.mTimeZoneEnum);
 
         adapter.addDataToGroup(ExpandableResourceListAdapter.ALASKA, alaska);
         adapter.addDataToGroup(ExpandableResourceListAdapter.CALIFORNIA, california);
