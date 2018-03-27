@@ -1,12 +1,11 @@
 package org.humanitypreservationfoundation.pulse.activities;
 
 import android.os.Bundle;
-import android.widget.ExpandableListView;
 
-import org.humanitypreservationfoundation.pulse.R;
 import org.humanitypreservationfoundation.pulse.classes.Resource;
 import org.humanitypreservationfoundation.pulse.enums.StateEnum;
-import org.humanitypreservationfoundation.pulse.widgets.PSTExpandableResourceListAdapter;
+import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
+import org.humanitypreservationfoundation.pulse.widgets.ExpandableResourceListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,17 +16,15 @@ import java.util.List;
 
 public class PSTAllResourcesActivity extends AllResourcesActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Resource> alaska = new ArrayList<Resource>();
-        List<Resource> california = new ArrayList<Resource>();
-        List<Resource> hawaii = new ArrayList<Resource>();
-        List<Resource> oregon = new ArrayList<Resource>();
-        List<Resource> washington = new ArrayList<Resource>();
+        List<Resource> alaska = new ArrayList<>();
+        List<Resource> california = new ArrayList<>();
+        List<Resource> hawaii = new ArrayList<>();
+        List<Resource> oregon = new ArrayList<>();
+        List<Resource> washington = new ArrayList<>();
 
         alaska.addAll(mTimeZone.getAllStateResources(StateEnum.ALASKA.toStringCode()));
         california.addAll(mTimeZone.getAllStateResources(StateEnum.CALIFORNIA.toStringCode()));
@@ -35,13 +32,13 @@ public class PSTAllResourcesActivity extends AllResourcesActivity {
         oregon.addAll(mTimeZone.getAllStateResources(StateEnum.OREGON.toStringCode()));
         washington.addAll(mTimeZone.getAllStateResources(StateEnum.WASHINGTON.toStringCode()));
 
-        final PSTExpandableResourceListAdapter adapter = new PSTExpandableResourceListAdapter(PSTAllResourcesActivity.this);
+        final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(PSTAllResourcesActivity.this, 5, TimeZoneEnum.PST);
 
-        adapter.addDataToGroup(PSTExpandableResourceListAdapter.ALASKA, alaska);
-        adapter.addDataToGroup(PSTExpandableResourceListAdapter.CALIFORNIA, california);
-        adapter.addDataToGroup(PSTExpandableResourceListAdapter.HAWAII, hawaii);
-        adapter.addDataToGroup(PSTExpandableResourceListAdapter.OREGON, oregon);
-        adapter.addDataToGroup(PSTExpandableResourceListAdapter.WASHINGTON, washington);
+        adapter.addDataToGroup(ExpandableResourceListAdapter.ALASKA, alaska);
+        adapter.addDataToGroup(ExpandableResourceListAdapter.CALIFORNIA, california);
+        adapter.addDataToGroup(ExpandableResourceListAdapter.HAWAII, hawaii);
+        adapter.addDataToGroup(ExpandableResourceListAdapter.OREGON, oregon);
+        adapter.addDataToGroup(ExpandableResourceListAdapter.WASHINGTON, washington);
 
         mListView.setAdapter(adapter);
         mListView.invalidateViews();
