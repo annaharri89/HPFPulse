@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--todo button height, caret margin, map width and height -->
+    <!-- Category button height percent-->
+    <item name="main_button_height_decimal" format="float" type="dimen">0.08</item>
+
+    <!-- Left margin for button carets for support library compatibility -->
+    <dimen name="right_caret_left">350dp</dimen>
+    <dimen name="down_caret_left">390dp</dimen>
+
+    <!-- Map -->
+    <dimen name="map_width">440dp</dimen>
+    <dimen name="map_height">250dp</dimen>
+</resources>

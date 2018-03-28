@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+
+            <!-- Bottom Border -->
+            <item>
+                <shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+                    <corners
+                        android:radius="0dp"
+                        android:bottomLeftRadius="5dp" />
+
+                    <solid android:color="@android:color/darker_gray"/>
+
+                </shape>
+            </item>
+
+            <!-- Left Border -->
+            <item android:bottom="2dp">
+                <shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+                    <corners android:radius="1dp" />
+
+                    <solid android:color="@color/colorLightGrey"/>
+
+                </shape>
+            </item>
+
+            <!-- Button Color -->
+            <item
+                android:left="2dp"
+                android:right="0dp"
+                android:top="0dp"
+                android:bottom="3dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/colorVeryLightGrey"/>
+                    <corners android:radius="1dp"/>
+                </shape>
+            </item>
+
+        </layer-list>
+    </item>
+</selector>

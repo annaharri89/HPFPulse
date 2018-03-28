@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Map Labels -->
+    <!-- Defaults (uses xhdpi values) -->
+
+    <!-- Text Settings -->
+    <integer name="label_text_size">45</integer>
+    <integer name="label_stroke_size">12</integer>
+
+    <!-- Top: negative numbers = move up; positive numbers = move down -->
+    <integer name="PST_top">15</integer>
+    <integer name="MT_top">5</integer>
+    <integer name="WNC_top">15</integer>
+    <integer name="WSC_top">15</integer>
+    <integer name="ENC_top">15</integer>
+    <integer name="ESC_top">35</integer>
+    <integer name="MA_top">-25</integer>
+    <integer name="SA_top">35</integer>
+    <integer name="NE_top">-25</integer>
+
+    <!-- Left: negative numbers = move left; positive numbers = move right-->
+    <integer name="PST_left">-15</integer>
+    <integer name="MT_left">-5</integer>
+    <integer name="WNC_left">20</integer>
+    <integer name="WSC_left">25</integer>
+    <integer name="ENC_left">55</integer>
+    <integer name="ESC_left">35</integer>
+    <integer name="MA_left">10</integer>
+    <integer name="SA_left">90</integer>
+    <integer name="NE_left">50</integer>
+</resources>

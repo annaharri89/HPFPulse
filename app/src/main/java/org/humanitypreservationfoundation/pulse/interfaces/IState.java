@@ -1,4 +1,4 @@
-package org.humanitypreservationfoundation.pulse;
+package org.humanitypreservationfoundation.pulse.interfaces;
 
 import android.graphics.Path;
 import android.graphics.Region;

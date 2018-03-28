@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Left margin for button carets for support library compatibility -->
+    <dimen name="right_caret_left">690dp</dimen>
+    <dimen name="down_caret_left">770dp</dimen>
+</resources>

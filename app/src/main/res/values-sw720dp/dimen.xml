@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Resource List Dimensions -->
+
+    <!-- BlueHeader -->
+    <dimen name="blue_header_height">75dp</dimen>
+    <dimen name="blue_header_text_size">30sp</dimen>
+
+    <!-- TxtOrgName -->
+    <dimen name="txt_org_name_margin_start">32dp</dimen>
+    <dimen name="txt_org_name_margin_top">32dp</dimen>
+    <dimen name="txt_org_name_text_size">25sp</dimen>
+
+    <!-- TxtOrgName -->
+    <dimen name="txt_org_subtitle_margin_start">32dp</dimen>
+    <dimen name="txt_org_subtitle_margin_top">16dp</dimen>
+    <dimen name="txt_org_subtitle_text_size">22sp</dimen>
+
+    <!-- BtnOrg -->
+    <dimen name="btn_org_height">90dp</dimen>
+    <dimen name="btn_org_margin_top">32dp</dimen>
+    <dimen name="btn_org_text_size">22sp</dimen>
+
+    <!-- BtnOrg -->
+    <dimen name="btn_org_divider_height">90dp</dimen>
+    <dimen name="btn_org_divider_margin_top">32dp</dimen>
+
+    <!-- End Resource List Dimensions -->
+
+    <!-- TxtCrisis -->
+    <dimen name="txt_crisis_margin_top">40dp</dimen>
+    <dimen name="txt_crisis_text_size">45sp</dimen>
+
+    <!-- TxtAppSummary -->
+    <dimen name="txt_app_summary_margin_top">24dp</dimen>
+    <dimen name="txt_app_summary_text_size">30sp</dimen>
+
+    <!-- TxtContactToAdd -->
+    <dimen name="txt_contact_to_add_text_size">24sp</dimen>
+
+    <!-- BlueButton -->
+    <dimen name="btn_blue_text_size">37sp</dimen>
+    <dimen name="btn_blue_margin_start">16dp</dimen>
+    <dimen name="btn_blue_margin_end">16dp</dimen>
+    <dimen name="btn_blue_margin_top">16dp</dimen>
+    <dimen name="btn_blue_margin_bottom">16dp</dimen>
+    <dimen name="btn_blue_height">110dp</dimen>
+
+    <!-- BlueButtonCaretRight -->
+    <dimen name="btn_blue_caret_text_size">37sp</dimen>
+    <dimen name="btn_blue_caret_height">110dp</dimen>
+
+    <!-- Map-->
+    <dimen name="map_margin_start">-100dp</dimen>
+    <dimen name="map_margin_end">100dp</dimen>
+    <dimen name="map_width">1000dp</dimen>
+    <dimen name="map_height">500dp</dimen>
+    <!-- Map height is in each dpi dependent folder for mdpi-xhdpi -->
+
+    <!-- RegionSpinner -->
+    <dimen name="region_spinner_margin_top">32dp</dimen>
+    <dimen name="region_spinner_height">70dp</dimen>
+
+    <!-- RegionSpinnerItem -->
+    <dimen name="region_spinner_item_text_size">30sp</dimen>
+
+    <!-- TxtRegionDescription -->
+    <dimen name="txt_region_description_text_size">32sp</dimen>
+    <dimen name="txt_region_description_margin_top">16dp</dimen>
+
+    <!-- Categories' Include Margin Top-->
+    <dimen name="categories_margin_top">40dp</dimen>
+
+    <!-- Defaults-->
+
+    <!-- Left margin for button carets for support library compatibility -->
+    <dimen name="right_caret_left">630dp</dimen>
+    <dimen name="down_caret_left">680dp</dimen>
+
+    <!-- Category button height percent-->
+    <item name="main_button_height_decimal" format="float" type="dimen">0.11</item>
+
+</resources>
