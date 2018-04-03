@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Category button height percent-->
-    <item name="main_button_height_decimal" format="float" type="dimen">0.09</item>
+    <item name="main_button_height_decimal" format="float" type="dimen">0.075</item>
 
     <!-- Left margin for button carets for support library compatibility -->
     <dimen name="right_caret_left">390dp</dimen>
