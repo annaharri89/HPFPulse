@@ -156,7 +156,7 @@ public class MapActivity extends AppCompatActivity {
         if (!mActivityName.equals(Config.categories.ALL_RESOURCES)) {
             intent.setClass(this, CategoryResourcesActivity.class);
         } else if (mTZE.equals(TimeZoneEnum.PST)) {
-            intent.setClass(this, PSTAllResourcesActivity.class);
+            intent.setClass(this, AllResourcesActivityPST.class);
         } else { //todo only needed to handle when All Activities is selected and then a timezone other than PST is selected todo: remove once all other timezone specific activities are implemented
             intent.setClass(this, CategoryResourcesActivity.class);
         }
