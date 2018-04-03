@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class TimeZone implements ITimeZone, Parcelable {
     private Context mContext;
-    private List<State> mStates = new ArrayList<State>(); //todo changed from type List<State> to work with parcelable
+    private List<State> mStates = new ArrayList<>();
     private String mName;
     private String mDescription;
     private String mCode;
@@ -45,7 +45,6 @@ public class TimeZone implements ITimeZone, Parcelable {
         dest.writeString(this.mDescription);
         dest.writeString(this.mCode);
         dest.writeSerializable(this.mTimeZoneEnum);
-        //todo is region needed? I don't think it is
         dest.writeString(this.mColor);
         dest.writeString(this.mColorCode);
     }
@@ -121,7 +120,6 @@ public class TimeZone implements ITimeZone, Parcelable {
         return null;
     }
 
-    //todo: update to work with multiple resources per category (nevada: carson, las vegas)
     public void setResources(Map<StateEnum, List<Resource>> resourceMap) {
         for (State state : this.getStates()) {
             for (Map.Entry<StateEnum, List<Resource>> entry : resourceMap.entrySet())
@@ -190,28 +188,6 @@ public class TimeZone implements ITimeZone, Parcelable {
         this.mColor = this.getClrResource(qualifier);
         setFillColor();
     }
-
-    /*
-    public Boolean checkStatesForTap(int x, int y) { //TODO: Remove when confirmed unnecessary
-        /*for (State state : this.mStates) {
-            if (state.checkForTap(x, y)) {
-                this.setHighlightFillColor();
-                return true;
-            }
-        }
-        this.setDefaultFillColor();
-        return false;
-        */
-    /*
-        if (this.mRegion.contains(x, y)) {
-            this.setHighlightFillColor();
-            return true;
-        } else {
-            this.setDefaultFillColor();
-            return false;
-        }
-    }
-    */
 
     private String getStrResource(String qualifier) {
         int resourceId = this.mContext.getResources().getIdentifier(this.mCode + qualifier, "string", this.mContext.getPackageName());

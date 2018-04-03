@@ -2,7 +2,6 @@ package org.humanitypreservationfoundation.pulse.activities;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
@@ -16,7 +15,6 @@ import android.widget.TextView;
 
 import org.humanitypreservationfoundation.pulse.Config;
 import org.humanitypreservationfoundation.pulse.R;
-import org.humanitypreservationfoundation.pulse.utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
 

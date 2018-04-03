@@ -87,11 +87,11 @@ public enum StateEnum {
 
     public String toStringCode() {
         return this.mCode;
-    } //todo use in State to set code in constructor
+    }
 
     public String toStringName() {
         return this.mName;
-    } //todo use in ___ResultListAdapter to set headers
+    }
 
     static public List<StateEnum> getTimeZoneStateCodes(TimeZoneEnum timeZoneEnum) {
         List<StateEnum> ALLStates = Arrays.asList(

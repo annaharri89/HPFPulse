@@ -24,11 +24,9 @@ import java.util.List;
 
 public class State implements IState, Parcelable {
 
-    private Context context; //todo remove when confirmed unnecessary
     private String mCode;
     private String mName;
     private StateEnum mEnum;
-    private VectorMasterDrawable vector; //todo remove
     private Path mPath;
     private PathModel mPathModel;
     private Region mRegion;
@@ -95,7 +93,6 @@ public class State implements IState, Parcelable {
     }
 
     public State(Context context, StateEnum stateEnum, VectorMasterDrawable USMap) {
-        this.context = context;
         this.mCode = stateEnum.toStringCode();
         this.mName = stateEnum.toStringName();
         this.mEnum = stateEnum;
@@ -131,14 +128,6 @@ public class State implements IState, Parcelable {
     public void setFillColor(String color) {
         this.mPathModel.setFillColor(Color.parseColor(color));
     }
-
-    public void setDefaultFillColor() {
-        this.mPathModel.setFillColor(Color.parseColor("#f9f9f9"));
-    } //TODO Remove when confirmed unnecessary
-
-    public Boolean checkForTap(int x, int y) {
-        return this.mRegion.contains(x, y);
-    } //TODO remove when confirmed unnecessary
 
     private void setRegion() {
         RectF bounds = new RectF();

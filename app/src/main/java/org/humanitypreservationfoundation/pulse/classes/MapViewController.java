@@ -1,10 +1,7 @@
 package org.humanitypreservationfoundation.pulse.classes;
 
 import android.content.Context;
-
 import org.humanitypreservationfoundation.pulse.R;
-import org.humanitypreservationfoundation.pulse.enums.DensitiesEnum;
-
 import org.humanitypreservationfoundation.pulse.utils.Utils;
 
 /**
@@ -28,7 +25,7 @@ public class MapViewController {
     }
 
     /**
-     * Calculates the y position to draw the time zone labels. //todo get working for tablets
+     * Calculates the y position to draw the time zone labels.
      */
     public float calculateTop(TimeZone timeZone){
         float topDp = Utils.pxToDp(this.mContext, timeZone.getRegion().getBounds().top);
@@ -69,7 +66,7 @@ public class MapViewController {
     }
 
     /**
-     * Calculates the x position to draw the time zone labels. //todo get working for tablets
+     * Calculates the x position to draw the time zone labels.
      */
     public float calculateLeft(TimeZone timeZone){
         float leftDp = Utils.pxToDp(this.mContext, timeZone.getRegion().getBounds().left);
