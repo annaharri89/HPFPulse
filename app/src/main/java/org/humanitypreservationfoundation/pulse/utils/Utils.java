@@ -1,6 +1,8 @@
 package org.humanitypreservationfoundation.pulse.utils;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.DisplayMetrics;
 
 import org.humanitypreservationfoundation.pulse.enums.DensitiesEnum;
@@ -10,6 +12,14 @@ import org.humanitypreservationfoundation.pulse.enums.DensitiesEnum;
  */
 
 public class Utils {
+
+    public static boolean isConnectedToInternet (Context context) {
+        ConnectivityManager cm =
+                (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+    }
 
     public static DensitiesEnum getScreenDensity(Context context) {
         int dpi = context.getResources().getDisplayMetrics().densityDpi;

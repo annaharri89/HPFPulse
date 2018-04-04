@@ -78,6 +78,39 @@
         <item name="android:textSize">@dimen/btn_blue_caret_text_size</item>
     </style>
 
+    <style name="Map">
+        <item name="android:layout_marginStart">@dimen/map_margin_start</item>
+        <item name="android:layout_marginEnd">@dimen/map_margin_end</item>
+        <item name="android:layout_width">@dimen/map_width</item>
+        <item name="android:layout_height">@dimen/map_height</item>
+    </style>
+
+    <style name="RegionSpinner">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/region_spinner_height</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <!-- Background is being set in MapActivity in order to support vector drawables in API 20 and below
+        <item name="android:background">@drawable/ic_grey_spinner</item>
+        -->
+        <item name="android:layout_marginTop">@dimen/region_spinner_margin_top</item>
+    </style>
+
+    <style name="RegionSpinnerItem">
+        <item name="android:padding">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/region_spinner_item_text_size</item>
+    </style>
+
+    <style name="TxtRegionDescription">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:textSize">@dimen/txt_region_description_text_size</item>
+        <item name="android:layout_marginTop">@dimen/txt_region_description_margin_top</item>
+    </style>
+
     <style name="BlueHeader">
         <item name="android:paddingStart">35dp</item>
         <item name="android:layout_width">0dp</item>
@@ -131,43 +164,19 @@
         <item name="android:background">#bababa</item>
     </style>
 
+    <style name="TxtEmptyList">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Display1</item>
+    </style>
+
     <style name="Container">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/colorWhite</item>
-    </style>
-
-    <style name="Map">
-        <item name="android:layout_marginStart">@dimen/map_margin_start</item>
-        <item name="android:layout_marginEnd">@dimen/map_margin_end</item>
-        <item name="android:layout_width">@dimen/map_width</item>
-        <item name="android:layout_height">@dimen/map_height</item>
-    </style>
-
-    <style name="RegionSpinner">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">@dimen/region_spinner_height</item>
-        <item name="android:layout_marginStart">16dp</item>
-        <item name="android:layout_marginEnd">16dp</item>
-        <!-- Background is being set in MapActivity in order to support vector drawables in API 20 and below
-        <item name="android:background">@drawable/ic_grey_spinner</item>
-        -->
-        <item name="android:layout_marginTop">@dimen/region_spinner_margin_top</item>
-    </style>
-
-    <style name="RegionSpinnerItem">
-        <item name="android:padding">8dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">@dimen/region_spinner_item_text_size</item>
-    </style>
-
-    <style name="TxtRegionDescription">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingStart">16dp</item>
-        <item name="android:paddingEnd">16dp</item>
-        <item name="android:textSize">@dimen/txt_region_description_text_size</item>
-        <item name="android:layout_marginTop">@dimen/txt_region_description_margin_top</item>
     </style>
 
 </resources>

@@ -18,6 +18,15 @@
 
     <string name="btn_resource_web">Website</string>
     <string name="btn_resource_call">Call</string>
+    <string name="txt_resource_empty_list_no_internet">
+        This app requires an internet connection to fetch resources. Please connect to the internet
+        to view our helpful resources.
+    </string>
+    <string name="txt_resource_empty_list_with_internet">
+        There seems to be an issue with our resources. Please close and relaunch the app.
+        If the problem persists, please contact us via the
+        <a href="http://humanitypreservationfoundation.org/contact/">HPF Contact Page</a>
+    </string>
 
 
     <!--Time Zone Descriptions-->

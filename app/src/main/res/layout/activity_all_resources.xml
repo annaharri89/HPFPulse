@@ -19,4 +19,12 @@
         app:layout_constraintTop_toTopOf="parent"
         android:groupIndicator="@drawable/ic_expandable_indicator" />
 
+    <TextView
+        android:id="@+id/empty_all_resources_list_view"
+        style="@style/TxtEmptyList"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
