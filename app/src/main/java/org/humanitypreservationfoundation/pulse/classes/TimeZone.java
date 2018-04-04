@@ -111,7 +111,7 @@ public class TimeZone implements ITimeZone, Parcelable {
         return this.mStates;
     }
 
-    private State getState(String stateCode) {
+    public State getState(String stateCode) {
         for (State state : this.getStates()) {
             if (state.getCode().equals(stateCode)) {
                 return state;

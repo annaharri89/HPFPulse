@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Resource implements Parcelable {
 
-    private long mId; //todo get mID from parcel when database is set up // (SEE HOW youKNOWwhat GETS ITS ID)
+    private int mId; //todo get mID from parcel when database is set up // (SEE HOW youKNOWwhat GETS ITS ID)
     private String mOrgName;
     private String mUrl;
     private String mPhoneNumber;
@@ -35,7 +35,7 @@ public class Resource implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.mCategory);
-        dest.writeLong(this.mId);
+        dest.writeInt(this.mId);
         dest.writeString(this.mOrgName);
         dest.writeString(this.mPhoneNumber);
         dest.writeSerializable(this.mStateEnum);
@@ -73,7 +73,7 @@ public class Resource implements Parcelable {
      */
     public Resource (Parcel in, ClassLoader loader) {
         this.mCategory = in.readString();
-        this.mId = in.readLong();
+        this.mId = in.readInt();
         this.mOrgName = in.readString();
         this.mPhoneNumber = in.readString();
         this.mStateEnum = (StateEnum) in.readSerializable();
@@ -85,7 +85,7 @@ public class Resource implements Parcelable {
     }
 
     //todo remove: only needed for dummy data
-    public Resource(String category, Long id, String name, String phone, StateEnum stateEnum, String url) {
+    public Resource(String category, int id, String name, String phone, StateEnum stateEnum, String url) {
         this.mCategory = category;
         this.mId = id;
         this.mOrgName = name;

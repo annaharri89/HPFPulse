@@ -20,4 +20,8 @@ public class Config {
         public static final String ACTIVITY_EXTRA = "ActivityTitle";
         public static final String TIMEZONE_EXTRA = "TimeZone";
     }
+
+    public static final class data {
+        public static final String URL = "http://dev.humanitypreservationfoundation.org/wp-json/pulse/v1/states";
+    }
 }
