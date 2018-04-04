@@ -75,6 +75,11 @@
             android:parentActivityName=".activities.MapActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden" />
+        <activity
+            android:name=".activities.AllResourcesActivityALL"
+            android:parentActivityName=".activities.MapActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
     </application>
 
 </manifest>

@@ -30,7 +30,7 @@ public class MapActivity extends AppCompatActivity {
     private String mActivityName;
     private MapView mMap;
     private TextView mDescriptionTextView;
-    private TimeZoneEnum mTZE;
+    private TimeZoneEnum mTimeZoneEnum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,25 +75,25 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ALL.toStringName())) {
-                    mTZE = TimeZoneEnum.ALL;
+                    mTimeZoneEnum = TimeZoneEnum.ALL;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.PST.toStringName())) {
-                    mTZE = TimeZoneEnum.PST;
+                    mTimeZoneEnum = TimeZoneEnum.PST;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.MT.toStringName())) {
-                    mTZE = TimeZoneEnum.MT;
+                    mTimeZoneEnum = TimeZoneEnum.MT;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.WNC.toStringName())) {
-                    mTZE = TimeZoneEnum.WNC;
+                    mTimeZoneEnum = TimeZoneEnum.WNC;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.WSC.toStringName())) {
-                    mTZE = TimeZoneEnum.WSC;
+                    mTimeZoneEnum = TimeZoneEnum.WSC;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ENC.toStringName())) {
-                    mTZE = TimeZoneEnum.ENC;
+                    mTimeZoneEnum = TimeZoneEnum.ENC;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.ESC.toStringName())) {
-                    mTZE = TimeZoneEnum.ESC;
+                    mTimeZoneEnum = TimeZoneEnum.ESC;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.MA.toStringName())) {
-                    mTZE = TimeZoneEnum.MA;
+                    mTimeZoneEnum = TimeZoneEnum.MA;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.SA.toStringName())) {
-                    mTZE = TimeZoneEnum.SA;
+                    mTimeZoneEnum = TimeZoneEnum.SA;
                 } else if (parent.getItemAtPosition(position).equals(TimeZoneEnum.NE.toStringName())) {
-                    mTZE = TimeZoneEnum.NE;
+                    mTimeZoneEnum = TimeZoneEnum.NE;
                 } else {
                     return;
                 }
@@ -101,7 +101,7 @@ public class MapActivity extends AppCompatActivity {
                 if (!getResults.isEnabled()) {
                     getResults.setEnabled(true);
                 }
-                mMap.changeHighlightedTimeZone(mTZE);
+                mMap.changeHighlightedTimeZone(mTimeZoneEnum);
                 setDescriptionText();
             }
 
@@ -128,7 +128,7 @@ public class MapActivity extends AppCompatActivity {
     }
 
     public void setDescriptionText() {
-        TimeZone tz = mMap.getTimeZone(mTZE);
+        TimeZone tz = mMap.getTimeZone(mTimeZoneEnum);
         String description;
         StringBuilder allCategories = new StringBuilder();
         List<String> allCategoriesList = Arrays.asList(Config.categories.CHILD_ABUSE, Config.categories.BULLYING, Config.categories.DOMESTIC_VIOLENCE);
@@ -155,14 +155,30 @@ public class MapActivity extends AppCompatActivity {
         Intent intent = new Intent();
         if (!mActivityName.equals(Config.categories.ALL_RESOURCES)) {
             intent.setClass(this, CategoryResourcesActivity.class);
-        } else if (mTZE.equals(TimeZoneEnum.PST)) {
+        } else if (mTimeZoneEnum.equals(TimeZoneEnum.PST)) {
             intent.setClass(this, AllResourcesActivityPST.class);
-        } else { //todo only needed to handle when All Activities is selected and then a timezone other than PST is selected todo: remove once all other timezone specific activities are implemented
-            intent.setClass(this, CategoryResourcesActivity.class);
+        } else if (mTimeZoneEnum.equals(TimeZoneEnum.MT)) {
+            intent.setClass(this, AllResourcesActivityMT.class);
+        } else if (mTimeZoneEnum.equals(TimeZoneEnum.WNC)) {
+            intent.setClass(this, AllResourcesActivityWNC.class);
+        } else if (mTimeZoneEnum.equals(TimeZoneEnum.WSC)) {
+            intent.setClass(this, AllResourcesActivityWSC.class);
+        } else if (mTimeZoneEnum.equals(TimeZoneEnum.ENC)) {
+            intent.setClass(this, AllResourcesActivityENC.class);
+        } else if (mTimeZoneEnum.equals(TimeZoneEnum.ESC)) {
+            intent.setClass(this, AllResourcesActivityESC.class);
+        } else if (mTimeZoneEnum.equals(TimeZoneEnum.MA)) {
+            intent.setClass(this, AllResourcesActivityMA.class);
+        } else if (mTimeZoneEnum.equals(TimeZoneEnum.SA)) {
+            intent.setClass(this, AllResourcesActivitySA.class);
+        } else if (mTimeZoneEnum.equals(TimeZoneEnum.NE)) {
+            intent.setClass(this, AllResourcesActivityNE.class);
+        } else if (mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            intent.setClass(this, AllResourcesActivityALL.class);
         }
 
         intent.putExtra(Config.intents.ACTIVITY_EXTRA, mActivityName);
-        intent.putExtra(Config.intents.TIMEZONE_EXTRA, mMap.getTimeZone(mTZE));
+        intent.putExtra(Config.intents.TIMEZONE_EXTRA, mMap.getTimeZone(mTimeZoneEnum));
         startActivityForResult(intent, 2404);
     }
 }
