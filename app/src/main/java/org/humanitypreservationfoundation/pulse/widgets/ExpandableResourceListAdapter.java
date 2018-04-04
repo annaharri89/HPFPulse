@@ -1257,31 +1257,73 @@ public class ExpandableResourceListAdapter implements ExpandableListAdapter {
     }
 
     public boolean isEmpty() {
-        return mAlaskaData.size()== 0 && mCaliforniaData.size() == 0
-                && mHawaiiData.size() == 0 && mOregonData.size() == 0
-                && mWashingtonData.size() == 0 && mArizonaData.size()== 0
-                && mColoradoData.size() == 0 && mIdahoData.size() == 0
-                && mMontanaData.size() == 0 && mNevadaData.size() == 0
-                && mNewMexicoData.size() == 0 && mUtahData.size() == 0
-                && mWyomingData.size() == 0 && mIowaData.size()== 0
-                && mKansasData.size() == 0 && mMinnesotaData.size() == 0
-                && mMissouriData.size() == 0 && mNebraskaData.size() == 0
-                && mNorthDakotaData.size() == 0 && mSouthDakotaData.size() == 0
-                && mArkansasData.size()== 0 && mLouisianaData.size() == 0
-                && mOklahomaData.size() == 0 && mTexasData.size() == 0
-                && mIllinoisData.size()== 0 && mIndianaData.size() == 0
-                && mMichiganData.size() == 0 && mOhioData.size() == 0
-                && mWisconsinData.size() == 0 && mAlabamaData.size()== 0
-                && mKentuckyData.size() == 0 && mMississippiData.size() == 0
-                && mTennesseeData.size() == 0 && mNewJerseyData.size()== 0
-                && mNewYorkData.size() == 0 && mPennsylvaniaData.size() == 0
-                && mDelawareData.size()== 0 && mFloridaData.size() == 0
-                && mGeorgiaData.size() == 0 && mMarylandData.size() == 0
-                && mNorthCarolinaData.size() == 0 && mSouthCarolinaData.size() == 0
-                && mVirginiaData.size() == 0 && mWestVirginiaData.size() == 0
-                && mConnecticutData.size()== 0 && mMaineData.size() == 0
-                && mMassachusettsData.size() == 0 && mNewHampshireData.size() == 0
-                && mRhodeIslandData.size() == 0 && mVermontData.size() == 0;
+        if (this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
+            return mAlaskaData.size() == 0 && mCaliforniaData.size() == 0
+                    && mHawaiiData.size() == 0 && mOregonData.size() == 0
+                    && mWashingtonData.size() == 0 && mArizonaData.size() == 0
+                    && mColoradoData.size() == 0 && mIdahoData.size() == 0
+                    && mMontanaData.size() == 0 && mNevadaData.size() == 0
+                    && mNewMexicoData.size() == 0 && mUtahData.size() == 0
+                    && mWyomingData.size() == 0 && mIowaData.size() == 0
+                    && mKansasData.size() == 0 && mMinnesotaData.size() == 0
+                    && mMissouriData.size() == 0 && mNebraskaData.size() == 0
+                    && mNorthDakotaData.size() == 0 && mSouthDakotaData.size() == 0
+                    && mArkansasData.size() == 0 && mLouisianaData.size() == 0
+                    && mOklahomaData.size() == 0 && mTexasData.size() == 0
+                    && mIllinoisData.size() == 0 && mIndianaData.size() == 0
+                    && mMichiganData.size() == 0 && mOhioData.size() == 0
+                    && mWisconsinData.size() == 0 && mAlabamaData.size() == 0
+                    && mKentuckyData.size() == 0 && mMississippiData.size() == 0
+                    && mTennesseeData.size() == 0 && mNewJerseyData.size() == 0
+                    && mNewYorkData.size() == 0 && mPennsylvaniaData.size() == 0
+                    && mDelawareData.size() == 0 && mFloridaData.size() == 0
+                    && mGeorgiaData.size() == 0 && mMarylandData.size() == 0
+                    && mNorthCarolinaData.size() == 0 && mSouthCarolinaData.size() == 0
+                    && mVirginiaData.size() == 0 && mWestVirginiaData.size() == 0
+                    && mConnecticutData.size() == 0 && mMaineData.size() == 0
+                    && mMassachusettsData.size() == 0 && mNewHampshireData.size() == 0
+                    && mRhodeIslandData.size() == 0 && mVermontData.size() == 0;
+        } else if (this.mTimeZoneEnum.equals(TimeZoneEnum.PST)) {
+            return mAlaskaData.size() == 0 && mCaliforniaData.size() == 0
+                    && mHawaiiData.size() == 0 && mOregonData.size() == 0
+                    && mWashingtonData.size() == 0;
+        }  else if (this.mTimeZoneEnum.equals(TimeZoneEnum.MT)) {
+            return mArizonaData.size() == 0
+                    && mColoradoData.size() == 0 && mIdahoData.size() == 0
+                    && mMontanaData.size() == 0 && mNevadaData.size() == 0
+                    && mNewMexicoData.size() == 0 && mUtahData.size() == 0
+                    && mWyomingData.size() == 0;
+        }  else if (this.mTimeZoneEnum.equals(TimeZoneEnum.WNC)) {
+            return mIowaData.size() == 0
+                    && mKansasData.size() == 0 && mMinnesotaData.size() == 0
+                    && mMissouriData.size() == 0 && mNebraskaData.size() == 0
+                    && mNorthDakotaData.size() == 0 && mSouthDakotaData.size() == 0;
+        }  else if (this.mTimeZoneEnum.equals(TimeZoneEnum.WSC)) {
+            return mArkansasData.size() == 0 && mLouisianaData.size() == 0
+                    && mOklahomaData.size() == 0 && mTexasData.size() == 0;
+        }  else if (this.mTimeZoneEnum.equals(TimeZoneEnum.ENC)) {
+            return mIllinoisData.size() == 0 && mIndianaData.size() == 0
+                    && mMichiganData.size() == 0 && mOhioData.size() == 0
+                    && mWisconsinData.size() == 0;
+        }  else if (this.mTimeZoneEnum.equals(TimeZoneEnum.ESC)) {
+            return mAlabamaData.size() == 0
+                    && mKentuckyData.size() == 0 && mMississippiData.size() == 0
+                    && mTennesseeData.size() == 0;
+        }  else if (this.mTimeZoneEnum.equals(TimeZoneEnum.MA)) {
+            return mNewJerseyData.size() == 0
+                    && mNewYorkData.size() == 0 && mPennsylvaniaData.size() == 0;
+        }  else if (this.mTimeZoneEnum.equals(TimeZoneEnum.SA)) {
+            return mDelawareData.size() == 0 && mFloridaData.size() == 0
+                    && mGeorgiaData.size() == 0 && mMarylandData.size() == 0
+                    && mNorthCarolinaData.size() == 0 && mSouthCarolinaData.size() == 0
+                    && mVirginiaData.size() == 0 && mWestVirginiaData.size() == 0;
+        }  else if (this.mTimeZoneEnum.equals(TimeZoneEnum.NE)) {
+            return mConnecticutData.size() == 0 && mMaineData.size() == 0
+                    && mMassachusettsData.size() == 0 && mNewHampshireData.size() == 0
+                    && mRhodeIslandData.size() == 0 && mVermontData.size() == 0;
+        } else {
+            return true;
+        }
     }
 
     public void onGroupCollapsed(int groupPosition) {
