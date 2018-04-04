@@ -152,24 +152,6 @@ public class State implements IState, Parcelable {
         }
     }
 
-    //todo remove once db is fully set up and hooked up to real data
-    public void setDummyResources(List<Resource> resourceList) {
-        for (Resource resource : resourceList) {
-            switch (resource.getCategory()) {
-                case Config.categories.CHILD_ABUSE:
-                    this.mChildAbuseResource.add(resource);
-                    break;
-                case Config.categories.BULLYING:
-                    this.mBullyingResource.add(resource);
-                    break;
-                case Config.categories.DOMESTIC_VIOLENCE:
-                    this.mDomesticViolenceResource.add(resource);
-                    break;
-            }
-        }
-
-    }
-
     public List<Resource> getChildAbuseResources() {
         return this.mChildAbuseResource;
     }

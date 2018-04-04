@@ -21,7 +21,6 @@ import com.sdsmdg.harjot.vectormaster.VectorMasterDrawable;
 
 import org.humanitypreservationfoundation.pulse.Config;
 import org.humanitypreservationfoundation.pulse.R;
-import org.humanitypreservationfoundation.pulse.classes.DummyData;
 import org.humanitypreservationfoundation.pulse.classes.MapViewController;
 import org.humanitypreservationfoundation.pulse.classes.RequestQueueSingleton;
 import org.humanitypreservationfoundation.pulse.classes.Resource;
@@ -251,22 +250,6 @@ public class MapView extends View {
             }
         }
         return resources;
-    }
-
-    //todo remove once db is fully set up and hooked up to real data
-    private void setDummyResources() {
-        Map<StateEnum, List<Resource>> resourceMap = new HashMap<StateEnum, List<Resource>>();
-        for (Map.Entry<String, TimeZone> entry : this.mTimeZones.entrySet()) {
-            TimeZone tz = entry.getValue();
-            if (tz.getEnum().equals(TimeZoneEnum.PST)) {
-                for (State state : tz.getStates()) {
-                    StateEnum stateEnum = state.getEnum();
-                    List<Resource> resourceList = DummyData.getResources(stateEnum);
-                    resourceMap.put(stateEnum, resourceList);
-                }
-            }
-            tz.setDummyResources(resourceMap);
-        }
     }
 
     /**

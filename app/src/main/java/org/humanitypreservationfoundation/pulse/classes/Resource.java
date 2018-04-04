@@ -84,7 +84,6 @@ public class Resource implements Parcelable {
     public Resource() {
     }
 
-    //todo remove: only needed for dummy data
     public Resource(String category, int id, String name, String phone, StateEnum stateEnum, String url) {
         this.mCategory = category;
         this.mId = id;

@@ -130,16 +130,6 @@ public class TimeZone implements ITimeZone, Parcelable {
         }
     }
 
-    //todo remove once db is fully set up and hooked up to real data
-    public void setDummyResources(Map<StateEnum, List<Resource>> resourceMap) {
-        for (State state : this.getStates()) {
-            for (Map.Entry<StateEnum, List<Resource>> entry : resourceMap.entrySet())
-                if (entry.getKey().equals(state.getEnum())) {
-                    state.setDummyResources(entry.getValue());
-                }
-        }
-    }
-
     public List<Resource> getStateChildAbuseResources(String stateCode) {
         State state = this.getState(stateCode);
         return state.getChildAbuseResources();
