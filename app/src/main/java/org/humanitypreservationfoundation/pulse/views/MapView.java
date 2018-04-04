@@ -229,6 +229,7 @@ public class MapView extends View {
                     resourceMap.put(stEnum, resources);
                 }
                 mTimeZones.get(timeZoneObjectCode).setResources(resourceMap);
+                mTimeZones.get("ALL").setResources(resourceMap);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
