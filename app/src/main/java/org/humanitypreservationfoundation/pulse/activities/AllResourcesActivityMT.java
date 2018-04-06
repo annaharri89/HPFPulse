@@ -19,23 +19,14 @@ public class AllResourcesActivityMT extends AllResourcesActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Resource> arizona = new ArrayList<>();
-        List<Resource> colorado = new ArrayList<>();
-        List<Resource> idaho = new ArrayList<>();
-        List<Resource> montana = new ArrayList<>();
-        List<Resource> nevada = new ArrayList<>();
-        List<Resource> new_mexico = new ArrayList<>();
-        List<Resource> utah = new ArrayList<>();
-        List<Resource> wyoming = new ArrayList<>();
-
-        arizona.addAll(mTimeZone.getAllStateResources(StateEnum.ARIZONA.toStringCode()));
-        colorado.addAll(mTimeZone.getAllStateResources(StateEnum.COLORADO.toStringCode()));
-        idaho.addAll(mTimeZone.getAllStateResources(StateEnum.IDAHO.toStringCode()));
-        montana.addAll(mTimeZone.getAllStateResources(StateEnum.MONTANA.toStringCode()));
-        nevada.addAll(mTimeZone.getAllStateResources(StateEnum.NEVADA.toStringCode()));
-        new_mexico.addAll(mTimeZone.getAllStateResources(StateEnum.NEW_MEXICO.toStringCode()));
-        utah.addAll(mTimeZone.getAllStateResources(StateEnum.UTAH.toStringCode()));
-        wyoming.addAll(mTimeZone.getAllStateResources(StateEnum.WYOMING.toStringCode()));
+        List<Resource> arizona = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.ARIZONA.toStringCode()));
+        List<Resource> colorado = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.COLORADO.toStringCode()));
+        List<Resource> idaho = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.IDAHO.toStringCode()));
+        List<Resource> montana = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MONTANA.toStringCode()));
+        List<Resource> nevada = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NEVADA.toStringCode()));
+        List<Resource> new_mexico = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NEW_MEXICO.toStringCode()));
+        List<Resource> utah = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.UTAH.toStringCode()));
+        List<Resource> wyoming = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.WYOMING.toStringCode()));
 
         final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(AllResourcesActivityMT.this, 8, this.mTimeZoneEnum);
 

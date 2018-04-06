@@ -20,125 +20,65 @@ public class AllResourcesActivityALL extends AllResourcesActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Resource> alabama = new ArrayList<>();
-        List<Resource> alaska = new ArrayList<>();
-        List<Resource> arizona = new ArrayList<>();
-        List<Resource> arkansas = new ArrayList<>();
-        List<Resource> california = new ArrayList<>();
+        List<Resource> alabama = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.ALABAMA.toStringCode()));
+        List<Resource> alaska = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.ALASKA.toStringCode()));
+        List<Resource> arizona = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.ARIZONA.toStringCode()));
+        List<Resource> arkansas = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.ARKANSAS.toStringCode()));
+        List<Resource> california = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.CALIFORNIA.toStringCode()));
 
-        List<Resource> colorado = new ArrayList<>();
-        List<Resource> connecticut = new ArrayList<>();
-        List<Resource> delaware = new ArrayList<>();
-        List<Resource> florida = new ArrayList<>();
-        List<Resource> georgia = new ArrayList<>();
+        List<Resource> colorado = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.COLORADO.toStringCode()));
+        List<Resource> connecticut = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.CONNECTICUT.toStringCode()));
+        List<Resource> delaware = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.DELAWARE.toStringCode()));
+        List<Resource> florida = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.FLORIDA.toStringCode()));
+        List<Resource> georgia = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.GEORGIA.toStringCode()));
 
-        List<Resource> hawaii = new ArrayList<>();
-        List<Resource> idaho = new ArrayList<>();
-        List<Resource> illinois = new ArrayList<>();
-        List<Resource> indiana = new ArrayList<>();
-        List<Resource> iowa = new ArrayList<>();
+        List<Resource> hawaii = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.HAWAII.toStringCode()));
+        List<Resource> idaho = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.IDAHO.toStringCode()));
+        List<Resource> illinois = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.ILLINOIS.toStringCode()));
+        List<Resource> indiana = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.INDIANA.toStringCode()));
+        List<Resource> iowa = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.IOWA.toStringCode()));
 
-        List<Resource> kansas = new ArrayList<>();
-        List<Resource> kentucky = new ArrayList<>();
-        List<Resource> louisiana = new ArrayList<>();
-        List<Resource> maine = new ArrayList<>();
-        List<Resource> maryland = new ArrayList<>();
+        List<Resource> kansas = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.KANSAS.toStringCode()));
+        List<Resource> kentucky = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.KENTUCKY.toStringCode()));
+        List<Resource> louisiana = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.LOUISIANA.toStringCode()));
+        List<Resource> maine = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MAINE.toStringCode()));
+        List<Resource> maryland = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MARYLAND.toStringCode()));
 
-        List<Resource> massachusetts = new ArrayList<>();
-        List<Resource> michigan = new ArrayList<>();
-        List<Resource> minnesota = new ArrayList<>();
-        List<Resource> mississippi = new ArrayList<>();
-        List<Resource> missouri = new ArrayList<>();
+        List<Resource> massachusetts = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MASSACHUSETTS.toStringCode()));
+        List<Resource> michigan = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MICHIGAN.toStringCode()));
+        List<Resource> minnesota = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MINNESOTA.toStringCode()));
+        List<Resource> mississippi = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MISSISSIPPI.toStringCode()));
+        List<Resource> missouri = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MISSOURI.toStringCode()));
 
-        List<Resource> montana = new ArrayList<>();
-        List<Resource> nebraska = new ArrayList<>();
-        List<Resource> nevada = new ArrayList<>();
-        List<Resource> new_hampshire = new ArrayList<>();
-        List<Resource> new_jersey = new ArrayList<>();
+        List<Resource> montana = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MONTANA.toStringCode()));
+        List<Resource> nebraska = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NEBRASKA.toStringCode()));
+        List<Resource> nevada = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NEVADA.toStringCode()));
+        List<Resource> new_hampshire = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NEW_HAMPSHIRE.toStringCode()));
+        List<Resource> new_jersey = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NEW_JERSEY.toStringCode()));
 
-        List<Resource> new_mexico = new ArrayList<>();
-        List<Resource> new_york = new ArrayList<>();
-        List<Resource> north_carolina = new ArrayList<>();
-        List<Resource> north_dakota = new ArrayList<>();
-        List<Resource> ohio = new ArrayList<>();
+        List<Resource> new_mexico = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NEW_MEXICO.toStringCode()));
+        List<Resource> new_york = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NEW_YORK.toStringCode()));
+        List<Resource> north_carolina = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NORTH_CAROLINA.toStringCode()));
+        List<Resource> north_dakota = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NORTH_DAKOTA.toStringCode()));
+        List<Resource> ohio = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.OHIO.toStringCode()));
 
-        List<Resource> oklahoma = new ArrayList<>();
-        List<Resource> oregon = new ArrayList<>();
-        List<Resource> pennsylvania = new ArrayList<>();
-        List<Resource> rhode_island = new ArrayList<>();
-        List<Resource> south_carolina = new ArrayList<>();
+        List<Resource> oklahoma = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.OKLAHOMA.toStringCode()));
+        List<Resource> oregon = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.OREGON.toStringCode()));
+        List<Resource> pennsylvania = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.PENNSYLVANIA.toStringCode()));
+        List<Resource> rhode_island = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.RHODE_ISLAND.toStringCode()));
+        List<Resource> south_carolina = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.SOUTH_CAROLINA.toStringCode()));
 
-        List<Resource> south_dakota = new ArrayList<>();
-        List<Resource> tennessee = new ArrayList<>();
-        List<Resource> texas = new ArrayList<>();
-        List<Resource> utah = new ArrayList<>();
-        List<Resource> vermont = new ArrayList<>();
+        List<Resource> south_dakota = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.SOUTH_DAKOTA.toStringCode()));
+        List<Resource> tennessee = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.TENNESSEE.toStringCode()));
+        List<Resource> texas = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.TEXAS.toStringCode()));
+        List<Resource> utah = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.UTAH.toStringCode()));
+        List<Resource> vermont = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.VERMONT.toStringCode()));
 
-        List<Resource> virginia = new ArrayList<>();
-        List<Resource> washington = new ArrayList<>();
-        List<Resource> west_virginia = new ArrayList<>();
-        List<Resource> wisconsin = new ArrayList<>();
-        List<Resource> wyoming = new ArrayList<>();
-
-        alabama.addAll(mTimeZone.getAllStateResources(StateEnum.ALABAMA.toStringCode()));
-        alaska.addAll(mTimeZone.getAllStateResources(StateEnum.ALASKA.toStringCode()));
-        arizona.addAll(mTimeZone.getAllStateResources(StateEnum.ARIZONA.toStringCode()));
-        arkansas.addAll(mTimeZone.getAllStateResources(StateEnum.ARKANSAS.toStringCode()));
-        california.addAll(mTimeZone.getAllStateResources(StateEnum.CALIFORNIA.toStringCode()));
-
-        colorado.addAll(mTimeZone.getAllStateResources(StateEnum.COLORADO.toStringCode()));
-        connecticut.addAll(mTimeZone.getAllStateResources(StateEnum.CONNECTICUT.toStringCode()));
-        delaware.addAll(mTimeZone.getAllStateResources(StateEnum.DELAWARE.toStringCode()));
-        florida.addAll(mTimeZone.getAllStateResources(StateEnum.FLORIDA.toStringCode()));
-        georgia.addAll(mTimeZone.getAllStateResources(StateEnum.GEORGIA.toStringCode()));
-
-        hawaii.addAll(mTimeZone.getAllStateResources(StateEnum.HAWAII.toStringCode()));
-        idaho.addAll(mTimeZone.getAllStateResources(StateEnum.IDAHO.toStringCode()));
-        illinois.addAll(mTimeZone.getAllStateResources(StateEnum.ILLINOIS.toStringCode()));
-        indiana.addAll(mTimeZone.getAllStateResources(StateEnum.INDIANA.toStringCode()));
-        iowa.addAll(mTimeZone.getAllStateResources(StateEnum.IOWA.toStringCode()));
-
-        kansas.addAll(mTimeZone.getAllStateResources(StateEnum.KANSAS.toStringCode()));
-        kentucky.addAll(mTimeZone.getAllStateResources(StateEnum.KENTUCKY.toStringCode()));
-        louisiana.addAll(mTimeZone.getAllStateResources(StateEnum.LOUISIANA.toStringCode()));
-        maine.addAll(mTimeZone.getAllStateResources(StateEnum.MAINE.toStringCode()));
-        maryland.addAll(mTimeZone.getAllStateResources(StateEnum.MARYLAND.toStringCode()));
-
-        massachusetts.addAll(mTimeZone.getAllStateResources(StateEnum.MASSACHUSETTS.toStringCode()));
-        michigan.addAll(mTimeZone.getAllStateResources(StateEnum.MICHIGAN.toStringCode()));
-        minnesota.addAll(mTimeZone.getAllStateResources(StateEnum.MINNESOTA.toStringCode()));
-        mississippi.addAll(mTimeZone.getAllStateResources(StateEnum.MISSISSIPPI.toStringCode()));
-        missouri.addAll(mTimeZone.getAllStateResources(StateEnum.MISSOURI.toStringCode()));
-
-        montana.addAll(mTimeZone.getAllStateResources(StateEnum.MONTANA.toStringCode()));
-        nebraska.addAll(mTimeZone.getAllStateResources(StateEnum.NEBRASKA.toStringCode()));
-        nevada.addAll(mTimeZone.getAllStateResources(StateEnum.NEVADA.toStringCode()));
-        new_hampshire.addAll(mTimeZone.getAllStateResources(StateEnum.NEW_HAMPSHIRE.toStringCode()));
-        new_jersey.addAll(mTimeZone.getAllStateResources(StateEnum.NEW_JERSEY.toStringCode()));
-
-        new_mexico.addAll(mTimeZone.getAllStateResources(StateEnum.NEW_MEXICO.toStringCode()));
-        new_york.addAll(mTimeZone.getAllStateResources(StateEnum.NEW_YORK.toStringCode()));
-        north_carolina.addAll(mTimeZone.getAllStateResources(StateEnum.NORTH_CAROLINA.toStringCode()));
-        north_dakota.addAll(mTimeZone.getAllStateResources(StateEnum.NORTH_DAKOTA.toStringCode()));
-        ohio.addAll(mTimeZone.getAllStateResources(StateEnum.OHIO.toStringCode()));
-
-        oklahoma.addAll(mTimeZone.getAllStateResources(StateEnum.OKLAHOMA.toStringCode()));
-        oregon.addAll(mTimeZone.getAllStateResources(StateEnum.OREGON.toStringCode()));
-        pennsylvania.addAll(mTimeZone.getAllStateResources(StateEnum.PENNSYLVANIA.toStringCode()));
-        rhode_island.addAll(mTimeZone.getAllStateResources(StateEnum.RHODE_ISLAND.toStringCode()));
-        south_carolina.addAll(mTimeZone.getAllStateResources(StateEnum.SOUTH_CAROLINA.toStringCode()));
-
-        south_dakota.addAll(mTimeZone.getAllStateResources(StateEnum.SOUTH_DAKOTA.toStringCode()));
-        tennessee.addAll(mTimeZone.getAllStateResources(StateEnum.TENNESSEE.toStringCode()));
-        texas.addAll(mTimeZone.getAllStateResources(StateEnum.TEXAS.toStringCode()));
-        utah.addAll(mTimeZone.getAllStateResources(StateEnum.UTAH.toStringCode()));
-        vermont.addAll(mTimeZone.getAllStateResources(StateEnum.VERMONT.toStringCode()));
-
-        virginia.addAll(mTimeZone.getAllStateResources(StateEnum.VIRGINIA.toStringCode()));
-        washington.addAll(mTimeZone.getAllStateResources(StateEnum.WASHINGTON.toStringCode()));
-        west_virginia.addAll(mTimeZone.getAllStateResources(StateEnum.WEST_VIRGINIA.toStringCode()));
-        wisconsin.addAll(mTimeZone.getAllStateResources(StateEnum.WISCONSIN.toStringCode()));
-        wyoming.addAll(mTimeZone.getAllStateResources(StateEnum.WYOMING.toStringCode()));
+        List<Resource> virginia = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.VIRGINIA.toStringCode()));
+        List<Resource> washington = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.WASHINGTON.toStringCode()));
+        List<Resource> west_virginia = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.WEST_VIRGINIA.toStringCode()));
+        List<Resource> wisconsin = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.WISCONSIN.toStringCode()));
+        List<Resource> wyoming = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.WYOMING.toStringCode()));
 
         final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(AllResourcesActivityALL.this, 50, TimeZoneEnum.ALL);
 

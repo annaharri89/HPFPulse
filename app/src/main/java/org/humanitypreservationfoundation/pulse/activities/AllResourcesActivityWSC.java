@@ -19,15 +19,10 @@ public class AllResourcesActivityWSC extends AllResourcesActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Resource> arkansas = new ArrayList<>();
-        List<Resource> louisiana = new ArrayList<>();
-        List<Resource> oklahoma = new ArrayList<>();
-        List<Resource> texas = new ArrayList<>();
-
-        arkansas.addAll(mTimeZone.getAllStateResources(StateEnum.ARKANSAS.toStringCode()));
-        louisiana.addAll(mTimeZone.getAllStateResources(StateEnum.LOUISIANA.toStringCode()));
-        oklahoma.addAll(mTimeZone.getAllStateResources(StateEnum.OKLAHOMA.toStringCode()));
-        texas.addAll(mTimeZone.getAllStateResources(StateEnum.TEXAS.toStringCode()));
+        List<Resource> arkansas = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.ARKANSAS.toStringCode()));
+        List<Resource> louisiana = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.LOUISIANA.toStringCode()));
+        List<Resource> oklahoma = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.OKLAHOMA.toStringCode()));
+        List<Resource> texas = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.TEXAS.toStringCode()));
 
         final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(AllResourcesActivityWSC.this, 4, this.mTimeZoneEnum);
 

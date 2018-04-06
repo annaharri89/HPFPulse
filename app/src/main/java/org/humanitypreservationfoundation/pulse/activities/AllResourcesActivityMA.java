@@ -19,13 +19,9 @@ public class AllResourcesActivityMA extends AllResourcesActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Resource> new_jersey = new ArrayList<>();
-        List<Resource> new_york = new ArrayList<>();
-        List<Resource> pennsylvania = new ArrayList<>();
-
-        new_jersey.addAll(mTimeZone.getAllStateResources(StateEnum.NEW_JERSEY.toStringCode()));
-        new_york.addAll(mTimeZone.getAllStateResources(StateEnum.NEW_YORK.toStringCode()));
-        pennsylvania.addAll(mTimeZone.getAllStateResources(StateEnum.PENNSYLVANIA.toStringCode()));
+        List<Resource> new_jersey = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NEW_JERSEY.toStringCode()));
+        List<Resource> new_york = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NEW_YORK.toStringCode()));
+        List<Resource> pennsylvania = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.PENNSYLVANIA.toStringCode()));
 
         final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(AllResourcesActivityMA.this, 3, this.mTimeZoneEnum);
 

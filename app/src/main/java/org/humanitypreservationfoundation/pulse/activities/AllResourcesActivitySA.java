@@ -19,23 +19,14 @@ public class AllResourcesActivitySA extends AllResourcesActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Resource> delaware = new ArrayList<>();
-        List<Resource> florida = new ArrayList<>();
-        List<Resource> georgia = new ArrayList<>();
-        List<Resource> maryland = new ArrayList<>();
-        List<Resource> north_carolina = new ArrayList<>();
-        List<Resource> south_carolina = new ArrayList<>();
-        List<Resource> virginia = new ArrayList<>();
-        List<Resource> west_virginia = new ArrayList<>();
-
-        delaware.addAll(mTimeZone.getAllStateResources(StateEnum.DELAWARE.toStringCode()));
-        florida.addAll(mTimeZone.getAllStateResources(StateEnum.FLORIDA.toStringCode()));
-        georgia.addAll(mTimeZone.getAllStateResources(StateEnum.GEORGIA.toStringCode()));
-        maryland.addAll(mTimeZone.getAllStateResources(StateEnum.MARYLAND.toStringCode()));
-        north_carolina.addAll(mTimeZone.getAllStateResources(StateEnum.NORTH_CAROLINA.toStringCode()));
-        south_carolina.addAll(mTimeZone.getAllStateResources(StateEnum.SOUTH_CAROLINA.toStringCode()));
-        virginia.addAll(mTimeZone.getAllStateResources(StateEnum.VIRGINIA.toStringCode()));
-        west_virginia.addAll(mTimeZone.getAllStateResources(StateEnum.WEST_VIRGINIA.toStringCode()));
+        List<Resource> delaware = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.DELAWARE.toStringCode()));
+        List<Resource> florida = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.FLORIDA.toStringCode()));
+        List<Resource> georgia = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.GEORGIA.toStringCode()));
+        List<Resource> maryland = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MARYLAND.toStringCode()));
+        List<Resource> north_carolina = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NORTH_CAROLINA.toStringCode()));
+        List<Resource> south_carolina = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.SOUTH_CAROLINA.toStringCode()));
+        List<Resource> virginia = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.VIRGINIA.toStringCode()));
+        List<Resource> west_virginia = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.WEST_VIRGINIA.toStringCode()));
 
         final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(AllResourcesActivitySA.this, 8, this.mTimeZoneEnum);
 

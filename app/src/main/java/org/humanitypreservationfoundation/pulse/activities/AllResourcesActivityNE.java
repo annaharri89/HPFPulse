@@ -19,19 +19,12 @@ public class AllResourcesActivityNE extends AllResourcesActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Resource> connecticut = new ArrayList<>();
-        List<Resource> maine = new ArrayList<>();
-        List<Resource> massachusetts = new ArrayList<>();
-        List<Resource> new_hampshire = new ArrayList<>();
-        List<Resource> rhode_island = new ArrayList<>();
-        List<Resource> vermont = new ArrayList<>();
-
-        connecticut.addAll(mTimeZone.getAllStateResources(StateEnum.CONNECTICUT.toStringCode()));
-        maine.addAll(mTimeZone.getAllStateResources(StateEnum.MAINE.toStringCode()));
-        massachusetts.addAll(mTimeZone.getAllStateResources(StateEnum.MASSACHUSETTS.toStringCode()));
-        new_hampshire.addAll(mTimeZone.getAllStateResources(StateEnum.NEW_HAMPSHIRE.toStringCode()));
-        rhode_island.addAll(mTimeZone.getAllStateResources(StateEnum.RHODE_ISLAND.toStringCode()));
-        vermont.addAll(mTimeZone.getAllStateResources(StateEnum.VERMONT.toStringCode()));
+        List<Resource> connecticut = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.CONNECTICUT.toStringCode()));
+        List<Resource> maine = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MAINE.toStringCode()));
+        List<Resource> massachusetts = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MASSACHUSETTS.toStringCode()));
+        List<Resource> new_hampshire = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NEW_HAMPSHIRE.toStringCode()));
+        List<Resource> rhode_island = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.RHODE_ISLAND.toStringCode()));
+        List<Resource> vermont = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.VERMONT.toStringCode()));
 
         final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(AllResourcesActivityNE.this, 6, this.mTimeZoneEnum);
 

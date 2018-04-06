@@ -19,15 +19,10 @@ public class AllResourcesActivityESC extends AllResourcesActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Resource> alabama = new ArrayList<>();
-        List<Resource> kentucky = new ArrayList<>();
-        List<Resource> mississippi = new ArrayList<>();
-        List<Resource> tennessee = new ArrayList<>();
-
-        alabama.addAll(mTimeZone.getAllStateResources(StateEnum.ALABAMA.toStringCode()));
-        kentucky.addAll(mTimeZone.getAllStateResources(StateEnum.KENTUCKY.toStringCode()));
-        mississippi.addAll(mTimeZone.getAllStateResources(StateEnum.MISSISSIPPI.toStringCode()));
-        tennessee.addAll(mTimeZone.getAllStateResources(StateEnum.TENNESSEE.toStringCode()));
+        List<Resource> alabama = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.ALABAMA.toStringCode()));
+        List<Resource> kentucky = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.KENTUCKY.toStringCode()));
+        List<Resource> mississippi = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MISSISSIPPI.toStringCode()));
+        List<Resource> tennessee = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.TENNESSEE.toStringCode()));
 
         final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(AllResourcesActivityESC.this, 4, this.mTimeZoneEnum);
 
