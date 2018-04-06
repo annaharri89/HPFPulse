@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--todo button height, caret margin, map width and height -->
     <!-- Category button height percent-->
     <item name="main_button_height_decimal" format="float" type="dimen">0.08</item>
 

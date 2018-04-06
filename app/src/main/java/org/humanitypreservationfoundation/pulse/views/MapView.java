@@ -55,7 +55,7 @@ public class MapView extends View {
     private MapViewController mController;
 
     /**
-     *MapView Constructor
+     *MapView Constructor; sets up each time zone; sets up the data by calling volleyCacheRequest
      */
     public MapView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -109,9 +109,13 @@ public class MapView extends View {
         MapView.mTimeZoneTitlesAndStates.put(TimeZoneEnum.MA, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.MA));
         MapView.mTimeZoneTitlesAndStates.put(TimeZoneEnum.SA, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.SA));
         MapView.mTimeZoneTitlesAndStates.put(TimeZoneEnum.NE, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.NE));
-        MapView.mTimeZoneTitlesAndStates.put(TimeZoneEnum.ALL, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.ALL)); //TODO Is ALL timezone needed? doesn't it double the amount of data?
+        MapView.mTimeZoneTitlesAndStates.put(TimeZoneEnum.ALL, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.ALL));
     }
 
+    /**
+     * If a cache exists, uses its data to parse state resources. If cache doesn't exist, calls
+     * volleyJsonArrayRequest to make a new GET request to restAPI.
+     */
     public void volleyCacheRequest(){
         String url = Config.data.URL;
 
@@ -130,6 +134,10 @@ public class MapView extends View {
         }
     }
 
+    /**
+     * Creates a new GET request to the restAPI. Calls volleyParseResponse to digest the data
+     * received from the GET request.
+     */
     public void volleyJsonArrayRequest(String url){
 
         JsonArrayRequest jsonArrayReq = new JsonArrayRequest(Request.Method.GET, url, null,
@@ -147,6 +155,9 @@ public class MapView extends View {
 
             }
         }) {
+            /**
+             * Handles caching the response
+             */
             @Override
             protected Response<JSONArray> parseNetworkResponse(NetworkResponse response) {
                 try {
@@ -201,6 +212,10 @@ public class MapView extends View {
         RequestQueueSingleton.getInstance(this.mContext.getApplicationContext()).addToRequestQueue(jsonArrayReq);
     }
 
+    /**
+     * Digests the response into resources for the todo finish documentation
+     * @param response
+     */
     public void volleyParseResponse(JSONArray response) {
         for (int i = 0; i < response.length(); i++) {
             try {
@@ -272,7 +287,7 @@ public class MapView extends View {
     }
 
     /**
-     * Highlight regions
+     * Highlight time zone
      */
     private void setHighlightedTimeZone(TimeZoneEnum timeZoneEnum) {
         TimeZone timeZone = this.getTimeZone(timeZoneEnum);
@@ -280,7 +295,7 @@ public class MapView extends View {
     }
 
     /**
-     * Unhighlight regions
+     * Unhighlight time zone
      */
     private void resetHighlightedTimeZone() {
         if (this.mHighlightedTimeZone.equals(TimeZoneEnum.ALL)) { //needed so that each time zone gets their original color
@@ -312,30 +327,7 @@ public class MapView extends View {
      */
     private void changeTimeZoneFillColor(TimeZone timeZone, String qualifier) {
         timeZone.changeFillColor(qualifier);
-        invalidate(); //TODO is this the appropriate place to call this
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        /*
-        for (TimeZone timezone : this.timeZones) {
-            if (timezone.checkStatesForTap((int) event.getX(), (int) event.getY())) {
-                performClick();
-                invalidate();
-                return true;
-           }
-        }
-        */
-        //TODO: remove when confirmed unnecessary
         invalidate();
-        return true;
-    }
-
-    @Override
-    public boolean performClick() {
-        //TODO: remove when confirmed unnecessary
-        super.performClick();
-        return true;
     }
 
     @Override
@@ -365,7 +357,6 @@ public class MapView extends View {
     private void drawTimeZoneLabels(Canvas canvas) {
         int textSize = this.mController.getTimeZoneLabelTextSize();
         int strokeWidth = this.mController.getTimeZoneLabelStrokeSize();
-        //TODO: find more attractive font for timezone names
         this.mPaintGrey.setColor(Color.DKGRAY);
         this.mPaintGrey.setTextSize(textSize);
         this.mPaintGrey.setStyle(Paint.Style.STROKE);
@@ -387,7 +378,6 @@ public class MapView extends View {
                 }
             }
         }
-        //(int) Math.floor(height*0.589) TODO remove
     }
 
 

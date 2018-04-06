@@ -29,11 +29,10 @@ public class State implements IState, Parcelable {
     private StateEnum mEnum;
     private Path mPath;
     private PathModel mPathModel;
-    private Region mRegion;
 
-    private List<Resource> mChildAbuseResource = new ArrayList<Resource>();
-    private List<Resource> mBullyingResource = new ArrayList<Resource>();
-    private List<Resource> mDomesticViolenceResource = new ArrayList<Resource>();
+    private List<Resource> mChildAbuseResource = new ArrayList<>();
+    private List<Resource> mBullyingResource = new ArrayList<>();
+    private List<Resource> mDomesticViolenceResource = new ArrayList<>();
 
     /* Defines the kind of object that will be parcelled */
     @Override
@@ -92,13 +91,12 @@ public class State implements IState, Parcelable {
         this.mDomesticViolenceResource = (List<Resource>) in.readArrayList(loader);
     }
 
-    public State(Context context, StateEnum stateEnum, VectorMasterDrawable USMap) {
+    public State(StateEnum stateEnum, VectorMasterDrawable USMap) {
         this.mCode = stateEnum.toStringCode();
         this.mName = stateEnum.toStringName();
         this.mEnum = stateEnum;
         this.mPathModel = USMap.getPathModelByName(this.mCode);
         this.mPath = this.mPathModel.getPath();
-        this.setRegion();
     }
 
     public String getCode() {
@@ -117,25 +115,17 @@ public class State implements IState, Parcelable {
         return this.mPath;
     }
 
-    public PathModel getPathModel() { //TODO: call this
+    public PathModel getPathModel() {
         return this.mPathModel;
-    }
-
-    public Region getRegion() {
-        return this.mRegion;
     }
 
     public void setFillColor(String color) {
         this.mPathModel.setFillColor(Color.parseColor(color));
     }
 
-    private void setRegion() {
-        RectF bounds = new RectF();
-        this.mPath.computeBounds(bounds, true);
-        this.mRegion = new Region();
-        this.mRegion.setPath(this.mPath, new Region((int) bounds.left, (int) bounds.top, (int) bounds.right, (int) bounds.bottom));
-    }
-
+    /**
+     * Sets the states resources based on category
+     */
     public void setResources(List<Resource> resourceList) {
         for (Resource resource : resourceList) {
             switch (resource.getCategory()) {

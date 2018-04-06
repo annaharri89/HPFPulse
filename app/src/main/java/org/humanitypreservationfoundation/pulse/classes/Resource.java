@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Resource implements Parcelable {
 
-    private int mId; //todo get mID from parcel when database is set up // (SEE HOW youKNOWwhat GETS ITS ID)
+    private int mId;
     private String mOrgName;
     private String mUrl;
     private String mPhoneNumber;

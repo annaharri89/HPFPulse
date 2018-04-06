@@ -64,7 +64,5 @@ public class CategoryResourcesActivity extends ResourcesActivity {
             mListView.setEmptyView(emptyListView);
         }
 
-
-
     }
 }

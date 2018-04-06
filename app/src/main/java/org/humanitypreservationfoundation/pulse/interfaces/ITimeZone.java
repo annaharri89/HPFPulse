@@ -21,7 +21,6 @@ public interface ITimeZone {
     String getColorCode();
     TimeZoneEnum getEnum();
     String getDescription();
-    Region getRegion();
     void changeFillColor(String qualifier);
     void setResources(Map<StateEnum, List<Resource>> resourceMap);
     List<Resource> getStateChildAbuseResources(String stateCode);

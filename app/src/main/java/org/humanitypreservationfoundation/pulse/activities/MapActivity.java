@@ -53,11 +53,17 @@ public class MapActivity extends AppCompatActivity {
         }
 
         SpinnerAdapter adapter = new ArrayAdapter<String>(this, R.layout.region_spinner_item, getResources().getStringArray(R.array.timezones)) {
+            /**
+             * Disables the "Select a region" option
+             */
             @Override
             public boolean isEnabled(int position) {
-                return position != 0; //disable "Select a region" position
+                return position != 0;
             }
 
+            /**
+             * Sets the "Select a region" text to grey to show that it isn't selectable
+             */
             @Override
             public View getDropDownView(int position, View convertView, ViewGroup parent) {
                 View view = super.getDropDownView(position, convertView, parent);
@@ -98,6 +104,7 @@ public class MapActivity extends AppCompatActivity {
                     return;
                 }
 
+                //getResults button is not enabled until a time zone is selected from the spinner
                 if (!getResults.isEnabled()) {
                     getResults.setEnabled(true);
                 }
@@ -111,12 +118,18 @@ public class MapActivity extends AppCompatActivity {
             }
         });
 
-        // Set background here for backwards compatibility
+        // Set background here for backwards compatibility (to handle vector drawables in API 20
+        // and below
         regionSpinner.setBackground(AppCompatResources.getDrawable(this, R.drawable.ic_grey_spinner));
         getResults.setBackground(AppCompatResources.getDrawable(this, R.drawable.ic_blue_button_caret_right));
 
     }
 
+    /**
+     * Needed so that the MapActivity will retain the correct category when the user travels back
+     * from the one of the Resources Activities. Category stored in mActivityName and used to set
+     * the action bar title
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -127,6 +140,10 @@ public class MapActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Sets the time zone description text (a description for what category the user is getting
+     * resources for and what states belong to the selected time zone)
+     */
     public void setDescriptionText() {
         TimeZone tz = mMap.getTimeZone(mTimeZoneEnum);
         String description;
@@ -151,6 +168,9 @@ public class MapActivity extends AppCompatActivity {
         mDescriptionTextView.setText(description);
     }
 
+    /**
+     * Opens appropriate Resource activity based on the category / timezone
+     */
     public void getResults(View view) {
         Intent intent = new Intent();
         if (!mActivityName.equals(Config.categories.ALL_RESOURCES)) {

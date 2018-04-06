@@ -438,7 +438,6 @@ public class ExpandableResourceListAdapter implements ExpandableListAdapter {
      * @param groupPosition options: one of the public static ints declared at top of file
      * @param data list of Resources
      */
-    //TODO: Call in ResultsActivity adapter.addDataToGroup()
     public void addDataToGroup(int groupPosition, List<? extends Resource> data) {
         if (this.mTimeZoneEnum.equals(TimeZoneEnum.PST) || this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) {
             if (groupPosition == ALASKA) {
@@ -729,7 +728,7 @@ public class ExpandableResourceListAdapter implements ExpandableListAdapter {
             return resource.getId();
         }
 
-        return -childPosition; //todo: look into: is this what it should be returning?
+        return -childPosition;
     }
 
     /**

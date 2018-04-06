@@ -20,7 +20,6 @@ public interface IState {
     StateEnum getEnum();
     Path getPath();
     PathModel getPathModel();
-    Region getRegion();
     void setFillColor(String color);
     void setResources(List<Resource> resourceList);
     List<Resource> getChildAbuseResources();

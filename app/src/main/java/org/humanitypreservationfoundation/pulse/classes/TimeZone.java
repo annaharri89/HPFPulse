@@ -22,7 +22,6 @@ public class TimeZone implements ITimeZone, Parcelable {
     private String mDescription;
     private String mCode;
     private TimeZoneEnum mTimeZoneEnum;
-    private Region mRegion;
     private String mColor;
     private String mColorCode;
 
@@ -94,14 +93,13 @@ public class TimeZone implements ITimeZone, Parcelable {
         this.mTimeZoneEnum = timeZoneEnum;
         this.mCode = timeZoneEnum.toStringCode();
         for (StateEnum stateEnum : timeZoneStates) {
-            State state = new State(this.mContext, stateEnum, USMap);
+            State state = new State(stateEnum, USMap);
             this.mStates.add(state);
         }
         this.mName = timeZoneEnum.toStringName();
         this.mDescription = this.getStrResource("_description");
         this.mColorCode = colorCode;
         this.mColor = this.getClrResource(this.mColorCode);
-        this.setRegion();
         if (!this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) { // needed because the ALL timezone shouldn't be seen
             this.setFillColor();
         }
@@ -120,13 +118,16 @@ public class TimeZone implements ITimeZone, Parcelable {
         return null;
     }
 
+    /**
+     * Sets each of the time zone's state's resources. Uses a StateEnum to find the right state.
+     * @param resourceMap
+     */
     public void setResources(Map<StateEnum, List<Resource>> resourceMap) {
         for (State state : this.getStates()) {
             for (Map.Entry<StateEnum, List<Resource>> entry : resourceMap.entrySet())
                 if (entry.getKey().equals(state.getEnum())) {
                     state.setResources(entry.getValue());
                 }
-            //todo make sure this works with State.setResources
         }
     }
 
@@ -170,35 +171,39 @@ public class TimeZone implements ITimeZone, Parcelable {
         return this.mName;
     }
 
-    public Region getRegion() {
-        return this.mRegion;
-    }
-
+    /**
+     * Used to change the time zone's fill color. Called when highlighting or unhighlighting the
+     * time zone
+     */
     public void changeFillColor(String qualifier) {
         this.mColor = this.getClrResource(qualifier);
         setFillColor();
     }
 
+    /**
+     * Used to get time zone's description text
+     */
     private String getStrResource(String qualifier) {
         int resourceId = this.mContext.getResources().getIdentifier(this.mCode + qualifier, "string", this.mContext.getPackageName());
         return this.mContext.getString(resourceId);
     }
 
+    /**
+     * Used to get time zone's fill color
+     * @param qualifier
+     * @return
+     */
     private String getClrResource(String qualifier) {
         int resourceId = this.mContext.getResources().getIdentifier(COLOR_PREFIX + qualifier, "color", this.mContext.getPackageName());
         return this.mContext.getString(resourceId);
     }
 
+    /**
+     * Sets the fill color of each state in the time zone
+     */
     private void setFillColor() {
         for (State state : this.mStates) {
             state.setFillColor(this.mColor);
-        }
-    }
-
-    private void setRegion() {
-        this.mRegion = new Region();
-        for (State state : this.mStates) {
-            this.mRegion.op(state.getRegion(), Region.Op.UNION);
         }
     }
 }

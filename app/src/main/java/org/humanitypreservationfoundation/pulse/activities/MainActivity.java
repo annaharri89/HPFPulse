@@ -39,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Sets the category button's background. Needed in order to set vector drawable as
+     * background for API 20 and below
+     */
     private void setCategoryButtonBackground(int id) {
         TextView categoryButton = (TextView) findViewById(id);
         categoryButton.setBackground(AppCompatResources.getDrawable(this, R.drawable.ic_blue_button_caret_right));
@@ -61,9 +65,11 @@ public class MainActivity extends AppCompatActivity {
         buttonHeight = deviceHeight * decimal.getFloat();
         params.height = (int) buttonHeight;
         categoryButton.setLayoutParams(params);
-
     }
 
+    /**
+     * Open's user's phone client with 911 populated
+     */
     public void call911(View view) {
         String phoneNumber = "911";
         Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -71,24 +77,36 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Opens the MapActivity for All Resources
+     */
     public void openAllResources(View view) {
         Intent intent = new Intent(this, MapActivity.class);
         intent.putExtra(Config.intents.ACTIVITY_EXTRA, Config.categories.ALL_RESOURCES);
         startActivity(intent);
     }
 
+    /**
+     * Opens the MapActivity for Child Abuse category
+     */
     public void openChildAbuse(View view) {
         Intent intent = new Intent(this, MapActivity.class);
         intent.putExtra(Config.intents.ACTIVITY_EXTRA, Config.categories.CHILD_ABUSE);
         startActivity(intent);
     }
 
+    /**
+     * Opens the MapActivity for Bullying category
+     */
     public void openBullying(View view) {
         Intent intent = new Intent(this, MapActivity.class);
         intent.putExtra(Config.intents.ACTIVITY_EXTRA, Config.categories.BULLYING);
         startActivity(intent);
     }
 
+    /**
+     * Opens the MapActivity for Domestic Violence category
+     */
     public void openDomesticViolence(View view) {
         Intent intent = new Intent(this, MapActivity.class);
         intent.putExtra(Config.intents.ACTIVITY_EXTRA, Config.categories.DOMESTIC_VIOLENCE);

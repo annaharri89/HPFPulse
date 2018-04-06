@@ -20,11 +20,11 @@ import java.util.List;
  * Created by ETASpare on 3/8/2018.
  */
 
-public class CategoryResourceListAdapter extends ArrayAdapter<Resource> { //todo turn into CursorAdapter
+public class CategoryResourceListAdapter extends ArrayAdapter<Resource> {
 
     private Context mContext;
 
-    public CategoryResourceListAdapter(Context context, List<Resource> resources) { //todo make work with restful api
+    public CategoryResourceListAdapter(Context context, List<Resource> resources) {
         super(context, 0, resources);
         this.mContext = context;
     }

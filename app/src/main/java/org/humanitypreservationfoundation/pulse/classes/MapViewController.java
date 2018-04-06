@@ -27,7 +27,9 @@ public class MapViewController {
     /**
      * Calculates the y position to draw the time zone labels.
      */
+
     public float calculateTop(TimeZone timeZone){
+        /*
         float topDp = Utils.pxToDp(this.mContext, timeZone.getRegion().getBounds().top);
         float bottomDp = Utils.pxToDp(this.mContext, timeZone.getRegion().getBounds().bottom);
         float finalDp = (topDp + bottomDp) / 2; //this is the average dp
@@ -63,12 +65,15 @@ public class MapViewController {
                 break;
         }
         return Utils.dpToPx(this.mContext, finalDp);
+        */
+        return 0;
     }
 
     /**
      * Calculates the x position to draw the time zone labels.
      */
     public float calculateLeft(TimeZone timeZone){
+        /*
         float leftDp = Utils.pxToDp(this.mContext, timeZone.getRegion().getBounds().left);
         float rightDp = Utils.pxToDp(this.mContext, timeZone.getRegion().getBounds().right);
         float finalDp = (leftDp + rightDp) / 2; //this is the average dp
@@ -102,5 +107,7 @@ public class MapViewController {
                 finalDp += this.mContext.getResources().getInteger(R.integer.NE_left);
         }
         return Utils.dpToPx(this.mContext, finalDp);
+        */
+        return 0;
     }
 }

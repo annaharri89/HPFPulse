@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/call_911"
         app:layout_constraintBottom_toTopOf="@+id/contact_to_add"
         layout="@layout/main_categories" />
-    <!--TODO adding 0dp (match constraints) makes the categories container stretch to fit screen-->
+    <!--adding 0dp (match constraints) makes the categories container stretch to fit screen-->
 
     <TextView
         android:id="@+id/contact_to_add"

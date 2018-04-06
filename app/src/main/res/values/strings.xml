@@ -46,15 +46,4 @@
     <string name="SA_description">\n\nDelaware, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia, and West Virginia</string>
     <string name="NE_description">\n\nConnecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont</string>
 
-    <!--TODO remove following once confirmed it is unnecessary-->
-    <string name="PST_name">Pacific</string>
-    <string name="MT_name">Mountain</string>
-    <string name="WNC_name">West North Central</string>
-    <string name="WSC_name">West South Central</string>
-    <string name="ENC_name">East North Central</string>
-    <string name="ESC_name">East South Central</string>
-    <string name="MA_name">Mid Atlantic</string>
-    <string name="SA_name">South Atlantic</string>
-    <string name="NE_name">New England</string>
-
 </resources>
