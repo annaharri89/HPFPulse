@@ -28,12 +28,14 @@ import org.humanitypreservationfoundation.pulse.classes.State;
 import org.humanitypreservationfoundation.pulse.classes.TimeZone;
 import org.humanitypreservationfoundation.pulse.enums.StateEnum;
 import org.humanitypreservationfoundation.pulse.enums.TimeZoneEnum;
+import org.humanitypreservationfoundation.pulse.utils.Utils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -113,15 +115,16 @@ public class MapView extends View {
     }
 
     /**
-     * If a cache exists, uses its data to parse state resources. If cache doesn't exist, calls
-     * volleyJsonArrayRequest to make a new GET request to restAPI.
+     * If a cache exists and is not expired or device has no internet, uses its data to parse state
+     * resources. If cache doesn't exist, calls volleyJsonArrayRequest to make a new GET request to
+     * restAPI.
      */
     public void volleyCacheRequest(){
         String url = Config.data.URL;
 
         Cache cache = RequestQueueSingleton.getInstance(this.mContext.getApplicationContext()).getRequestQueue().getCache();
         Cache.Entry reqEntry = cache.get(url);
-        if(reqEntry != null){
+        if(reqEntry != null && (!reqEntry.isExpired() || !Utils.isConnectedToInternet(this.mContext))){
             try {
                 String data = new String(reqEntry.data, "UTF-8");
                 volleyParseResponse(new JSONArray(data));
