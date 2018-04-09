@@ -77,6 +77,6 @@
     <dimen name="down_caret_left">500dp</dimen>
 
     <!-- Category button height percent-->
-    <item name="main_button_height_decimal" format="float" type="dimen">0.1</item>
+    <item name="main_button_height_decimal" format="float" type="dimen">0.09</item>
 
 </resources>
