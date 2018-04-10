@@ -65,7 +65,8 @@ public class MapView extends View {
     private VectorMasterDrawable mUSMap;
 
     /**
-     *MapView Constructor; sets up each time zone; sets up the data by calling volleyCacheRequest
+     *MapView Constructor; sets up each time zone; sets up the data by calling
+     * <code>volleyCacheRequest</code>
      */
     public MapView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -106,7 +107,7 @@ public class MapView extends View {
 
     /**
      * For each time zone, adds the time zone code as the key and adds a list of time zone state
-     * codes as the value to MapView.mTimeZoneTitlesAndStates.
+     * codes as the value to <code>MapView.mTimeZoneTitlesAndStates</code>.
      */
     private void setupTimeZoneTitlesAndStates() {
         MapView.mTimeZoneTitlesAndStates.put(TimeZoneEnum.PST, StateEnum.getTimeZoneStateCodes(TimeZoneEnum.PST));
@@ -122,9 +123,9 @@ public class MapView extends View {
     }
 
     /**
-     * If a cache exists and is not expired or device has no internet, uses its data to parse state
-     * resources. If cache doesn't exist, calls volleyJsonArrayRequest to make a new GET request to
-     * restAPI.
+     * If a cache exists and is not expired or device has no internet, uses its data to parse
+     * <code>State</code> <code>Resource</code>s. If cache doesn't exist, calls
+     * <code>volleyJsonArrayRequest</code> to make a new GET request to the restAPI.
      */
     public void volleyCacheRequest(){
         String url = Config.data.URL;
@@ -145,8 +146,8 @@ public class MapView extends View {
     }
 
     /**
-     * Creates a new GET request to the restAPI. Calls volleyParseResponse to digest the data
-     * received from the GET request.
+     * Creates a new GET request to the restAPI. Calls <code>volleyParseResponse</code> to digest
+     * the data received from the GET request.
      */
     public void volleyJsonArrayRequest(String url){
 
@@ -223,7 +224,8 @@ public class MapView extends View {
     }
 
     /**
-     * Digests the response into resources for the todo finish documentation
+     * Digests the response. Adds resources to appropriate <code>TimeZone</code> which adds the
+     * <code>Resources</code> to appropriate <code>States</code>.
      */
     public void volleyParseResponse(JSONArray response) {
         for (int i = 0; i < response.length(); i++) {
@@ -259,6 +261,11 @@ public class MapView extends View {
             }
         }
     }
+
+    /**
+     * Parses <code>JSONArray resourcesArray</code> into <code>Resource</code> objects
+     * @return List<Resource>
+     */
     public List<Resource> volleyParseResources(JSONArray resourcesArray, StateEnum stEnum, String category) {
         List<Resource> resources = new ArrayList<>();
         for (int i = 0; i < resourcesArray.length(); i++){
@@ -278,10 +285,10 @@ public class MapView extends View {
     }
 
     /**
-     * Uses the passed in <code>timeZoneCode</code> to get the appropriate time zone, timeZone,
-     * from this.timezones. Changes timeZone's fill color to the highlight color. If a timeZone has
+     * Changes timeZone's fill color to the highlight color. If a timeZone has
      * already been highlighted, changes that time zone's color back to it's original color.
-     * Finally, sets this.highlightedTimeZone to timeZone to keep track of which state is currently
+     * Finally, sets this.highlightedTimeZone to the <code>TimeZone</code> that owns the passed in
+     * <code>timeZoneEnum </code> to keep track of which <code>TimeZone</code> is currently
      * highlighted
      * @param timeZoneEnum instance of TimeZoneEnum
      */
@@ -319,6 +326,9 @@ public class MapView extends View {
         }
     }
 
+    /**
+     * Returns TimeZone object that has <code>timeZoneEnum</code> as its enum.
+     */
     public TimeZone getTimeZone(TimeZoneEnum timeZoneEnum) {
         for (Map.Entry<String, TimeZone> entry : this.mTimeZones.entrySet()) {
             TimeZone timeZone = entry.getValue();
