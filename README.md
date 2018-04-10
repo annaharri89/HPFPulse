@@ -1,6 +1,6 @@
 # General Information #
 ### Project Title ###
-HPF Pulse Project
+HPF Pulse
 ### Project Description ###
 Provide a platform of services for victims, heroes, caregivers and
 volunteers a directory for finding those services in all 50 US
@@ -14,14 +14,13 @@ resource available in every single state.
 * Gradle - Dependency Management, Build Tool 
 * Android - Framework
 * Java - Programming Language
-* SQLite - Database
-### Upcoming Features ###
 
 # Authors #
 * [Anna Harrison](https://github.com/annaharri89) App Developer
 * [Aditya Kelkar](http://uxportfolio.wixsite.com/adityakelkar2017) UI/UX Designer
 
 # License #
+This project is licensed under the Apache License 2.0 - see the LICENSE.txt file for details.
 
 # Acknowledgements #
 * Thanks to [simplemaps.com](https://simplemaps.com/resources/svg-maps) for providing the svg US map used in this app.
