@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright 2018 The Humanity Preservation Foundation
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ -->
 <resources>
     <string-array name="timezones">
         <item>Select a Region&#8230;</item>
@@ -12,83 +27,5 @@
         <item>Mid Atlantic</item>
         <item>South Atlantic</item>
         <item>New England</item>
-    </string-array>
-
-    <!--TODO REMOVE WHEN CONFIRMED UNNECESSARY-->
-    <string-array name="PST_state_codes">
-        <item>AK</item>
-        <item>CA</item>
-        <item>HI</item>
-        <item>OR</item>
-        <item>WA</item>
-    </string-array>
-
-    <string-array name="MT_state_codes">
-        <item>AZ</item>
-        <item>CO</item>
-        <item>ID</item>
-        <item>MT</item>
-        <item>NV</item>
-        <item>NM</item>
-        <item>UT</item>
-        <item>WY</item>
-    </string-array>
-
-    <string-array name="WNC_state_codes">
-        <item>IA</item>
-        <item>KS</item>
-        <item>MN</item>
-        <item>MO</item>
-        <item>NE</item>
-        <item>ND</item>
-        <item>SD</item>
-    </string-array>
-
-    <string-array name="WSC_state_codes">
-        <item>AR</item>
-        <item>LA</item>
-        <item>OK</item>
-        <item>TX</item>
-    </string-array>
-
-    <string-array name="ENC_state_codes">
-        <item>IL</item>
-        <item>IN</item>
-        <item>MI</item>
-        <item>OH</item>
-        <item>WI</item>
-    </string-array>
-
-    <string-array name="ESC_state_codes">
-        <item>AL</item>
-        <item>KY</item>
-        <item>MS</item>
-        <item>TN</item>
-    </string-array>
-
-    <string-array name="MA_state_codes">
-        <item>NJ</item>
-        <item>NY</item>
-        <item>PA</item>
-    </string-array>
-
-    <string-array name="SA_state_codes">
-        <item>DE</item>
-        <item>FL</item>
-        <item>GA</item>
-        <item>MD</item>
-        <item>NC</item>
-        <item>SC</item>
-        <item>VA</item>
-        <item>WV</item>
-    </string-array>
-
-    <string-array name="NE_state_codes">
-        <item>CT</item>
-        <item>ME</item>
-        <item>MA</item>
-        <item>NH</item>
-        <item>RI</item>
-        <item>VT</item>
     </string-array>
 </resources>

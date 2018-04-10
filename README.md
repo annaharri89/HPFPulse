@@ -18,7 +18,8 @@ resource available in every single state.
 ### Upcoming Features ###
 
 # Authors #
-* [Anna Harrison](https://github.com/annaharri89)
+* [Anna Harrison](https://github.com/annaharri89) App Developer
+* [Aditya Kelkar](http://uxportfolio.wixsite.com/adityakelkar2017) UI/UX Designer
 
 # License #
 

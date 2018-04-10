@@ -1,3 +1,18 @@
+/*
+        Copyright 2018 The Humanity Preservation Foundation
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+*/
 package org.humanitypreservationfoundation.pulse.activities;
 
 import android.os.Bundle;
@@ -19,17 +34,11 @@ public class AllResourcesActivityPST extends AllResourcesActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Resource> alaska = new ArrayList<>();
-        List<Resource> california = new ArrayList<>();
-        List<Resource> hawaii = new ArrayList<>();
-        List<Resource> oregon = new ArrayList<>();
-        List<Resource> washington = new ArrayList<>();
-
-        alaska.addAll(mTimeZone.getAllStateResources(StateEnum.ALASKA.toStringCode()));
-        california.addAll(mTimeZone.getAllStateResources(StateEnum.CALIFORNIA.toStringCode()));
-        hawaii.addAll(mTimeZone.getAllStateResources(StateEnum.HAWAII.toStringCode()));
-        oregon.addAll(mTimeZone.getAllStateResources(StateEnum.OREGON.toStringCode()));
-        washington.addAll(mTimeZone.getAllStateResources(StateEnum.WASHINGTON.toStringCode()));
+        List<Resource> alaska = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.ALASKA.toStringCode()));
+        List<Resource> california = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.CALIFORNIA.toStringCode()));
+        List<Resource> hawaii = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.HAWAII.toStringCode()));
+        List<Resource> oregon = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.OREGON.toStringCode()));
+        List<Resource> washington = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.WASHINGTON.toStringCode()));
 
         final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(AllResourcesActivityPST.this, 5, this.mTimeZoneEnum);
 

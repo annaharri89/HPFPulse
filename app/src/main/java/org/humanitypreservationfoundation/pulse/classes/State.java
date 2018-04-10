@@ -1,10 +1,22 @@
+/*
+        Copyright 2018 The Humanity Preservation Foundation
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+*/
 package org.humanitypreservationfoundation.pulse.classes;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Path;
-import android.graphics.RectF;
-import android.graphics.Region;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -24,18 +36,15 @@ import java.util.List;
 
 public class State implements IState, Parcelable {
 
-    private Context context; //todo remove when confirmed unnecessary
     private String mCode;
     private String mName;
     private StateEnum mEnum;
-    private VectorMasterDrawable vector; //todo remove
     private Path mPath;
     private PathModel mPathModel;
-    private Region mRegion;
 
-    private List<Resource> mChildAbuseResource = new ArrayList<Resource>();
-    private List<Resource> mBullyingResource = new ArrayList<Resource>();
-    private List<Resource> mDomesticViolenceResource = new ArrayList<Resource>();
+    private List<Resource> mChildAbuseResource = new ArrayList<>();
+    private List<Resource> mBullyingResource = new ArrayList<>();
+    private List<Resource> mDomesticViolenceResource = new ArrayList<>();
 
     /* Defines the kind of object that will be parcelled */
     @Override
@@ -94,14 +103,12 @@ public class State implements IState, Parcelable {
         this.mDomesticViolenceResource = (List<Resource>) in.readArrayList(loader);
     }
 
-    public State(Context context, StateEnum stateEnum, VectorMasterDrawable USMap) {
-        this.context = context;
+    public State(StateEnum stateEnum, VectorMasterDrawable USMap) {
         this.mCode = stateEnum.toStringCode();
         this.mName = stateEnum.toStringName();
         this.mEnum = stateEnum;
         this.mPathModel = USMap.getPathModelByName(this.mCode);
         this.mPath = this.mPathModel.getPath();
-        this.setRegion();
     }
 
     public String getCode() {
@@ -120,33 +127,17 @@ public class State implements IState, Parcelable {
         return this.mPath;
     }
 
-    public PathModel getPathModel() { //TODO: call this
+    public PathModel getPathModel() {
         return this.mPathModel;
-    }
-
-    public Region getRegion() {
-        return this.mRegion;
     }
 
     public void setFillColor(String color) {
         this.mPathModel.setFillColor(Color.parseColor(color));
     }
 
-    public void setDefaultFillColor() {
-        this.mPathModel.setFillColor(Color.parseColor("#f9f9f9"));
-    } //TODO Remove when confirmed unnecessary
-
-    public Boolean checkForTap(int x, int y) {
-        return this.mRegion.contains(x, y);
-    } //TODO remove when confirmed unnecessary
-
-    private void setRegion() {
-        RectF bounds = new RectF();
-        this.mPath.computeBounds(bounds, true);
-        this.mRegion = new Region();
-        this.mRegion.setPath(this.mPath, new Region((int) bounds.left, (int) bounds.top, (int) bounds.right, (int) bounds.bottom));
-    }
-
+    /**
+     * Sets the states resources based on category
+     */
     public void setResources(List<Resource> resourceList) {
         for (Resource resource : resourceList) {
             switch (resource.getCategory()) {
@@ -161,24 +152,6 @@ public class State implements IState, Parcelable {
                     break;
             }
         }
-    }
-
-    //todo remove once db is fully set up and hooked up to real data
-    public void setDummyResources(List<Resource> resourceList) {
-        for (Resource resource : resourceList) {
-            switch (resource.getCategory()) {
-                case Config.categories.CHILD_ABUSE:
-                    this.mChildAbuseResource.add(resource);
-                    break;
-                case Config.categories.BULLYING:
-                    this.mBullyingResource.add(resource);
-                    break;
-                case Config.categories.DOMESTIC_VIOLENCE:
-                    this.mDomesticViolenceResource.add(resource);
-                    break;
-            }
-        }
-
     }
 
     public List<Resource> getChildAbuseResources() {

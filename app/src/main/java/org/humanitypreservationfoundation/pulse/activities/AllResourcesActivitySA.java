@@ -1,3 +1,18 @@
+/*
+        Copyright 2018 The Humanity Preservation Foundation
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+*/
 package org.humanitypreservationfoundation.pulse.activities;
 
 import android.os.Bundle;
@@ -19,23 +34,14 @@ public class AllResourcesActivitySA extends AllResourcesActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Resource> delaware = new ArrayList<>();
-        List<Resource> florida = new ArrayList<>();
-        List<Resource> georgia = new ArrayList<>();
-        List<Resource> maryland = new ArrayList<>();
-        List<Resource> north_carolina = new ArrayList<>();
-        List<Resource> south_carolina = new ArrayList<>();
-        List<Resource> virginia = new ArrayList<>();
-        List<Resource> west_virginia = new ArrayList<>();
-
-        delaware.addAll(mTimeZone.getAllStateResources(StateEnum.DELAWARE.toStringCode()));
-        florida.addAll(mTimeZone.getAllStateResources(StateEnum.FLORIDA.toStringCode()));
-        georgia.addAll(mTimeZone.getAllStateResources(StateEnum.GEORGIA.toStringCode()));
-        maryland.addAll(mTimeZone.getAllStateResources(StateEnum.MARYLAND.toStringCode()));
-        north_carolina.addAll(mTimeZone.getAllStateResources(StateEnum.NORTH_CAROLINA.toStringCode()));
-        south_carolina.addAll(mTimeZone.getAllStateResources(StateEnum.SOUTH_CAROLINA.toStringCode()));
-        virginia.addAll(mTimeZone.getAllStateResources(StateEnum.VIRGINIA.toStringCode()));
-        west_virginia.addAll(mTimeZone.getAllStateResources(StateEnum.WEST_VIRGINIA.toStringCode()));
+        List<Resource> delaware = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.DELAWARE.toStringCode()));
+        List<Resource> florida = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.FLORIDA.toStringCode()));
+        List<Resource> georgia = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.GEORGIA.toStringCode()));
+        List<Resource> maryland = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MARYLAND.toStringCode()));
+        List<Resource> north_carolina = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NORTH_CAROLINA.toStringCode()));
+        List<Resource> south_carolina = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.SOUTH_CAROLINA.toStringCode()));
+        List<Resource> virginia = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.VIRGINIA.toStringCode()));
+        List<Resource> west_virginia = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.WEST_VIRGINIA.toStringCode()));
 
         final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(AllResourcesActivitySA.this, 8, this.mTimeZoneEnum);
 

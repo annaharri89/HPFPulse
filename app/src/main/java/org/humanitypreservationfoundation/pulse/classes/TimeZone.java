@@ -1,3 +1,18 @@
+/*
+        Copyright 2018 The Humanity Preservation Foundation
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+*/
 package org.humanitypreservationfoundation.pulse.classes;
 
 import android.content.Context;
@@ -17,12 +32,11 @@ import java.util.Map;
 
 public class TimeZone implements ITimeZone, Parcelable {
     private Context mContext;
-    private List<State> mStates = new ArrayList<State>(); //todo changed from type List<State> to work with parcelable
+    private List<State> mStates = new ArrayList<>();
     private String mName;
     private String mDescription;
     private String mCode;
     private TimeZoneEnum mTimeZoneEnum;
-    private Region mRegion;
     private String mColor;
     private String mColorCode;
 
@@ -45,7 +59,6 @@ public class TimeZone implements ITimeZone, Parcelable {
         dest.writeString(this.mDescription);
         dest.writeString(this.mCode);
         dest.writeSerializable(this.mTimeZoneEnum);
-        //todo is region needed? I don't think it is
         dest.writeString(this.mColor);
         dest.writeString(this.mColorCode);
     }
@@ -95,14 +108,13 @@ public class TimeZone implements ITimeZone, Parcelable {
         this.mTimeZoneEnum = timeZoneEnum;
         this.mCode = timeZoneEnum.toStringCode();
         for (StateEnum stateEnum : timeZoneStates) {
-            State state = new State(this.mContext, stateEnum, USMap);
+            State state = new State(stateEnum, USMap);
             this.mStates.add(state);
         }
         this.mName = timeZoneEnum.toStringName();
         this.mDescription = this.getStrResource("_description");
         this.mColorCode = colorCode;
         this.mColor = this.getClrResource(this.mColorCode);
-        this.setRegion();
         if (!this.mTimeZoneEnum.equals(TimeZoneEnum.ALL)) { // needed because the ALL timezone shouldn't be seen
             this.setFillColor();
         }
@@ -112,7 +124,7 @@ public class TimeZone implements ITimeZone, Parcelable {
         return this.mStates;
     }
 
-    private State getState(String stateCode) {
+    public State getState(String stateCode) {
         for (State state : this.getStates()) {
             if (state.getCode().equals(stateCode)) {
                 return state;
@@ -121,23 +133,15 @@ public class TimeZone implements ITimeZone, Parcelable {
         return null;
     }
 
-    //todo: update to work with multiple resources per category (nevada: carson, las vegas)
+    /**
+     * Sets each of the time zone's state's resources. Uses a StateEnum to find the right state.
+     * @param resourceMap
+     */
     public void setResources(Map<StateEnum, List<Resource>> resourceMap) {
         for (State state : this.getStates()) {
             for (Map.Entry<StateEnum, List<Resource>> entry : resourceMap.entrySet())
                 if (entry.getKey().equals(state.getEnum())) {
                     state.setResources(entry.getValue());
-                }
-            //todo make sure this works with State.setResources
-        }
-    }
-
-    //todo remove once db is fully set up and hooked up to real data
-    public void setDummyResources(Map<StateEnum, List<Resource>> resourceMap) {
-        for (State state : this.getStates()) {
-            for (Map.Entry<StateEnum, List<Resource>> entry : resourceMap.entrySet())
-                if (entry.getKey().equals(state.getEnum())) {
-                    state.setDummyResources(entry.getValue());
                 }
         }
     }
@@ -182,57 +186,39 @@ public class TimeZone implements ITimeZone, Parcelable {
         return this.mName;
     }
 
-    public Region getRegion() {
-        return this.mRegion;
-    }
-
+    /**
+     * Used to change the time zone's fill color. Called when highlighting or unhighlighting the
+     * time zone
+     */
     public void changeFillColor(String qualifier) {
         this.mColor = this.getClrResource(qualifier);
         setFillColor();
     }
 
-    /*
-    public Boolean checkStatesForTap(int x, int y) { //TODO: Remove when confirmed unnecessary
-        /*for (State state : this.mStates) {
-            if (state.checkForTap(x, y)) {
-                this.setHighlightFillColor();
-                return true;
-            }
-        }
-        this.setDefaultFillColor();
-        return false;
-        */
-    /*
-        if (this.mRegion.contains(x, y)) {
-            this.setHighlightFillColor();
-            return true;
-        } else {
-            this.setDefaultFillColor();
-            return false;
-        }
-    }
-    */
-
+    /**
+     * Used to get time zone's description text
+     */
     private String getStrResource(String qualifier) {
         int resourceId = this.mContext.getResources().getIdentifier(this.mCode + qualifier, "string", this.mContext.getPackageName());
         return this.mContext.getString(resourceId);
     }
 
+    /**
+     * Used to get time zone's fill color
+     * @param qualifier
+     * @return
+     */
     private String getClrResource(String qualifier) {
         int resourceId = this.mContext.getResources().getIdentifier(COLOR_PREFIX + qualifier, "color", this.mContext.getPackageName());
         return this.mContext.getString(resourceId);
     }
 
+    /**
+     * Sets the fill color of each state in the time zone
+     */
     private void setFillColor() {
         for (State state : this.mStates) {
             state.setFillColor(this.mColor);
-        }
-    }
-
-    private void setRegion() {
-        this.mRegion = new Region();
-        for (State state : this.mStates) {
-            this.mRegion.op(state.getRegion(), Region.Op.UNION);
         }
     }
 }

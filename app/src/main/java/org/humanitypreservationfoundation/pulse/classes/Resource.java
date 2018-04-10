@@ -1,12 +1,24 @@
+/*
+        Copyright 2018 The Humanity Preservation Foundation
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+*/
 package org.humanitypreservationfoundation.pulse.classes;
 
-import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import org.humanitypreservationfoundation.pulse.enums.StateEnum;
-
-import java.util.List;
 
 /**
  * Created by ETASpare on 3/6/2018.
@@ -14,7 +26,7 @@ import java.util.List;
 
 public class Resource implements Parcelable {
 
-    private long mId; //todo get mID from parcel when database is set up // (SEE HOW youKNOWwhat GETS ITS ID)
+    private int mId;
     private String mOrgName;
     private String mUrl;
     private String mPhoneNumber;
@@ -35,7 +47,7 @@ public class Resource implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.mCategory);
-        dest.writeLong(this.mId);
+        dest.writeInt(this.mId);
         dest.writeString(this.mOrgName);
         dest.writeString(this.mPhoneNumber);
         dest.writeSerializable(this.mStateEnum);
@@ -73,7 +85,7 @@ public class Resource implements Parcelable {
      */
     public Resource (Parcel in, ClassLoader loader) {
         this.mCategory = in.readString();
-        this.mId = in.readLong();
+        this.mId = in.readInt();
         this.mOrgName = in.readString();
         this.mPhoneNumber = in.readString();
         this.mStateEnum = (StateEnum) in.readSerializable();
@@ -84,8 +96,7 @@ public class Resource implements Parcelable {
     public Resource() {
     }
 
-    //todo remove: only needed for dummy data
-    public Resource(String category, Long id, String name, String phone, StateEnum stateEnum, String url) {
+    public Resource(String category, int id, String name, String phone, StateEnum stateEnum, String url) {
         this.mCategory = category;
         this.mId = id;
         this.mOrgName = name;

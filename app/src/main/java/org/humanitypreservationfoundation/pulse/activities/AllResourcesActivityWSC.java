@@ -1,3 +1,18 @@
+/*
+        Copyright 2018 The Humanity Preservation Foundation
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+*/
 package org.humanitypreservationfoundation.pulse.activities;
 
 import android.os.Bundle;
@@ -19,15 +34,10 @@ public class AllResourcesActivityWSC extends AllResourcesActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Resource> arkansas = new ArrayList<>();
-        List<Resource> louisiana = new ArrayList<>();
-        List<Resource> oklahoma = new ArrayList<>();
-        List<Resource> texas = new ArrayList<>();
-
-        arkansas.addAll(mTimeZone.getAllStateResources(StateEnum.ARKANSAS.toStringCode()));
-        louisiana.addAll(mTimeZone.getAllStateResources(StateEnum.LOUISIANA.toStringCode()));
-        oklahoma.addAll(mTimeZone.getAllStateResources(StateEnum.OKLAHOMA.toStringCode()));
-        texas.addAll(mTimeZone.getAllStateResources(StateEnum.TEXAS.toStringCode()));
+        List<Resource> arkansas = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.ARKANSAS.toStringCode()));
+        List<Resource> louisiana = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.LOUISIANA.toStringCode()));
+        List<Resource> oklahoma = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.OKLAHOMA.toStringCode()));
+        List<Resource> texas = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.TEXAS.toStringCode()));
 
         final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(AllResourcesActivityWSC.this, 4, this.mTimeZoneEnum);
 

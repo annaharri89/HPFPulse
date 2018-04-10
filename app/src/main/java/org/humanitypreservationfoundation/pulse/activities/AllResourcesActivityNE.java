@@ -1,3 +1,18 @@
+/*
+        Copyright 2018 The Humanity Preservation Foundation
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+*/
 package org.humanitypreservationfoundation.pulse.activities;
 
 import android.os.Bundle;
@@ -19,19 +34,12 @@ public class AllResourcesActivityNE extends AllResourcesActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<Resource> connecticut = new ArrayList<>();
-        List<Resource> maine = new ArrayList<>();
-        List<Resource> massachusetts = new ArrayList<>();
-        List<Resource> new_hampshire = new ArrayList<>();
-        List<Resource> rhode_island = new ArrayList<>();
-        List<Resource> vermont = new ArrayList<>();
-
-        connecticut.addAll(mTimeZone.getAllStateResources(StateEnum.CONNECTICUT.toStringCode()));
-        maine.addAll(mTimeZone.getAllStateResources(StateEnum.MAINE.toStringCode()));
-        massachusetts.addAll(mTimeZone.getAllStateResources(StateEnum.MASSACHUSETTS.toStringCode()));
-        new_hampshire.addAll(mTimeZone.getAllStateResources(StateEnum.NEW_HAMPSHIRE.toStringCode()));
-        rhode_island.addAll(mTimeZone.getAllStateResources(StateEnum.RHODE_ISLAND.toStringCode()));
-        vermont.addAll(mTimeZone.getAllStateResources(StateEnum.VERMONT.toStringCode()));
+        List<Resource> connecticut = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.CONNECTICUT.toStringCode()));
+        List<Resource> maine = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MAINE.toStringCode()));
+        List<Resource> massachusetts = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.MASSACHUSETTS.toStringCode()));
+        List<Resource> new_hampshire = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.NEW_HAMPSHIRE.toStringCode()));
+        List<Resource> rhode_island = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.RHODE_ISLAND.toStringCode()));
+        List<Resource> vermont = new ArrayList<>(mTimeZone.getAllStateResources(StateEnum.VERMONT.toStringCode()));
 
         final ExpandableResourceListAdapter adapter = new ExpandableResourceListAdapter(AllResourcesActivityNE.this, 6, this.mTimeZoneEnum);
 

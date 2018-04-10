@@ -1,3 +1,18 @@
+<!--
+Copyright 2018 The Humanity Preservation Foundation
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ -->
 <resources>
     <string name="app_name">HPF Pulse</string>
     <string name="btn_main_all_resources">All Resources</string>
@@ -18,6 +33,15 @@
 
     <string name="btn_resource_web">Website</string>
     <string name="btn_resource_call">Call</string>
+    <string name="txt_resource_empty_list_no_internet">
+        This app requires an internet connection to fetch resources. Please connect to the internet
+        to view our helpful resources.
+    </string>
+    <string name="txt_resource_empty_list_with_internet">
+        There seems to be an issue with our resources. Please close and relaunch the app.
+        If the problem persists, please contact us via the
+        <a href="http://humanitypreservationfoundation.org/contact/">HPF Contact Page</a>
+    </string>
 
 
     <!--Time Zone Descriptions-->
@@ -36,16 +60,5 @@
     <string name="MA_description">\n\nNew Jersey, New York, and Pennsylvania</string>
     <string name="SA_description">\n\nDelaware, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia, and West Virginia</string>
     <string name="NE_description">\n\nConnecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont</string>
-
-    <!--TODO remove following once confirmed it is unnecessary-->
-    <string name="PST_name">Pacific</string>
-    <string name="MT_name">Mountain</string>
-    <string name="WNC_name">West North Central</string>
-    <string name="WSC_name">West South Central</string>
-    <string name="ENC_name">East North Central</string>
-    <string name="ESC_name">East South Central</string>
-    <string name="MA_name">Mid Atlantic</string>
-    <string name="SA_name">South Atlantic</string>
-    <string name="NE_name">New England</string>
 
 </resources>
