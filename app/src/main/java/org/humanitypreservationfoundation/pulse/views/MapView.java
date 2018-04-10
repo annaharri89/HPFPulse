@@ -15,10 +15,7 @@
 */
 package org.humanitypreservationfoundation.pulse.views;
 
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -36,7 +33,6 @@ import com.sdsmdg.harjot.vectormaster.VectorMasterDrawable;
 
 import org.humanitypreservationfoundation.pulse.Config;
 import org.humanitypreservationfoundation.pulse.R;
-import org.humanitypreservationfoundation.pulse.classes.MapViewController;
 import org.humanitypreservationfoundation.pulse.classes.RequestQueueSingleton;
 import org.humanitypreservationfoundation.pulse.classes.Resource;
 import org.humanitypreservationfoundation.pulse.classes.State;
@@ -67,9 +63,6 @@ public class MapView extends View {
     private TimeZoneEnum mHighlightedTimeZone;
     private Context mContext;
     private VectorMasterDrawable mUSMap;
-    private Paint mPaintGrey = new Paint();
-    private Paint mPaintWhite = new Paint();
-    private MapViewController mController;
 
     /**
      *MapView Constructor; sets up each time zone; sets up the data by calling volleyCacheRequest
@@ -77,7 +70,6 @@ public class MapView extends View {
     public MapView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.mContext = context;
-        this.mController = new MapViewController(this.mContext);
         this.setupTimeZoneTitlesAndStates();
         this.mUSMap = new VectorMasterDrawable(this.mContext.getApplicationContext(), R.drawable.ic_us_map_vector);
         for (Map.Entry<TimeZoneEnum, List<StateEnum>> entry : MapView.mTimeZoneTitlesAndStates.entrySet()) {
@@ -232,7 +224,6 @@ public class MapView extends View {
 
     /**
      * Digests the response into resources for the todo finish documentation
-     * @param response
      */
     public void volleyParseResponse(JSONArray response) {
         for (int i = 0; i < response.length(); i++) {
@@ -353,8 +344,6 @@ public class MapView extends View {
         //Code to draw map on canvas
         super.onDraw(canvas);
         this.drawUSMap(canvas);
-        //this.drawTimeZoneLabels(canvas); todo remove
-
     }
 
     /**
@@ -366,37 +355,5 @@ public class MapView extends View {
         this.mUSMap.setBounds(0, 0, width, height);
         this.mUSMap.draw(canvas);
     }
-
-
-
-    /**
-     * Draws time zone labels
-     */
-    private void drawTimeZoneLabels(Canvas canvas) {
-        int textSize = this.mController.getTimeZoneLabelTextSize();
-        int strokeWidth = this.mController.getTimeZoneLabelStrokeSize();
-        this.mPaintGrey.setColor(Color.DKGRAY);
-        this.mPaintGrey.setTextSize(textSize);
-        this.mPaintGrey.setStyle(Paint.Style.STROKE);
-        this.mPaintGrey.setStrokeWidth(strokeWidth);
-
-        this.mPaintWhite.setColor(Color.WHITE);
-        this.mPaintWhite.setTextSize(textSize);
-
-        // Code to draw time zone names as text on map
-        for (Map.Entry<String, TimeZone> entry : this.mTimeZones.entrySet()) {
-            TimeZone timeZone = entry.getValue();
-            if (!timeZone.getEnum().equals(TimeZoneEnum.ALL)) {
-                float top = this.mController.calculateTop(timeZone);
-                float left = this.mController.calculateLeft(timeZone);
-                for (String line: timeZone.getName().split(" ")) {// makes words appear underneath each other
-                    canvas.drawText(line, left, top, mPaintGrey);
-                    canvas.drawText(line, left, top, mPaintWhite);
-                    top += this.mPaintWhite.descent() - this.mPaintWhite.ascent();
-                }
-            }
-        }
-    }
-
 
 }
