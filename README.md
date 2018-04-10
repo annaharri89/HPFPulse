@@ -2,8 +2,8 @@
 ### Project Title ###
 HPF Pulse
 ### Project Description ###
-Provide a platform of services for victims, heroes, caregivers and
-volunteers a directory for finding those services in all 50 US
+Provides victims, heroes, caregivers and
+volunteers a directory for finding humanitarian services in all 50 US
 states. Pulse is there to let you know who is out there and
 willing to help with a form of violence that may have been
 experienced. Users will have the ability to search for services
