@@ -86,7 +86,10 @@ Copyright 2018 The Humanity Preservation Foundation
 
     <!-- TxtRegionDescription -->
     <dimen name="txt_region_description_text_size">18sp</dimen>
-    <dimen name="txt_region_description_margin_top">16dp</dimen>
+
+    <!-- ScrollRegionDescription -->
+    <dimen name="scroll_region_description_margin_top">16dp</dimen>
+    <dimen name="scroll_region_description_margin_bottom">16dp</dimen>
 
     <!-- Left margin for button carets for support library compatibility -->
     <dimen name="right_caret_left">270dp</dimen>

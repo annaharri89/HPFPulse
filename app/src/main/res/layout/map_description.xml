@@ -16,6 +16,7 @@ Copyright 2018 The Humanity Preservation Foundation
  -->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/Container">
 
     <Spinner
@@ -25,13 +26,25 @@ Copyright 2018 The Humanity Preservation Foundation
         app:layout_constraintStart_toStartOf="parent"
         style="@style/RegionSpinner" />
 
-    <TextView
-        android:id="@+id/region_description"
-        android:text="@string/START_description"
-        style="@style/TxtRegionDescription"
+    <ScrollView
+        android:id="@+id/region_description_scroll"
+        style="@style/ScrollRegionDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/region_spinner" />
+        app:layout_constraintTop_toBottomOf="@id/region_spinner"
+        app:layout_constraintBottom_toTopOf="@id/get_results" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/region_description"
+                android:text="@string/START_description"
+                style="@style/TxtRegionDescription" />
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/get_results"

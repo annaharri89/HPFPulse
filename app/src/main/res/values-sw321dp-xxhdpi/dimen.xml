@@ -22,4 +22,8 @@ Copyright 2018 The Humanity Preservation Foundation
     <dimen name="right_caret_left">265dp</dimen>
     <dimen name="down_caret_left">275dp</dimen>
 
+    <!-- Map -->
+    <dimen name="map_width">400dp</dimen>
+    <dimen name="map_height">250dp</dimen>
+
 </resources>
